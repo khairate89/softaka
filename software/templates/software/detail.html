@@ -1,0 +1,133 @@
+{% extends 'software/base.html' %}
+{% load static %}
+{% load humanize %} 
+
+{% block title %}{{ software.name }} - FileCR Clone{% endblock %}
+
+{% block head_extra %}
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}">
+{% endblock %}
+
+{% block main_content_area %}
+<div class="row">
+    {# Left Sidebar - Categories and Popular Software #}
+    <div class="col-md-3">
+        {% include 'software/_left_sidebar.html' %}
+    </div>
+
+    {# Main Content Area - Software Details #}
+    <div class="col-md-6">
+        <article class="software-detail">
+            <header class="mb-4">
+                <h1 class="h2">{{ software.name }}</h1>
+                <p class="text-muted small">Category: <a href="{{ software.category.get_absolute_url }}" class="text-decoration-none">{{ software.category.name }}</a></p>
+            </header>
+
+            {% if software.image %}
+                <img src="{{ software.image.url }}" alt="{{ software.name }}" class="img-fluid rounded mb-4" style="max-height: 250px;">
+            {% endif %}
+
+            <section class="description mb-4">
+                <h3>Description</h3>
+                <div class="rich-text-content">
+                    {{ software.description|safe }}
+                </div>
+            </section>
+
+            <section class="system-requirements mb-4">
+                <h3>System Requirements</h3>
+                <div class="rich-text-content">
+                    {{ software.requirements|safe }}
+                </div>
+            </section>
+
+            {# Current Version Download Section #}
+            {% if software.current_version %}
+            <section class="download-section mb-5 p-4 bg-light rounded shadow-sm">
+                <h3 class="mb-3 text-center">Download {{ software.name }} (v{{ software.current_version.version_number }})</h3>
+                
+                {% if software.current_version.password %}
+                <div class="alert alert-info text-center" role="alert">
+                    <strong>Password:</strong> <code>{{ software.current_version.password }}</code>
+                    <button class="btn btn-sm btn-outline-info ms-2" onclick="navigator.clipboard.writeText('{{ software.current_version.password }}').then(() => alert('Password copied!'))">Copy</button>
+                </div>
+                {% endif %}
+
+                {% if software.current_version.download_links.exists %}
+                    <div class="d-grid gap-2"> {# Using d-grid for stacked buttons #}
+                        {% for link in software.current_version.download_links.all %}
+                            <a href="{{ link.url }}" class="btn btn-primary btn-lg mt-2" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-download me-2"></i> {{ link.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <p class="mt-3 text-muted small text-center">If the download doesn't start automatically, please click your chosen button.</p>
+                {% else %}
+                    <div class="alert alert-warning text-center" role="alert">
+                        No download links available for the current version.
+                    </div>
+                {% endif %}
+            </section>
+            {% endif %}
+
+            {# Previous Versions Section - NEW #}
+            {# Check if there are other versions besides the current one to display #}
+            {% if software.versions.all|length > 1 %}
+            <section class="previous-versions-section mb-5 p-4 bg-white rounded shadow-sm border">
+                <h3 class="mb-4 text-center text-secondary">Previous Versions</h3>
+                
+                {# Loop through all versions associated with this software #}
+                {% for version in software.versions.all %}
+                    {# Skip the current version as it's displayed separately above #}
+                    {% if version != software.current_version %}
+                    <div class="version-entry border p-3 mb-3 rounded bg-light">
+                        <h4 class="h5 mb-2">{{ software.name }} - v{{ version.version_number }}</h4>
+                        <p class="text-muted small mb-1">Release Date: {{ version.release_date|date:"F j, Y" }}</p>
+                        
+                        {% if version.additional_info %}
+                        <div class="mb-2 rich-text-content">
+                            <h6>Additional Info:</h6>
+                            {{ version.additional_info|safe }}
+                        </div>
+                        {% endif %}
+
+                        {% if version.password %}
+                        <div class="alert alert-info py-1 px-2 mb-2 small" role="alert">
+                            <strong>Password:</strong> <code>{{ version.password }}</code>
+                            <button class="btn btn-sm btn-outline-info ms-2" onclick="navigator.clipboard.writeText('{{ version.password }}').then(() => alert('Password copied!'))">Copy</button>
+                        </div>
+                        {% endif %}
+
+                        {% if version.download_links.exists %}
+                            <div class="d-grid gap-2 mt-3">
+                                {% for link in version.download_links.all %}
+                                    <a href="{{ link.url }}" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+                                        <i class="fas fa-download me-2"></i> {{ link.name }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-warning py-1 px-2 small" role="alert">
+                                No download links available for this version.
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            {# Back to Home link #}
+            <div class="text-center mt-4">
+                <a href="{% url 'software:index' %}" class="btn btn-outline-secondary">← Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    {# Right Sidebar - Download Info, Relevant Products #}
+    <div class="col-md-3">
+        {# Include the _right_sidebar.html, passing necessary context #}
+        {% include 'software/_right_sidebar.html' with software=software current_version=software.current_version relevant_products=relevant_products %}
+    </div>
+</div>
+{% endblock main_content_area %}

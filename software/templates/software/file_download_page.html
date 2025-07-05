@@ -1,0 +1,57 @@
+{# software/templates/software/file_download_page.html #}
+{% extends 'software/base.html' %}
+{% load static %}
+
+{% block title %}{{ software.name }} - Download{% endblock %}
+
+{% block main_content_area %}
+    <div class="col-md-8 offset-md-2 my-5">
+        <div class="card shadow-lg p-4">
+            <div class="card-body text-center">
+                {# Use software.image for the main software image #}
+                <img src="{% if software.image %}{{ software.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}"
+                     alt="{{ software.name }}" class="img-fluid rounded mb-4" style="max-height: 150px;">
+                
+                <h1 class="mb-3">Thank you for choosing to download <br><strong>{{ software.name }}</strong></h1>
+                <p class="lead text-muted">Version: <strong>v{{ software_version.version_number }}</strong></p>
+                <hr>
+
+                {# This condition checks if ANY download link (either primary URL or associated objects) is available #}
+                {% if software_version.download_links.exists or software_version.download_link_url %}
+                    <p class="mb-4">Select your preferred download link below:</p>
+                    <div class="d-grid gap-2 col-8 mx-auto">
+                        {# Display the primary download_link_url if it exists #}
+                        {% if software_version.download_link_url %}
+                            <a href="{{ software_version.download_link_url }}" class="btn btn-primary btn-lg mt-3" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-download me-2"></i> Primary Download
+                            </a>
+                        {% endif %}
+
+                        {# Loop through the new DownloadLink objects #}
+                        {% for link in software_version.download_links.all %}
+                            <a href="{{ link.url }}" class="btn btn-outline-primary btn-lg mt-3" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-download me-2"></i> {{ link.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <p class="mt-3 text-muted small">If the download doesn't start automatically, please click your chosen button.</p>
+                {% else %}
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i> No download links available for this software yet.
+                    </div>
+                    <p class="mt-3">Please check back later or contact support.</p>
+                {% endif %}
+
+                <div class="mt-5">
+                    {# Link back to the main software detail page #}
+                    <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="btn btn-outline-secondary me-2">
+                        ← Back to Software Page
+                    </a>
+                    <a href="{% url 'software:index' %}" class="btn btn-outline-secondary">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content_area %}

@@ -1,0 +1,104 @@
+{% extends "software/base.html" %}
+{% load static %}
+{% load humanize %} 
+
+{% block title %}Search Results for "{{ request.GET.q }}"{% endblock %}
+
+{% block head_extra %}
+    {# Canonical URL pointing to the base search page to avoid duplicate content #}
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}">
+{% endblock %}
+
+{% block main_content_area %}
+    <div class="col-md-12"> 
+        {% block content %}
+            <h2 class="mb-4">Search Results for "{{ request.GET.q }}"</h2>
+
+            {% if software_list %} 
+                <div class="row"> 
+                    {% for software in software_list %}
+                        {# START OF THE CARD STRUCTURE (Identical to previous working version) #}
+                        <div class="col-md-4 col-sm-6 mb-4"> 
+                            <div class="card h-100 shadow-sm filecr-card">
+                                <div class="card-body d-flex flex-column"> 
+                                    <div class="d-flex align-items-center mb-3">
+                                        {% if software.image_thumbnail %}
+                                            <img src="{{ software.image_thumbnail.url }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
+                                        {% elif software.image %}
+                                            <img src="{{ software.image.url }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
+                                        {% else %}
+                                            <img src="{% static 'software/placeholder.png' %}" class="software-card-img-thumbnail me-3" alt="No image" width="56" height="56">
+                                        {% endif %}
+                                        <div class="flex-grow-1">
+                                            <h5 class="card-title mb-1">
+                                                <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="text-decoration-none text-dark fw-bold">{{ software.name }}</a>
+                                            </h5>
+                                            {% if software.short_description %} 
+                                                <p class="card-subtitle text-muted small">{{ software.short_description }}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        <div>
+                                            Category: <a href="{% url 'software:category-software-list' slug=software.category.slug %}" class="text-decoration-none">{{ software.category.name }}</a>
+                                        </div>
+                                        {% if software.operating_system %}
+                                            <div class="text-capitalize">{{ software.operating_system }}</div>
+                                        {% endif %}
+                                    </div>
+
+                                    <p class="card-text text-muted small mb-auto">
+                                        {{ software.homepage_description|default:software.description|truncatewords:15|safe }}
+                                    </p>
+
+                                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                                        <div class="d-flex flex-column text-center me-3">
+                                            {% if software.download_count is not None %}
+                                                <span class="fw-bold fs-6 text-primary">{{ software.download_count|intcomma }}</span>
+                                                <small class="text-muted">Reputation</small>
+                                            {% endif %}
+                                        </div>
+                                        <div class="d-flex flex-column text-center flex-grow-1 me-3">
+                                            {% if software.file_size %}
+                                                <span class="fw-bold fs-6 text-secondary">{{ software.file_size }}</span>
+                                                <small class="text-muted">Size</small>
+                                            {% endif %}
+                                        </div>
+                                        <div class="ms-auto"> 
+                                            <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="btn btn-sm btn-outline-primary">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {# END OF THE CARD STRUCTURE #}
+                    {% empty %}
+                        <p>No software found matching your search query.</p>
+                    {% endfor %}
+                </div>
+
+                {% if is_paginated %}
+                <div class="pagination d-flex justify-content-center my-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?q={{ request.GET.q }}&page={{ page_obj.previous_page_number }}">Previous</a></li>
+                            {% endif %}
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                            </li>
+                            {% if page_obj.has_next %}
+                                <li class="page-item"><a class="page-link" href="?q={{ request.GET.q }}&page={{ page_obj.next_page_number }}">Next</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                {% endif %}
+
+            {% else %}
+                <p>No software found matching your search query.</p>
+            {% endif %}
+        {% endblock content %}
+    </div>
+{% endblock main_content_area %}

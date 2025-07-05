@@ -1,0 +1,160 @@
+{% extends 'software/base.html' %}
+{% load static %}
+
+{% block title %}{{ software.name }} - Download{% endblock %}
+
+{% block head_extra %}
+    {# Canonical URL #}
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock head_extra %}
+
+{# Load page-specific JavaScript in the extra_js block #}
+{% block extra_js %}
+    <script src="{% static 'software/js/star_rating.js' %}"></script>
+{% endblock %}
+
+{% block main_content_area %}
+    {# IMPORTANT: All columns MUST be wrapped in a 'row' div #}
+    <div class="row">
+        {# Main Software Detail Content Column (col-md-8) #}
+        <div class="col-md-8">
+            {# Breadcrumb Navigation #}
+            <nav aria-label="breadcrumb" class="my-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'software:index' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ software.category.get_absolute_url }}">{{ software.category.name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ software.name }}</li>
+                </ol>
+            </nav>
+
+            <article class="software-detail my-4 p-4 border rounded shadow-sm">
+                <h2 class="mb-3">{{ software.name }}</h2>
+                <p>{{ software.description|safe }}</p>
+
+                {# System Requirements Section #}
+                <div class="card my-4">
+                    <div class="card-header bg-info text-white">
+                        <p class="mb-0">System Requirements:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% if software.operating_system %}
+                            <li class="list-group-item"><strong>Operating System:</strong> {{ software.operating_system }}</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {# The original download button was REMOVED from here, as stated in your code #}
+            </article>
+
+            {# Previous Versions / History Section - MOVED HERE, inside col-md-8, after article #}
+            {% if software.versions.exists %}
+                <div class="card my-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0">Previous Versions / History</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% for version in software.versions.all %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ version.version_number }}</strong>
+                                    {% if version.release_date %}
+                                        <span class="text-muted ms-2">({{ version.release_date|date:"F j, Y" }})</span>
+                                    {% endif %}
+                                    {% if version.is_current_version %}
+                                        <span class="badge bg-success ms-2">Current Version</span>
+                                    {% endif %}
+                                    {% if version.additional_info %}
+                                        <br><small class="text-muted">{{ version.additional_info }}</small>
+                                    {% endif %}
+                                </div>
+                                {% if version.download_link_url %}
+                                    <a href="{% url 'software:file-download' %}?id={{ version.pk }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-download me-1"></i> Download
+                                    </a>
+                                {% else %}
+                                    <span class="text-muted small">File not available</span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %} {# End Previous Versions Section Card #}
+
+            {# Comments Section - Kept here, inside col-md-8, after Previous Versions #}
+            <div class="card my-4 shadow-sm">
+                <div class="card-header bg-warning text-white">
+                    <h4 class="mb-0">Comments <span class="badge bg-light text-dark ms-2">{{ comments.count }}</span></h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="mb-3">Leave a Comment</h5>
+                    <form method="post" class="comment-form mb-4">
+                        {% csrf_token %}
+                        {% if comment_form.errors %}
+                            <div class="alert alert-danger">
+                                <strong>Please correct the following errors:</strong>
+                                <ul>
+                                    {% for field in comment_form %}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                                <li>{{ field.label }}: {{ error }}</li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if comment_form.non_field_errors %}
+                                        {% for error in comment_form.non_field_errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            {{ comment_form.name }}
+                        </div>
+                        <div class="mb-3">
+                            {{ comment_form.email }}
+                        </div>
+                        <div class="mb-3">
+                            {{ comment_form.content }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                        <p class="text-muted small mt-2">Your comment will be visible after approval by an administrator.</p>
+                    </form>
+
+                    <hr class="my-4">
+
+                    {% if comments %}
+                        <div class="comments-list">
+                            {% for comment in comments %}
+                                <div class="comment-item border-bottom pb-3 mb-3">
+                                    <p class="mb-1">
+                                        <strong>{{ comment.name }}</strong>
+                                        <span class="text-muted small ms-2">{{ comment.created_at|date:"F j, Y, P" }}</span>
+                                    </p>
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No comments yet. Be the first to comment!</p>
+                    {% endif %}
+                </div>
+            </div> {# End Comments Section Card #}
+
+        </div> {# Close col-md-8 #}
+
+        {# Right Sidebar Column (col-md-4) #}
+        <div class="col-md-4">
+            {% include 'software/_right_sidebar.html' %}
+            {# No Previous Versions section here anymore as it's moved to col-md-8 #}
+        </div> {# Close col-md-4 #}
+    </div> {# Close row #}
+
+    {# "Back to Home" Button - Placed outside the main row but still within main_content_area #}
+    <div class="col-12 text-center my-4">
+        <a href="{% url 'software:index' %}" class="btn btn-secondary">← Back to Home</a>
+    </div>
+
+{% endblock main_content_area %}
+{% block page_scripts %}
+    <script src="{% static 'software/js/star_rating.js' %}"></script>
+{% endblock %}

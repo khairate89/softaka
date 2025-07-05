@@ -1,0 +1,8 @@
+msgid "Download"
+msgstr "enfin"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr\n"
+
+#: templates/software/base.html:79
+msgid "Welcome to our site"
+msgstr "Bienvenue sur notre site"
