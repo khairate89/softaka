@@ -1,11 +1,10 @@
-{% extends 'software/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Home - FileCR Clone{% endblock %}
+{% block title %}{% trans "Home" %} - {% trans "FileCR Clone" %}{% endblock %}
 
-{% block head_extra %}
-    <link rel="canonical" href="{% url 'software:index' %}">
-{% endblock %}
+
 
 {% block main_content_area %}
     <div class="col-md-3"> 
@@ -13,31 +12,30 @@
     </div>
 
     <div class="col-md-9">
-        <h2 class="mb-4">Latest Software</h2>
+        <h2 class="mb-4">{% trans "Latest Software" %}</h2>
 
         {% if software_list %}
         <div id="software-list-container" class="row row-cols-1 row-cols-md-3 g-4">
-            {# Initial load of software cards #}
             {% include 'software/_software_cards.html' %}
         </div>
 
-        {# Load More Button #}
         {% if page_obj.has_next %}
             <div class="d-flex justify-content-center mt-4">
                 <button id="load-more-btn" 
                         class="btn btn-primary" 
                         data-next-page-url="{% url 'software:index' %}?page={{ page_obj.next_page_number }}">
-                    Load More
+                    {% trans "Load More" %}
                 </button>
             </div>
         {% endif %}
 
         {% else %}
-        <p>No software available.</p>
+        <p>{% trans "No software available." %}</p>
         {% endif %}
     </div>
 {% endblock main_content_area %}
 
 {% block extra_js %}
+ {{ block.super }} {# ADD THIS LINE #}
     <script src="{% static 'software/load_more.js' %}"></script>
 {% endblock %}

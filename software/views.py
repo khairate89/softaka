@@ -3,6 +3,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, TemplateView
 from django.db.models import Q
+from django.db import IntegrityError  # <--- MAKE SURE THIS LINE IS PRESENT
 from django.contrib import messages # NEW: Import messages framework
 # IMPORTANT: All models are imported here, including the new ones
 from .models import Software, Category, SoftwareVersion, DownloadLink, SoftwareDownloadPageVersion, DownloadPageSpecificLink, Comment
@@ -14,6 +15,9 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt  # <== You forgot this
 from django.views.decorators.http import require_POST
+from .models import NewsletterSubscriber # <--- ADD THIS IMPORT
+from django.core.validators import validate_email      # <--- ADD THIS LINE
+from django.core.exceptions import ValidationError  # <--- ADD THIS LINE
 from .models import Rating
 from decimal import Decimal
 
@@ -163,7 +167,7 @@ class FileDownloadView(TemplateView):
 
         return context
     import json
-from django.views.decorators.csrf import csrf_exempt
+
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -195,3 +199,34 @@ def rate_software(request):
 
     except Exception as e:
         return JsonResponse({'success': False, 'message': str(e)}, status=400)
+
+# You might want a NewsletterSubscriber model later, but for now, this works
+# from .models import NewsletterSubscriber # Example: if you had a model to save emails
+
+@require_POST
+def subscribe_newsletter(request):
+    email = request.POST.get('email')
+
+    if not email:
+        return JsonResponse({'status': 'error', 'message': 'Email address cannot be empty.'}, status=400)
+
+    try:
+        # Basic email format validation
+        validate_email(email)
+    except ValidationError:
+        return JsonResponse({'status': 'error', 'message': 'Please enter a valid email address.'}, status=400)
+
+    try:
+        # Attempt to create the new subscriber
+        NewsletterSubscriber.objects.create(email=email)
+        print(f"Successfully subscribed: {email}") # For your console log
+        return JsonResponse({'Thank you for subscribing to our newsletter!'})
+    except IntegrityError:
+        # This specific error occurs if the email (which is unique=True) already exists
+        print(f"Attempted to subscribe duplicate email: {email}") # For your console log
+        return JsonResponse({'status': 'info', 'message': 'This email address is already subscribed.'})
+    except Exception as e:
+        # Catch any other unexpected errors
+        print(f"An unexpected error occurred during subscription for {email}: {e}") # For your console log
+        return JsonResponse({'status': 'error', 'message': 'An unexpected error occurred. Please try again later.'}, status=500)
+

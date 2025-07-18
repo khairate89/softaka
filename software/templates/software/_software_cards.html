@@ -1,58 +1,56 @@
-{% load static software_filters humanize %} 
-{% load static software_filters %} {# Make sure it's the very first line #}
-{# software/templates/software/_software_cards.html #}
-{% load static %}
-
-{% for software in software_list %}
+{% load i18n %}
 {% load static software_filters humanize %}
 
-{# KEY CORRECTION: Reverting to multi-column grid like filecr.com #}
+{% for software in software_list %}
 <div class="col-md-4 col-sm-6 mb-4"> 
     <div class="card h-100 shadow-sm filecr-card">
         <div class="card-body d-flex flex-column"> 
-            {# Top section: Image and Title/Tagline - HORIZONTAL WITHIN THE CARD #}
+            <!-- Top section: Image and Title/Tagline -->
             <div class="d-flex align-items-center mb-3">
                 <img src="{{ software.image_thumbnail.url }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
                 <div class="flex-grow-1">
                     <h4 class="card-title mb-1">
-                        <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="text-decoration-none text-dark fw-bold">{{ software.name }}</a>
+                        <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="text-decoration-none text-dark fw-bold">
+                            {{ software.name }}
+                        </a>
                     </h4>
-                    
                     {% if software.short_description %} 
                         <p class="card-subtitle text-muted small">{{ software.short_description }}</p>
                     {% endif %}
                 </div>
             </div>
 
-            {# Middle section: Category and Platform - HORIZONTAL WITHIN THE CARD #}
+            <!-- Middle section: Category and Platform -->
             <div class="d-flex justify-content-between text-muted small mb-2">
                 <div>
-                    Category: <a href="{{ software.category.get_absolute_url }}" class="text-decoration-none">{{ software.category.name }}</a>
+                    {% trans "Category" %}: <a href="{{ software.category.get_absolute_url }}" class="text-decoration-none">{{ software.category.name }}</a>
                 </div>
                 {% if software.operating_system %}
                     <div class="text-capitalize">{{ software.operating_system }}</div>
                 {% endif %}
             </div>
 
-            {# Main Description - VERTICAL STACKED BLOCK #}
+            <!-- Main Description -->
             <p class="card-text text-muted small mb-auto">{{ software.homepage_description|truncatewords:15|safe }}</p>
 
-            {# Bottom section: Download Count, File Size, and View Details button - HORIZONTAL WITHIN THE CARD #}
+            <!-- Bottom section: Download Count, File Size, and View Details -->
             <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
                 <div class="d-flex flex-column text-center me-3">
                     {% if software.download_count is not None %}
                         <span class="fw-bold fs-6 text-primary">{{ software.download_count|intcomma }}</span>
-                        <small class="text-muted">Reputation</small>
+                        <small class="text-muted">{% trans "Reputation" %}</small>
                     {% endif %}
                 </div>
                 <div class="d-flex flex-column text-center flex-grow-1 me-3">
                     {% if software.file_size %}
                         <span class="fw-bold fs-6 text-secondary">{{ software.file_size }}</span>
-                        <small class="text-muted">Size</small>
+                        <small class="text-muted">{% trans "Size" %}</small>
                     {% endif %}
                 </div>
                 <div class="ms-auto"> 
-                    <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="btn btn-sm btn-outline-primary">View Details</a>
+                    <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="btn btn-sm btn-outline-primary">
+                        {% trans "View Details" %}
+                    </a>
                 </div>
             </div>
         </div>

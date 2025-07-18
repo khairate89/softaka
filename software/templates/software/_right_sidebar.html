@@ -1,63 +1,63 @@
-{# software/templates/software/_right_sidebar.html #}
-{% load static %}
+{% load static i18n %}
 
 <div class="card shadow-sm mb-4">
     <div class="card-header bg-warning text-white">
-        <h5>Download & Product Info</h5>
+        <h5>{% trans "Download & Product Info" %}</h5>
     </div>
     <div class="card-body">
         <p class="card-text small">
-            <strong>Category:</strong> <a href="{{ software.category.get_absolute_url }}" class="text-decoration-none">{{ software.category.name }}</a><br>
-            <strong>File Size:</strong> {{ software.file_size }}<br>
+            <strong>{% trans "Category" %}:</strong> 
+            <a href="{{ software.category.get_absolute_url }}" class="text-decoration-none">{{ software.category.name }}</a><br>
+            <strong>{% trans "File Size" %}:</strong> {{ software.file_size }}<br>
             {% if current_version %}
-            <strong>Version:</strong> {{ current_version.version_number }}<br>
-            <strong>Release Date: </strong>{{ current_version.release_date|date:"F j, Y" }}<br>
+                <strong>{% trans "Version" %}:</strong> {{ current_version.version_number }}<br>
+                <strong>{% trans "Release Date" %}:</strong> {{ current_version.release_date|date:"F j, Y" }}<br>
             {% else %}
-            <strong>Version:</strong> N/A<br>
-            <strong>Release Date: </strong>N/A<br>
+                <strong>{% trans "Version" %}:</strong> N/A<br>
+                <strong>{% trans "Release Date" %}:</strong> N/A<br>
             {% endif %}
-            <strong>Official Website:</strong> {{ software.website_link }}
+            <strong>{% trans "Official Website" %}:</strong> {{ software.website_link }}
         </p>
 
         <hr>
-        
-   <div class="text-center">
-    <strong>Rate this Software:</strong>
-    <div id="star-rating"
-         data-software-id="{{ software.id }}"
-         data-rate-url="{% url 'software:rate_software' %}"
-         class="star-rating d-inline-block">
-        {% for i in "12345" %}
-            <span class="star" data-value="{{ forloop.counter }}">&#9733;</span>
-        {% endfor %}
-    </div>
-    <p id="rating-text" class="small mt-2 text-muted">
-        Average Rating: {{ software.average_rating|floatformat:1 }} ({{ software.total_ratings }} ratings)
-    </p>
-</div>
+
+        <div class="text-center">
+            <strong>{% trans "Rate this Software" %}:</strong>
+            <div id="star-rating"
+                 data-software-id="{{ software.id }}"
+                 data-rate-url="{% url 'software:rate_software' %}"
+                 class="star-rating d-inline-block">
+                {% with rounded_avg_rating=software.average_rating|floatformat:"0"|add:0 %} {# Cast average_rating to integer for comparison #}
+                    {% for i in "12345" %}
+                        <span class="star {% if forloop.counter <= rounded_avg_rating %}selected{% endif %}" data-value="{{ forloop.counter }}">&#9733;</span>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <p id="rating-text" class="small mt-2 text-muted">
+                {% trans "Average Rating" %}: {{ software.average_rating|floatformat:1 }} ({{ software.total_ratings }} {% trans "ratings" %})
+            </p>
+        </div>
 
         <hr>
         <p class="card-text text-center">
-           {% if current_version %}
-           <a href="{% url 'software:file-download' %}?id={{ current_version.pk }}" class="btn btn-primary btn-lg">
-                <i class="fas fa-download me-2"></i> Download Now
-            </a>
-           {% else %}
-            <span class="text-danger">No Download Link Available</span>
-           {% endif %}
+            {% if current_version %}
+                <a href="{% url 'software:file-download' %}?id={{ current_version.pk }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-download me-2"></i> {% trans "Download Now" %}
+                </a>
+            {% else %}
+                <span class="text-danger">{% trans "No Download Link Available" %}</span>
+            {% endif %}
         </p>
     </div>
-    
 </div>
+
 <div class="card shadow-sm">
     <div class="card-header bg-warning text-dark">
-        <h5>Relevant Products</h5>
+        <h5>{% trans "Relevant Products" %}</h5>
     </div>
     <ul class="list-group list-group-flush">
-        {# 'relevant_products' is now passed directly from the view context #}
         {% for product in relevant_products %}
             <li class="list-group-item d-flex align-items-center">
-                {# UPDATED: Use product.image_thumbnail with fallback to product.image #}
                 <img src="{% if product.image_thumbnail %}{{ product.image_thumbnail.url }}{% elif product.image %}{{ product.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}"
                      alt="{{ product.name }}" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px; border-radius: 5px;">
                 <a href="{% url 'software:software-detail' category_slug=product.category.slug slug=product.slug %}" class="text-decoration-none">

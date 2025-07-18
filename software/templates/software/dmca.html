@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "DMCA Policy" %} - SoftVault{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <h1 class="mb-4 text-center">{% trans "Digital Millennium Copyright Act (DMCA) Policy" %}</h1>
+            <div class="card p-4 shadow-sm">
+                <p>{% blocktrans %}At SoftVault, we respect the intellectual property rights of others and expect our users to do the same. This DMCA Policy outlines our procedures for handling copyright infringement claims and counter-notifications in accordance with the Digital Millennium Copyright Act (DMCA).{% endblocktrans %}</p>
+
+                <h2 class="mt-4">{% trans "Reporting Copyright Infringement (DMCA Notice)" %}</h2>
+                <p>{% blocktrans %}If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement and is accessible via SoftVault, please send a written notification of claimed infringement to our Designated Copyright Agent at the address below. Your notice must include substantially the following information:{% endblocktrans %}</p>
+                <ol>
+                    <li><strong>{% trans "Identification of the copyrighted work" %}</strong> {% trans "claimed to have been infringed, or, if multiple copyrighted works are covered by a single notification, a representative list of such works." %}</li>
+                    <li><strong>{% trans "Identification of the material" %}</strong> {% trans "that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit SoftVault to locate the material (e.g., specific URLs of the infringing content)." %}</li>
+                    <li><strong>{% trans "Information reasonably sufficient to permit SoftVault to contact you" %}</strong>, {% trans "such as an address, telephone number, and, if available, an electronic mail address at which the complaining party may be contacted." %}</li>
+                    <li>{% trans "A statement that the complaining party has a" %} <strong>{% trans "good faith belief" %}</strong> {% trans "that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law." %}</li>
+                    <li>{% trans "A statement that the" %} <strong>{% trans "information in the notification is accurate" %}</strong>, {% trans "and under penalty of perjury, that the complaining party is authorized to act on behalf of the owner of an exclusive right that is allegedly infringed." %}</li>
+                    <li>A <strong>{% trans "physical or electronic signature" %}</strong> {% trans "of the person authorized to act on behalf of the owner of the copyright that has been allegedly infringed." %}</li>
+                </ol>
+
+                <h3 class="mt-3">{% trans "Upon Receipt of a Valid DMCA Notice:" %}</h3>
+                <p>{% trans "Upon receipt of a valid and complete DMCA notice, SoftVault will:" %}</p>
+                <ul>
+                    <li>{% trans "Remove or disable access to the infringing material." %}</li>
+                    <li>{% trans "Notify the content provider, member, or user that we have removed or disabled access to the material." %}</li>
+                    <li>{% trans "Take reasonable steps to notify the user that we have removed or disabled access to the material." %}</li>
+                </ul>
+
+                <h2 class="mt-4">{% trans "Counter-Notification (Responding to a DMCA Notice)" %}</h2>
+                <p>{% trans "If you believe that your material has been removed or disabled by mistake or misidentification, you may submit a counter-notification to our Designated Copyright Agent. Your counter-notification must include substantially the following information:" %}</p>
+                <ol>
+                    <li><strong>{% trans "Identification of the material" %}</strong> {% trans "that has been removed or to which access has been disabled and the location at which the material appeared before it was removed or access to it was disabled." %}</li>
+                    <li>{% trans "A statement under penalty of perjury that the subscriber has a" %} <strong>{% trans "good faith belief" %}</strong> {% trans "that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." %}</li>
+                    <li>{% trans "Your" %} <strong>{% trans "name, address, and telephone number" %}</strong>, {% trans "and a statement that you consent to the jurisdiction of the Federal District Court for the judicial district in which the address is located, or if your address is outside of the United States, for any judicial district in which SoftVault may be found, and that you will accept service of process from the person who provided the original DMCA notification or an agent of such person." %}</li>
+                    <li>Your <strong>{% trans "physical or electronic signature" %}</strong>.</li>
+                </ol>
+
+                <h2 class="mt-4">{% trans "Designated Copyright Agent" %}</h2>
+                <p>{% trans "Please send all DMCA notices and counter-notifications to:" %}</p>
+                <p>
+                    <strong>SoftVault Inc.</strong><br>
+                    {% trans "Attn: DMCA Agent" %}<br>
+                    {% trans "[Your Company Address, if applicable]" %}<br>
+                    {% trans "Email" %}: <a href="mailto:dmca@softvault.com">dmca@softvault.com</a>
+                </p>
+
+                <h2 class="mt-4">{% trans "Repeat Infringer Policy" %}</h2>
+                <p>{% trans "In accordance with the DMCA and other applicable law, SoftVault has adopted a policy of terminating, in appropriate circumstances and at SoftVault's sole discretion, users who are deemed to be repeat infringers. We may also, at our sole discretion, limit access to the Service and/or terminate the accounts of any users who infringe any intellectual property rights of others, whether or not there is any repeat infringement." %}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

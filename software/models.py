@@ -17,6 +17,10 @@ from imagekit.processors import ResizeToFill
 from django.conf import settings # Needed for AUTH_USER_MODEL
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+from django.utils.translation import gettext_lazy as _
+
+class Software(models.Model):
+    name = models.CharField(_('Software Name'), max_length=255)
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -218,3 +222,16 @@ def update_software_ratings_on_save(sender, instance, **kwargs):
 def update_software_ratings_on_delete(sender, instance, **kwargs):
     from django.db import transaction
     transaction.on_commit(lambda: instance.software.update_ratings_summary())
+
+class NewsletterSubscriber(models.Model):
+    # These lines MUST be indented, typically by 4 spaces
+    email = models.EmailField(unique=True, verbose_name=_("Email Address"))
+    timestamp = models.DateTimeField(auto_now_add=True, verbose_name=_("Subscription Date"))
+
+    class Meta: # This also needs to be indented
+        verbose_name = _("Newsletter Subscriber")
+        verbose_name_plural = _("Newsletter Subscribers")
+        ordering = ['-timestamp']
+
+    def __str__(self): # This also needs to be indented
+        return self.email

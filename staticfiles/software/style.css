@@ -1,5 +1,3 @@
-/* software/static/software/style.css */
-
 /* --- CSS Variables for easy color management --- */
 :root {
     /* More robust Blues for WCAG AA contrast */
@@ -25,11 +23,11 @@
 /* --- General Body and Font Styles --- */
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--text-on-light); /* Default text color on light backgrounds */
-    /* background-color: stays the same, as requested, so no background property here */
+    color: var(--text-on-light);
+    /* No background override so Bootstrap can manage if set */
 }
 
-/* --- Header and Footer Specifics --- */
+/* --- Header and Footer --- */
 header {
     background-color: var(--darker-blue) !important;
     color: var(--text-on-dark);
@@ -48,21 +46,22 @@ footer {
     color: var(--text-on-dark);
 }
 
-/* CHANGE: Footer general links are now a light blue, white on hover */
 footer a {
-    color: var(--light-blue) !important; /* Light blue links for dark footer */
+    color: var(--light-blue) !important;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: var(--text-on-dark) !important; /* White on hover for strong contrast */
+    color: var(--text-on-dark) !important;
 }
 
 footer .social-icons a {
-    color: var(--text-on-dark) !important; /* Social icons remain white for high contrast */
+    color: var(--text-on-dark) !important;
+    transition: color 0.3s ease;
 }
 
 footer .social-icons a:hover {
-    color: var(--light-blue) !important; /* Social icons turn light blue on hover */
+    color: var(--light-blue) !important;
 }
 
 footer .text-muted.small {
@@ -71,55 +70,53 @@ footer .text-muted.small {
 
 /* --- Navigation Bar --- */
 .navbar-light {
-    background-color: var(--text-on-dark) !important; /* White-ish background for nav */
+    background-color: var(--text-on-dark) !important;
     border-bottom: 1px solid var(--border-light);
 }
 
-/* Navbar general links - Dark text on light background for maximum contrast */
 .navbar-nav .nav-link {
     color: var(--text-on-light) !important;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--primary-blue) !important; /* Blue on hover/active */
+    color: var(--primary-blue) !important;
 }
-
-/* REMOVED: Specific green styling for category links. They now inherit general nav-link blue. */
-/* This makes "green to blue" for nav category links */
-
 
 /* --- Buttons --- */
 .btn-primary {
     background-color: var(--primary-blue) !important;
     border-color: var(--primary-blue) !important;
-    color: var(--text-on-dark) !important; /* Light text for high contrast on button */
-    transition: all 0.3s ease;
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: var(--darker-blue) !important;
     border-color: var(--darker-blue) !important;
-    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
-.btn-outline-light { /* For search button in header */
-    color: var(--text-on-dark) !important; /* Light text on dark header */
+.btn-outline-light {
+    color: var(--text-on-dark) !important;
     border-color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-outline-light:hover {
     background-color: var(--text-on-dark) !important;
-    color: var(--primary-blue) !important; /* Dark text on light hover background */
+    color: var(--primary-blue) !important;
     border-color: var(--text-on-dark) !important;
 }
 
 .btn-success {
     background-color: var(--primary-green) !important;
     border-color: var(--primary-green) !important;
-    color: var(--text-on-dark) !important; /* Light text for high contrast on button */
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-success:hover {
@@ -128,9 +125,10 @@ footer .text-muted.small {
 }
 
 .btn-info {
-    background-color: var(--primary-blue) !important; /* Used for System Requirements header */
+    background-color: var(--primary-blue) !important;
     border-color: var(--primary-blue) !important;
-    color: var(--text-on-dark) !important; /* Light text for high contrast on button */
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-info:hover {
@@ -141,7 +139,8 @@ footer .text-muted.small {
 .btn-secondary {
     background-color: var(--dark-gray-bg) !important;
     border-color: var(--dark-gray-bg) !important;
-    color: var(--text-on-dark) !important; /* Light text for high contrast */
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-secondary:hover {
@@ -149,43 +148,20 @@ footer .text-muted.small {
     border-color: #23272b !important;
 }
 
-.card-header.bg-warning {
-    background-color: var(--color-light) !important; 
-    color: var(--warning-text-dark) !important;
-}
-
-/* --- General Link Styling (in main content) --- */
-a {
-    color:var(--color-light);/* Dark blue for general links on light background */
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-a:hover {
-    color: var(--darker-blue); /* Even darker blue on hover */
-    text-decoration: underline;
-}
-
-.text-white li a
-{
-    color:var(--color-light) !important;
-}
-
-/* --- Card Styles --- */
+/* --- Card Styles (NO hover transform to avoid shaking) --- */
 .card {
     border: none;
     border-radius: 0.75rem;
     overflow: hidden;
-    
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-7px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Card header */
 .card-header {
     font-weight: 600;
     font-size: 1.15rem;
@@ -194,12 +170,13 @@ a:hover {
     border-radius: 0.75rem 0.75rem 0 0 !important;
 }
 
-/* Headings inside card-headers - always light text on colored backgrounds */
-.card-header h1, .card-header h2, .card-header h3, .card-header h4, .card-header h5, .card-header h6 {
-    color: black !important;
+/* Card header headings */
+.card-header h1, .card-header h2, .card-header h3,
+.card-header h4, .card-header h5, .card-header h6 {
+    color: white !important;
 }
 
-/* Specific card header background colors (using our new, deeper blues/greens) */
+/* Specific card header backgrounds */
 .card-header.bg-info {
     background-color: var(--color-light) !important;
 }
@@ -213,20 +190,20 @@ a:hover {
     background-color: var(--darker-blue) !important;
 }
 
-
-/* --- Form Control Styling --- */
+/* --- Form Controls --- */
 .form-control {
     border-color: var(--border-light);
     border-radius: 0.375rem;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control:focus {
     border-color: var(--light-blue);
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Standard blue focus ring */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
-/* --- Comment Section Specifics --- */
+/* --- Comment Section --- */
 .comment-item {
     padding-bottom: 1.25rem;
     margin-bottom: 1.25rem;
@@ -238,13 +215,14 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* --- Search Results & Pagination --- */
+/* --- Pagination --- */
 .pagination .page-link {
     color: var(--primary-blue);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .pagination .page-link:hover {
-    background-color: rgba(var(--light-blue), 0.1);
+    background-color: rgba(0, 123, 255, 0.1);
     color: var(--darker-blue);
 }
 
@@ -254,32 +232,150 @@ a:hover {
     color: var(--text-on-dark) !important;
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Links in Main Content --- */
+a {
+    color: var(--light-blue);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: var(--darker-blue);
+    text-decoration: underline;
+}
+
+.text-white li a {
+    color: var(--light-blue) !important;
+}
+
+/* --- Star Rating Styles --- */
+#star-rating .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc;
+    transition: color 0.2s ease-in-out;
+}
+
+#star-rating .star.hover,
+#star-rating .star.selected,
+#star-rating .star.filled {
+    color: #ffcc00;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
         text-align: center;
     }
+
     header form.d-flex {
         width: 100%;
         margin-top: 10px;
     }
+
     header form.d-flex input {
         flex-grow: 1;
     }
+
     .card:hover {
-        transform: translateY(-3px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 }
-  #star-rating .star {
+
+/* --- Force scrollbar always visible to avoid layout shift --- */
+html {
+    overflow-y: scroll;
+}
+.card-header {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  height: 35px; /* optional fixed height to ensure vertical centering */
+  padding: 0;   /* remove default padding to center exactly */
+}
+.card-header h5 {
+  margin: 0;    /* remove default margins */
+}
+.bg-warning{
+background: #4169E1 !important;
+
+
+}
+/* software/static/software/style.css */
+
+/* --- Language Flags Styling --- */
+
+.language-switcher-flags {
+    display: flex; /* Ensure flags are in a row */
+    align-items: center; /* Vertically center flags */
+    gap: 8px; /* Increase space between flags (from 5px to 8px or more) */
+    padding: 5px 0; /* Add some vertical padding around the flag container */
+}
+
+.language-flag-btn {
+    /* Basic button reset */
+    background: transparent;
+    border: none;
+    padding: 0;
     cursor: pointer;
-    font-size: 24px;
-    color: #ccc; /* grey stars */
-    transition: color 0.2s ease-in-out;
-  }
-  #star-rating .star.hover,
-  #star-rating .star.selected,
-  #star-rating .star.filled {
-    color: #ffcc00; /* gold stars */
-  }
+    line-height: 0; /* Prevents extra space below image */
+
+    /* Visual styling for flags */
+    opacity: 0.7; /* Initial transparency for non-active flags */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for all properties */
+    border-radius: 4px; /* Slightly rounded corners for the button area */
+    overflow: hidden; /* Ensures borders/shadows don't spill */
+    display: flex; /* Use flex to perfectly center the image inside if needed */
+    justify-content: center;
+    align-items: center;
+}
+
+.language-flag-btn:hover {
+    opacity: 1; /* Fully opaque on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Subtle blue glow on hover */
+    z-index: 1; /* Bring hovered flag to front slightly */
+}
+
+.language-flag-btn.active-language-flag {
+    opacity: 1; /* Active flag is fully visible */
+    border: 2px solid #007bff; /* More pronounced border for active flag */
+    transform: scale(1.05); /* Slightly enlarge active flag */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Stronger blue glow for active flag */
+}
+
+.language-flag-icon {
+    display: block; /* Ensure the image behaves as a block */
+    width: 35px; /* Consistent width */
+    height: 30px; /* Consistent height */
+    object-fit: cover; /* Ensures image covers area without distortion */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border for flags */
+    border-radius: 3px; /* Slightly rounded corners for the image */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Optional: Adjust for smaller screens if needed */
+@media (max-width: 768px) {
+    .language-switcher-flags {
+        gap: 5px; /* Reduce gap on smaller screens */
+    }
+    .language-flag-btn {
+        width: 35px; /* Make button slightly smaller */
+        height: 25px;
+    }
+    .language-flag-icon {
+        width: 24px; /* Smaller flags */
+        height: 18px;
+    }
+}
+/* software/static/software/style.css */
+
+.cookie-banner {
+    z-index: 1050; /* Ensure it's above other elements like modals */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cookie-banner p {
+    color: rgba(255, 255, 255, 0.8);
+}

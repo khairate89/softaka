@@ -1,0 +1,254 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}FileCR Clones{% endblock %}</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    {# Bootstrap CSS CDN #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {# Font Awesome CDN for Icons #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {# Your custom CSS - should be after Bootstrap for overrides #}
+    <link rel="stylesheet" href="{% static 'software/style.css' %}">
+
+    {# NEW: Meta Description #}
+    {% block meta_description %}
+        <meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.">
+    {% endblock meta_description %}
+
+    {# --- GLOBAL STRUCTURED DATA (for WebSite and Organization) --- #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SoftVault",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}?q={query}",
+        "query-input": "required name=query"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SoftVault Inc.",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "logo": "{{ request.build_absolute_uri }}{% static 'software/img/softvault-logo.png' %}",
+      "sameAs": [
+        "https://www.facebook.com/yourcompanypage",
+        "https://twitter.com/yourcompanyhandle",
+        "https://www.linkedin.com/company/yourcompany",
+        "https://www.instagram.com/yourcompany"
+      ]
+    }
+    </script>
+    {# --- END GLOBAL STRUCTURED DATA --- #}
+    
+</head>
+<body>
+<header class="bg-dark text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        {# Logo - Stays on the left #}
+        <a class="navbar-brand" href="{% url 'software:index' %}">
+            <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc">
+                <title id="logoTitle">SoftVault Logo</title>
+                <desc id="logoDesc">A logo for SoftVault, featuring the name and a small download icon.</desc>
+                <text x="10" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="green">Soft</text>
+                <text x="75" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="blue">Vault</text>
+                <path d="M150 15 L158 15 L158 8 L162 8 L154 0 L146 8 L150 8 Z M150 18 L150 20 L158 20 L158 18 Z" fill="blue"/>
+            </svg>
+        </a>
+
+        {# Search Bar - NOW WITHOUT ms-auto/me-3, letting justify-content-between center it #}
+        <form class="d-flex" role="search" action="{% url 'software:search-results' %}" method="get">
+            <input class="form-control me-2" type="search" placeholder="{% trans 'Search software...' %}" aria-label="{% trans 'Search' %}" name="q">
+            <button class="btn btn-outline-light" type="submit" aria-label="{% trans 'Search' %}">
+    <i class="fas fa-search"></i>
+</button>
+        </form>
+
+        {# Language Switcher with Flags - Added ms-3 back for spacing from search bar #}
+        <div class="language-switcher-flags d-flex align-items-center ms-3">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+
+            {% for lang_code, lang_name in LANGUAGES %}
+                <form action="{% url 'set_language' %}" method="post" class="d-flex me-1">
+                    {% csrf_token %}
+                    <input type="hidden" name="language" value="{{ lang_code }}">
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+
+                    <button type="submit"
+                            class="btn btn-link p-0 border-0 bg-transparent language-flag-btn {% if lang_code == LANGUAGE_CODE %}active-language-flag{% endif %}"
+                            title="{{ lang_name }}"
+                            aria-label="{% blocktrans with lang_name=lang_name %}Switch to {{ lang_name }}{% endblocktrans %}">
+                        <img src="{% static 'flags/'|add:lang_code|add:'.png' %}"
+                             alt="{{ lang_name }} Flag"
+                             class="language-flag-icon"
+                             width="28" height="20">
+                    </button>
+                </form>
+            {% endfor %}
+        </div>
+    </div>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'software:index' %}">{% trans "Home" %}</a>
+                </li>
+                {% for category in header_categories %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-4">
+    {% if messages %}
+        <div class="row">
+            <div class="col-12">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{% trans 'Close' %}"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        {% block main_content_area %}
+            <div class="col">
+                {% block content %}{% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+</main>
+
+<footer class="bg-dark text-white pt-5 pb-3">
+    <div class="container">
+        <div class="row mb-4">
+           <div class="col-md-6 mb-4 mb-md-0">
+    <h4 class="fw-bold text-success mb-3">{% trans "Join Our Newsletter" %}</h4>
+    <p class="text-muted small">
+        {% trans "Stay up-to-date with the latest software releases and news. No spam, guaranteed!" %}
+    </p>
+  <form class="d-flex newsletter-form" method="post" action="/subscribe/">
+    {% csrf_token %}
+    <input 
+        type="email" 
+        name="email" 
+        class="form-control me-2" 
+        placeholder="Enter your email" 
+        aria-label="Email for newsletter" 
+        autocomplete="email">
+    <button type="submit" class="btn btn-primary">{% trans "Subscribe" %}</button>
+</form>
+
+</div>
+
+            <div class="col-md-6 text-md-end">
+                <a class="d-inline-block mb-3" href="{% url 'software:index' %}">
+                    <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="footerLogoTitle footerLogoDesc">
+                        <title id="footerLogoTitle">SoftVault Footer Logo</title>
+                        <desc id="footerLogoDesc">A logo for SoftVault, featuring the name and a small download icon.</desc>
+                        <text x="10" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="green">Soft</text>
+                        <text x="75" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="blue">Vault</text>
+                        <path d="M150 15 L158 15 L158 8 L162 8 L154 0 L146 8 L150 8 Z M150 18 L150 20 L158 20 L158 18 Z" fill="blue"/>
+                    </svg>
+                </a>
+                <p class="text-muted small">{% trans "Your ultimate source for free software downloads." %}</p>
+            </div>
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5 class="text-white mb-3">{% trans "Categories" %}</h5>
+                <ul class="list-unstyled">
+                    {% for category in header_categories %}
+                        <li><a href="{{ category.get_absolute_url }}" class="text-muted text-decoration-none py-1 d-block">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="text-white mb-3">{% trans "Useful Links" %}</h5>
+               {# In your base.html footer #}
+<ul class="list-unstyled">
+    <li><a href="{% url 'software:dmca' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "DMCA" %}</a></li>
+    <li><a href="{% url 'software:disclaimer' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Disclaimer" %}</a></li>
+    <li><a href="{% url 'software:privacy_policy' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Privacy Policy" %}</a></li>
+    <li><a href="{% url 'software:terms_conditions' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Terms & Conditions" %}</a></li>
+    <li><a href="{% url 'software:sitemap_page' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Sitemap" %}</a></li>
+    <li><a href="{% url 'software:contact_us' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Contact Us" %}</a></li>
+    <li><a href="{% url 'software:about_us' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "About Us" %}</a></li>
+</ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="text-white mb-3">{% trans "Follow Us" %}</h5>
+                <div class="social-icons">
+                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Facebook' %}"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Twitter' %}"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Pinterest' %}"><i class="fab fa-pinterest-p fa-lg"></i></a>
+                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Instagram' %}"><i class="fab fa-instagram-fa-lg"></i></a>
+                    <a href="#" class="text-white" aria-label="{% trans 'Follow us on Telegram' %}"><i class="fab fa-telegram-plane fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="text-center text-muted small">
+            FileCR Clone © 2024-{% now "Y" %}. {% trans "All Rights Reserved." %}
+        </div>
+    </div>
+</footer>
+
+{# Bootstrap JavaScript Bundle (with Popper) CDN - place at end of body for performance #}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+{# Cookie Consent Banner HTML #}
+<div id="cookieConsentBanner" class="cookie-banner bg-dark text-white p-3 shadow fixed-bottom" style="display: none;">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-2 mb-md-0 me-md-3 small">
+            {% trans "This website uses cookies to ensure you get the best experience. By continuing to use our site, you agree to our use of cookies." %}
+            <a href="{% url 'software:privacy_policy' %}" class="text-info text-decoration-none ms-1">{% trans "Learn more about our Privacy Policy." %}</a>
+        </p>
+        <div class="d-flex">
+            <button id="acceptCookies" class="btn btn-success btn-sm me-2">{% trans "Accept" %}</button>
+            <button id="declineCookies" class="btn btn-outline-light btn-sm">{% trans "Decline" %}</button>
+        </div>
+    </div>
+</div>
+
+{# Bootstrap JavaScript Bundle (with Popper) CDN - place at end of body for performance #}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+{# Your custom JavaScript for cookie consent #}
+<script src="{% static 'software/cookie_consent.js' %}"></script>
+
+{% block extra_js %}{% endblock %} 
+</body>
+</html>

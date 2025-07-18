@@ -1,23 +1,27 @@
-{# software/templates/software/_left_sidebar.html #}
 {% load static %}
+{% load i18n %}
 
-{# software/templates/software/_left_sidebar.html #}
-{# software/templates/software/_left_sidebar.html #}
 <div class="card my-4 sidebar-card">
-    <div class="card-header bg-info text-white">
-        <h5 class="mb-0">Categories</h5>
+    <div class="card-header bg-warning text-white">
+        <h5 class="mb-0">{% trans "Categories" %}</h5>
     </div>
     <div class="list-group list-group-flush">
-        {% for category in all_categories_data %} {# This now only contains categories with display_on_menu=True #}
-            <a style="color:var(--color-light);" href="{{ category.get_absolute_url }}" class="list-group-item list-group-item-action d-flex align-items-center">
+        {% for category in all_categories_data %} {# Only categories with display_on_menu=True #}
+            <a href="{{ category.get_absolute_url }}"
+               class="list-group-item list-group-item-action d-flex align-items-center"
+               style="color:var(--color-light);">
+
                 {% if category.icon %}
                     <i class="{{ category.icon }} me-2 sidebar-icon"></i>
                 {% endif %}
+
                 {{ category.name }}
-                <span class="badge bg-secondary rounded-pill ms-auto">{{ category.softwares.count }}</span>
+                <span class="badge bg-secondary rounded-pill ms-auto">
+                    {{ category.softwares.count }}
+                </span>
             </a>
         {% endfor %}
     </div>
 </div>
 
-{# You can add more sections to the sidebar here, e.g., "Popular Software", "Latest News" #}
+{# Optional: Add more sidebar blocks here like "Popular Software", "Tags", etc. #}

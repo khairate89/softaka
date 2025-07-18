@@ -1,10 +1,19 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 import nested_admin
-
+from .models import NewsletterSubscriber # Import your new model
 from .models import (
     Category, Software, SoftwareVersion, DownloadLink,
-    SoftwareDownloadPageVersion, DownloadPageSpecificLink, Comment # NEW: Import Comment
+    SoftwareDownloadPageVersion, DownloadPageSpecificLink, Comment
 )
+
+
+@admin.register(NewsletterSubscriber)
+class NewsletterSubscriberAdmin(admin.ModelAdmin):
+    list_display = ('email', 'timestamp') # Fields to display in the list view
+    search_fields = ('email',) # Allow searching by email
+    list_filter = ('timestamp',) # Allow filtering by date
+    ordering = ('-timestamp',) # Default ordering for the list
 
 # CATEGORY ADMIN
 @admin.register(Category)
@@ -12,20 +21,19 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'icon', 'display_on_menu', 'display_on_header')
     prepopulated_fields = {'slug': ('name',)}
 
-
 # NESTED INLINE: DownloadLink under SoftwareVersion
 class DownloadLinkInline(nested_admin.NestedTabularInline):
     model = DownloadLink
     extra = 1
     fields = ['name', 'url', 'order']
-    
+
 # NEW: Register the Comment model
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'software', 'created_at', 'approved_comment')
     list_filter = ('approved_comment', 'created_at')
     search_fields = ('name', 'email', 'content')
-    actions = ['approve_comments'] # Add a custom action
+    actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
         queryset.update(approved_comment=True)
@@ -36,9 +44,8 @@ class CommentAdmin(admin.ModelAdmin):
 class SoftwareVersionInline(nested_admin.NestedTabularInline):
     model = SoftwareVersion
     extra = 1
-    fields = ['version_number', 'release_date', 'download_link_url', 'is_current_version', 'additional_info']
+    fields = ['version_number', 'release_date', 'download_link_url', 'is_current_version']
     inlines = [DownloadLinkInline]
-
 
 # NESTED INLINE: DownloadPageSpecificLink under SoftwareDownloadPageVersion
 class DownloadPageSpecificLinkInline(nested_admin.NestedTabularInline):
@@ -46,18 +53,16 @@ class DownloadPageSpecificLinkInline(nested_admin.NestedTabularInline):
     extra = 1
     fields = ['name', 'url', 'file_size', 'order']
 
-
 # INLINE: SoftwareDownloadPageVersion with its own nested DownloadPageSpecificLink
 class SoftwareDownloadPageVersionInline(nested_admin.NestedTabularInline):
     model = SoftwareDownloadPageVersion
     extra = 1
-    fields = ['version_number', 'display_title', 'release_date', 'additional_info']
+    fields = ['version_number', 'display_title', 'release_date']
     inlines = [DownloadPageSpecificLinkInline]
 
-
-# SOFTWARE ADMIN (Main Admin)
+# SOFTWARE ADMIN (Main Admin) — note TranslationAdmin first
 @admin.register(Software)
-class SoftwareAdmin(nested_admin.NestedModelAdmin):
+class SoftwareAdmin(TranslationAdmin, nested_admin.NestedModelAdmin):
     list_display = ('name', 'category', 'operating_system', 'get_current_version', 'created_at', 'updated_at')
     list_filter = ('category', 'operating_system', 'license_type')
     search_fields = ('name', 'description')
@@ -85,10 +90,11 @@ class SoftwareAdmin(nested_admin.NestedModelAdmin):
             return f"v{current_version.version_number} ({current_version.release_date.strftime('%Y-%m-%d')})" if current_version.release_date else f"v{current_version.version_number}"
         return "N/A"
     get_current_version.short_description = 'Current Version'
+
 # NEW: Register SoftwareDownloadPageVersion and define its admin options
 @admin.register(SoftwareDownloadPageVersion)
 class SoftwareDownloadPageVersionAdmin(nested_admin.NestedModelAdmin):
     list_display = ('id', 'software', 'version_number', 'display_title', 'release_date')
-    inlines = [DownloadPageSpecificLinkInline] # If you want to manage nested links here
+    inlines = [DownloadPageSpecificLinkInline]
     search_fields = ('version_number', 'display_title')
     list_filter = ('software', 'release_date')

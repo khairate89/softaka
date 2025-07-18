@@ -1,5 +1,5 @@
 {# software/templates/software/file_download_page.html #}
-{% extends 'software/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}{{ software.name }} - Download{% endblock %}
@@ -12,7 +12,7 @@
                 <img src="{% if software.image %}{{ software.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}"
                      alt="{{ software.name }}" class="img-fluid rounded mb-4" style="max-height: 150px;">
                 
-                <h1 class="mb-3">Thank you for choosing to download <br><strong>{{ software.name }}</strong></h1>
+                <h1 class="mb-3">Thanked you for choosing to download <br><strong>{{ software.name }}</strong></h1>
                 <p class="lead text-muted">Version: <strong>v{{ software_version.version_number }}</strong></p>
                 <hr>
 
