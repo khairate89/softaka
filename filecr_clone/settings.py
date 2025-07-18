@@ -37,15 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Your app (must be before modeltranslation!)
+    'software',
+
     # Third-party apps for production
-    'whitenoise.runserver_nostatic', # For Whitenoise to serve static files locally
-    'modeltranslation',
+    'whitenoise.runserver_nostatic',
+    'modeltranslation', # <--- modeltranslation is now AFTER 'software'
     'nested_admin',
     'ckeditor_uploader',
     'ckeditor',
     'django.contrib.humanize',
-    # 'import_export', # If you need this
-    'software', # Your app
+    # 'import_export',
 ]
 
 MIDDLEWARE = [
