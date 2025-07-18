@@ -1,57 +1,77 @@
+import os
 from pathlib import Path
+import environ # Make sure you have `pip install django-environ`
 
+# Initialize environ
+env = environ.Env(
+    # Set casting and default value for DEBUG
+    DEBUG=(bool, False) # DEBUG will default to False if not set in env
+)
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-test-key'
+# Take environment variables from .env file for local development
+# In production on Render, these will be loaded directly from Render's env vars
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-DEBUG = True
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env('SECRET_KEY') # Loaded from environment variable
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env('DEBUG') # Loaded from environment variable (defaults to False)
+
+# ALLOWED_HOSTS for Render
+# Render provides your service's external hostname.
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost']) # For local dev
+
+# Application definition
 INSTALLED_APPS = [
-    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'software',
+
+    # Third-party apps for production
+    'whitenoise.runserver_nostatic', # For Whitenoise to serve static files locally
+    'modeltranslation',
     'nested_admin',
     'ckeditor_uploader',
     'ckeditor',
     'django.contrib.humanize',
+    # 'import_export', # If you need this
+    'software', # Your app
 ]
-
-# filecr_clone_django_project/filecr_clone_django_project/settings.py
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # <--- Add Whitenoise middleware here, right after SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.cookie.CookieMiddleware', # Only if you explicitly added it. SessionMiddleware usually handles cookies.
-
-    'django.middleware.locale.LocaleMiddleware', # <--- MOVE IT TO THIS POSITION!
-
+    'django.middleware.locale.LocaleMiddleware', # <--- Keep this here for i18n
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'software.middleware.ForceAdminEnglishMiddleware', # Your custom middleware should generally be last or near last
+    'software.middleware.ForceAdminEnglishMiddleware',
 ]
 
-ROOT_URLCONF = 'filecr_clone.urls'
+ROOT_URLCONF = 'filecr_clone.urls' # Confirmed this is correct based on your previous input
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'], # <-- ADD THIS LINE
-        
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required for admin & i18n
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'software.context_processors.menu_categories',
@@ -60,55 +80,50 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'filecr_clone.wsgi.application'
+WSGI_APPLICATION = 'filecr_clone.wsgi.application' # Confirmed this is correct
 
+# Database
+# Use DATABASE_URL from environment for production (PostgreSQL)
+# Fallback to SQLite for local development
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db('DATABASE_URL', default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 }
 
 AUTH_PASSWORD_VALIDATORS = []
 
 LANGUAGE_CODE = 'en'
-
 LANGUAGES = [
-    ('en', 'English'),
-    ('fr', 'Français'),
-    ('de', 'Deutsch'),
-    ('es', 'Español'),
-    ('ar', 'العربية'),
-    ('ru', 'Русский'),
-    ('zh-hans', '中文'),
+    ('en', 'English'), ('fr', 'Français'), ('de', 'Deutsch'),
+    ('es', 'Español'), ('ar', 'العربية'), ('ru', 'Русский'), ('zh-hans', '中文'),
 ]
-
-
-LOCALE_PATHS = [
-    BASE_DIR / 'locale',
-]
-
+LOCALE_PATHS = [BASE_DIR / 'locale']
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
 TIME_ZONE = 'UTC'
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'software' / 'static']
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Collect static files here
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'software', 'static'), # Ensure this path is correct
+    # os.path.join(BASE_DIR, 'static'), # If you have a general project-level 'static' folder
+]
 
-# Media files (user-uploaded content)
+# Whitenoise configuration for production static files
+# This ensures static files are compressed and cached
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+# Media files (for user-uploaded content) - REMEMBER THIS WON'T PERSIST ON RENDER!
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media' # Local storage, not suitable for production uploads
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# CKEditor settings
-CKEDITOR_UPLOAD_PATH = 'uploads/' # Files will be uploaded to MEDIA_ROOT/uploads/
-CKEDITOR_IMAGE_BACKEND = 'pillow' # Ensure Pillow is installed: pip install Pillow (if not already)
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -117,7 +132,7 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
         'extraPlugins': 'codesnippet',
     },
-    'description_toolbar': { # A custom toolbar for description
+    'description_toolbar': {
         'toolbar': [
             ['Source', '-', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
@@ -134,14 +149,22 @@ CKEDITOR_CONFIGS = {
         'height': 400,
         'width': '100%',
     },
-    # You can define more custom toolbars for different fields if needed
 }
 
-# settings.py (at the very end of the file)
-print(f"BASE_DIR: {BASE_DIR}")
-print(f"MEDIA_ROOT: {MEDIA_ROOT}")
-print(f"STATIC_ROOT: {STATIC_ROOT}") # Just for completeness
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CSRF_TRUSTED_ORIGINS: Important for forms if you're using a custom domain
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
+if not DEBUG: # Add Render's internal URL and your custom domains in production
+    RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+    if RENDER_EXTERNAL_HOSTNAME:
+        ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+        CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
+    # Add your custom domains here if you use them, e.g.,
+    # CSRF_TRUSTED_ORIGINS.append('https://yourdomain.com')
+
+
+# Logging (as you had it)
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -152,7 +175,7 @@ LOGGING = {
     },
     'root': {
         'handlers': ['console'],
-        'level': 'INFO', # Set to INFO to see our middleware messages
+        'level': 'INFO',
     },
     'loggers': {
         'django': {
@@ -160,7 +183,6 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
-        # Add a logger for your middleware module
         'software.middleware': {
             'handlers': ['console'],
             'level': 'INFO',
