@@ -20,7 +20,6 @@ def redirect_to_language_prefix(request):
 # Define the base urlpatterns for NON-TRANSLATED URLs FIRST
 # These URLs will NOT have a language prefix and will NOT be translated
 urlpatterns = [
-    path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls), # MOVED OUTSIDE i18n_patterns
     path('nested_admin/', include('nested_admin.urls')), # MOVED OUTSIDE i18n_patterns
     path('ckeditor/', include('ckeditor_uploader.urls')), # MOVED OUTSIDE i18n_patterns
