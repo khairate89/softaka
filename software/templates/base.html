@@ -1,5 +1,7 @@
 {% load static %}
 {% load i18n %}
+{% load compress %} {# <--- ADDED THIS LINE #}
+
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:'en' }}">
 <head>
@@ -10,9 +12,13 @@
 
     {# Bootstrap CSS CDN #}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
- 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     {# Your custom CSS - should be after Bootstrap for overrides #}
+    {% compress css %} {# <--- START COMPRESS CSS BLOCK #}
     <link rel="stylesheet" href="{% static 'software/style.css' %}">
+    {% endcompress %} {# <--- END COMPRESS CSS BLOCK #}
 
     {# NEW: Meta Description #}
     {% block meta_description %}
@@ -40,7 +46,7 @@
       "@type": "Organization",
       "name": "SoftVault Inc.",
       "url": "{{ request.scheme }}://{{ request.get_host }}/",
-      
+      "logo": "{{ request.build_absolute_uri }}{% static 'software/img/softvault-logo.png' %}",
       "sameAs": [
         "https://www.facebook.com/yourcompanypage",
         "https://twitter.com/yourcompanyhandle",
@@ -50,7 +56,7 @@
     }
     </script>
     {# --- END GLOBAL STRUCTURED DATA --- #}
-    
+
 </head>
 <body>
 <header class="bg-dark text-white py-3">
@@ -153,12 +159,12 @@
     </p>
   <form class="d-flex newsletter-form" method="post" action="/subscribe/">
     {% csrf_token %}
-    <input 
-        type="email" 
-        name="email" 
-        class="form-control me-2" 
-        placeholder="Enter your email" 
-        aria-label="Email for newsletter" 
+    <input
+        type="email"
+        name="email"
+        class="form-control me-2"
+        placeholder="Enter your email"
+        aria-label="Email for newsletter"
         autocomplete="email">
     <button type="submit" class="btn btn-primary">{% trans "Subscribe" %}</button>
 </form>
@@ -224,28 +230,14 @@
 </footer>
 
 {# Bootstrap JavaScript Bundle (with Popper) CDN - place at end of body for performance #}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-{# Cookie Consent Banner HTML #}
-<div id="cookieConsentBanner" class="cookie-banner bg-dark text-white p-3 shadow fixed-bottom" style="display: none;">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <p class="mb-2 mb-md-0 me-md-3 small">
-            {% trans "This website uses cookies to ensure you get the best experience. By continuing to use our site, you agree to our use of cookies." %}
-            <a href="{% url 'software:privacy_policy' %}" class="text-info text-decoration-none ms-1">{% trans "Learn more about our Privacy Policy." %}</a>
-        </p>
-        <div class="d-flex">
-            <button id="acceptCookies" class="btn btn-success btn-sm me-2">{% trans "Accept" %}</button>
-            <button id="declineCookies" class="btn btn-outline-light btn-sm">{% trans "Decline" %}</button>
-        </div>
-    </div>
-</div>
-
-{# Bootstrap JavaScript Bundle (with Popper) CDN - place at end of body for performance #}
+{# Removed duplicate Bootstrap JS here #}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 {# Your custom JavaScript for cookie consent #}
+{% compress js %} {# <--- START COMPRESS JS BLOCK #}
 <script src="{% static 'software/cookie_consent.js' %}"></script>
+{% endcompress %} {# <--- END COMPRESS JS BLOCK #}
 
-{% block extra_js %}{% endblock %} 
+{% block extra_js %}{% endblock %}
 </body>
 </html>
