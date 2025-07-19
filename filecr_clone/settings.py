@@ -106,13 +106,6 @@ STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, 'static'), # If you have a general project-level 'static' folder
 ]
 
-# Whitenoise configuration for production static files
-# This ensures static files are compressed and cached
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
 
 # Media files (for user-uploaded content) - REMEMBER THIS WON'T PERSIST ON RENDER!
 MEDIA_URL = '/media/'
