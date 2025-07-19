@@ -1,23 +1,15 @@
 # render.yaml (at the root of your project)
 services:
   - type: web
-    name: softaka # Use the exact name of your Render web service
+    name: softaka
     env: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn filecr_clone.wsgi:application"
-    # Health check is good practice
-    healthCheckPath: /admin/login/ # Or a different URL if /admin/login/ is not accessible
-    # IMPORTANT: Environment variables should still be set in the Render UI!
-    # This section is just a reminder of which keys you need to set in Render.
+    healthCheckPath: /admin/login/ # Or your preferred health check path
     envVars:
       - key: SECRET_KEY
       - key: DATABASE_URL
       - key: ALLOWED_HOSTS
-      # You might have other env vars as well
-      # - key: DEBUG
-      # - key: SOME_OTHER_VAR
-
-    # This is the crucial part: the releaseCommand acts like the Post-Deploy Command
-    # It runs AFTER a successful build, but BEFORE the web service starts serving traffic.
-    # It's perfect for database migrations and static file collection.
-    releaseCommand: "python manage.py collectstatic --noinput && python manage.py migrate"
+    # NEW: Add 'python manage.py compress' to the releaseCommand
+    releaseCommand: "python manage.py collectstatic --noinput && python manage.py compress --force && python manage.py migrate"
+    # Added '--force' to compress, as sometimes it skips if it thinks files are up to date.
