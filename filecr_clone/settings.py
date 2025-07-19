@@ -219,7 +219,8 @@ COMPRESS_URL = STATIC_URL # Ensure STATIC_URL is defined above this line.
 
 # If you want to use a specific storage backend for compressed files (e.g., S3)
 # COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' # Example for S3
-
+# ADD THIS LINE: Tell compressor to use Whitenoise's storage backend
+COMPRESS_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # filecr_clone/settings.py
 
