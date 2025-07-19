@@ -30,6 +30,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost']) # 
 
 # Application definition
 INSTALLED_APPS = [
+    'grappelli', # <--- Add this FIRST
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
