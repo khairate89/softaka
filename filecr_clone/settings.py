@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor', # <--- ENSURE THIS LINE IS EXACTLY 'compressor'
     'software',
     'nested_admin',
     'ckeditor_uploader',
@@ -186,3 +187,44 @@ LOGGING = {
         },
     },
 }
+
+# filecr_clone/settings.py
+
+# Enable compressor
+COMPRESS_ENABLED = True
+
+# Disable debug output (useful for development, but set to True for production)
+# In production, you typically want COMPRESS_DEBUG = False
+# For now, keep it True if you're still debugging locally, then set to False for Render.
+COMPRESS_DEBUG = DEBUG # Often set to match DEBUG setting
+
+# Filters for minification. CSSMinFilter and JSMinFilter are standard.
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter',
+]
+
+# This is CRUCIAL for Render (and any production deployment)
+# It tells compressor to run its compression *offline* during deployment,
+# rather than on the fly when requests come in.
+COMPRESS_OFFLINE = True
+
+# Define where compressed files will be stored.
+# This should ideally be a sub-directory within your STATIC_ROOT
+# so that Whitenoise or your static file server can find them.
+COMPRESS_ROOT = STATIC_ROOT # Ensure STATIC_ROOT is defined above this line.
+COMPRESS_URL = STATIC_URL # Ensure STATIC_URL is defined above this line.
+
+# If you want to use a specific storage backend for compressed files (e.g., S3)
+# COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' # Example for S3
+
+
+# filecr_clone/settings.py
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder', # Add this line
+]
