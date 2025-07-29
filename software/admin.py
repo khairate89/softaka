@@ -1,19 +1,17 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 import nested_admin
-from .models import NewsletterSubscriber # Import your new model
 from .models import (
-    Category, Software, SoftwareVersion, DownloadLink,
+    NewsletterSubscriber, Category, Software, SoftwareVersion, DownloadLink,
     SoftwareDownloadPageVersion, DownloadPageSpecificLink, Comment
 )
 
-
 @admin.register(NewsletterSubscriber)
 class NewsletterSubscriberAdmin(admin.ModelAdmin):
-    list_display = ('email', 'timestamp') # Fields to display in the list view
-    search_fields = ('email',) # Allow searching by email
-    list_filter = ('timestamp',) # Allow filtering by date
-    ordering = ('-timestamp',) # Default ordering for the list
+    list_display = ('email', 'timestamp')  # Fields to display in the list view
+    search_fields = ('email',)             # Allow searching by email
+    list_filter = ('timestamp',)           # Allow filtering by date
+    ordering = ('-timestamp',)             # Default ordering for the list
 
 # CATEGORY ADMIN
 @admin.register(Category)
@@ -87,7 +85,10 @@ class SoftwareAdmin(TranslationAdmin, nested_admin.NestedModelAdmin):
     def get_current_version(self, obj):
         current_version = obj.versions.filter(is_current_version=True).first()
         if current_version:
-            return f"v{current_version.version_number} ({current_version.release_date.strftime('%Y-%m-%d')})" if current_version.release_date else f"v{current_version.version_number}"
+            if current_version.release_date:
+                return f"v{current_version.version_number} ({current_version.release_date.strftime('%Y-%m-%d')})"
+            else:
+                return f"v{current_version.version_number}"
         return "N/A"
     get_current_version.short_description = 'Current Version'
 
