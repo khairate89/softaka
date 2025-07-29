@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}Softaka – Safe, Fast & Verified Software Downloads{% endblock %}</title>
     <meta name="csrf-token" content="{{ csrf_token }}">
-    
+
     {# Bootstrap CSS CDN #}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
           rel="stylesheet" 
@@ -24,9 +24,9 @@
     {# Your custom CSS #}
     <link rel="stylesheet" href="{% static 'software/style.css' %}" />
 
-    {# Meta Description #}
+    {# Meta Description Block #}
     {% block meta_description %}
-        <meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs." />
+    <meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs." />
     {% endblock %}
 
     {# Structured Data: WebSite #}
@@ -59,11 +59,15 @@
       ]
     }
     </script>
+
+    {# Extra head content block #}
+    {% block head_extra %}{% endblock %}
 </head>
 <body>
+
 <header class="bg-dark text-white py-3">
     <div class="container d-flex justify-content-between align-items-center">
-        {# Logo - Stays on the left #}
+        {# Logo - Left #}
         <a class="navbar-brand" href="{% url 'software:index' %}">
             <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc">
                 <title id="logoTitle">Softaka Logo</title>
@@ -74,25 +78,23 @@
             </svg>
         </a>
 
-        {# Search Bar - NOW WITHOUT ms-auto/me-3, letting justify-content-between center it #}
+        {# Search Bar #}
         <form class="d-flex" role="search" action="{% url 'software:search-results' %}" method="get">
-            <input class="form-control me-2" type="search" placeholder="{% trans 'Search software...' %}" aria-label="{% trans 'Search' %}" name="q">
+            <input class="form-control me-2" type="search" placeholder="{% trans 'Search software...' %}" aria-label="{% trans 'Search' %}" name="q" />
             <button class="btn btn-outline-light" type="submit" aria-label="{% trans 'Search' %}">
-    <i class="fas fa-search"></i>
-</button>
+                <i class="fas fa-search"></i>
+            </button>
         </form>
 
-        {# Language Switcher with Flags - Added ms-3 back for spacing from search bar #}
+        {# Language Switcher #}
         <div class="language-switcher-flags d-flex align-items-center ms-3">
             {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
-
             {% for lang_code, lang_name in LANGUAGES %}
                 <form action="{% url 'set_language' %}" method="post" class="d-flex me-1">
                     {% csrf_token %}
                     <input type="hidden" name="language" value="{{ lang_code }}">
                     <input type="hidden" name="next" value="{{ request.get_full_path }}">
-
                     <button type="submit"
                             class="btn btn-link p-0 border-0 bg-transparent language-flag-btn {% if lang_code == LANGUAGE_CODE %}active-language-flag{% endif %}"
                             title="{{ lang_name }}"
@@ -100,7 +102,7 @@
                         <img src="{% static 'flags/'|add:lang_code|add:'.svg' %}"
                              alt="{{ lang_name }} Flag"
                              class="language-flag-icon"
-                             width="28" height="20">
+                             width="28" height="20" />
                     </button>
                 </form>
             {% endfor %}
@@ -154,24 +156,23 @@
 <footer class="bg-dark text-white pt-5 pb-3">
     <div class="container">
         <div class="row mb-4">
-           <div class="col-md-6 mb-4 mb-md-0">
-    <h4 class="fw-bold text-success mb-3">{% trans "Join Our Newsletter" %}</h4>
-    <p class="text-muted small">
-        {% trans "Stay up-to-date with the latest software releases and news. No spam, guaranteed!" %}
-    </p>
-  <form class="d-flex newsletter-form" method="post" action="/subscribe/">
-    {% csrf_token %}
-    <input 
-        type="email" 
-        name="email" 
-        class="form-control me-2" 
-        placeholder="Enter your email" 
-        aria-label="Email for newsletter" 
-        autocomplete="email">
-    <button type="submit" class="btn btn-primary">{% trans "Subscribe" %}</button>
-</form>
-
-</div>
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h4 class="fw-bold text-success mb-3">{% trans "Join Our Newsletter" %}</h4>
+                <p class="text-muted small">
+                    {% trans "Stay up-to-date with the latest software releases and news. No spam, guaranteed!" %}
+                </p>
+                <form class="d-flex newsletter-form" method="post" action="/subscribe/">
+                    {% csrf_token %}
+                    <input 
+                        type="email" 
+                        name="email" 
+                        class="form-control me-2" 
+                        placeholder="Enter your email" 
+                        aria-label="Email for newsletter" 
+                        autocomplete="email" />
+                    <button type="submit" class="btn btn-primary">{% trans "Subscribe" %}</button>
+                </form>
+            </div>
 
             <div class="col-md-6 text-md-end">
                 <a class="d-inline-block mb-3" href="{% url 'software:index' %}">
@@ -200,60 +201,5 @@
             </div>
             <div class="col-md-4 mb-3">
                 <h5 class="text-white mb-3">{% trans "Useful Links" %}</h5>
-               {# In your base.html footer #}
-<ul class="list-unstyled">
-    <li><a href="{% url 'software:dmca' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "DMCA" %}</a></li>
-    <li><a href="{% url 'software:disclaimer' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Disclaimer" %}</a></li>
-    <li><a href="{% url 'software:privacy_policy' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Privacy Policy" %}</a></li>
-    <li><a href="{% url 'software:terms_conditions' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Terms & Conditions" %}</a></li>
-    <li><a href="{% url 'software:sitemap_page' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Sitemap" %}</a></li>
-    <li><a href="{% url 'software:contact_us' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "Contact Us" %}</a></li>
-    <li><a href="{% url 'software:about_us' %}" class="text-muted text-decoration-none py-1 d-block">{% trans "About Us" %}</a></li>
-</ul>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h5 class="text-white mb-3">{% trans "Follow Us" %}</h5>
-                <div class="social-icons">
-                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Facebook' %}"><i class="fab fa-facebook-f fa-lg"></i></a>
-                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Twitter' %}"><i class="fab fa-twitter fa-lg"></i></a>
-                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Pinterest' %}"><i class="fab fa-pinterest-p fa-lg"></i></a>
-                    <a href="#" class="text-white me-3" aria-label="{% trans 'Follow us on Instagram' %}"><i class="fab fa-instagram-fa-lg"></i></a>
-                    <a href="#" class="text-white" aria-label="{% trans 'Follow us on Telegram' %}"><i class="fab fa-telegram-plane fa-lg"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <hr class="border-secondary my-4">
-
-        <div class="text-center text-muted small">
-            Softaka.com © 2025-{% now "Y" %}. {% trans "All Rights Reserved." %}
-        </div>
-    </div>
-</footer>
-
-{# Bootstrap JavaScript Bundle (with Popper) CDN - place at end of body for performance #}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-{# Cookie Consent Banner HTML #}
-<div id="cookieConsentBanner" class="cookie-banner bg-dark text-white p-3 shadow fixed-bottom" style="display: none;">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <p class="mb-2 mb-md-0 me-md-3 small">
-            {% trans "This website uses cookies to ensure you get the best experience. By continuing to use our site, you agree to our use of cookies." %}
-            <a href="{% url 'software:privacy_policy' %}" class="text-info text-decoration-none ms-1">{% trans "Learn more about our Privacy Policy." %}</a>
-        </p>
-        <div class="d-flex">
-            <button id="acceptCookies" class="btn btn-success btn-sm me-2">{% trans "Accept" %}</button>
-            <button id="declineCookies" class="btn btn-outline-light btn-sm">{% trans "Decline" %}</button>
-        </div>
-    </div>
-</div>
-
-{# Bootstrap JavaScript Bundle (with Popper) CDN - place at end of body for performance #}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-{# Your custom JavaScript for cookie consent #}
-<script src="{% static 'software/cookie_consent.js' %}"></script>
-
-{% block extra_js %}{% endblock %} 
-</body>
-</html>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'software:dmca' %}" class="text-muted text-decoration-none py-1 d-block
