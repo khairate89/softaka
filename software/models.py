@@ -1,5 +1,3 @@
-# software/models.py
-
 from django.db import models
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -8,19 +6,15 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from decimal import Decimal
 
-
-# Import ImageSpecField and processors for image resizing
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+# Import for Cloudinary
+from cloudinary.models import CloudinaryField
 
 # Import for Rating model and validators
-from django.conf import settings # Needed for AUTH_USER_MODEL
+from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 from django.utils.translation import gettext_lazy as _
 
-class Software(models.Model):
-    name = models.CharField(_('Software Name'), max_length=255)
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -55,19 +49,16 @@ class Software(models.Model):
     description = RichTextUploadingField(blank=True, null=True)
     homepage_description = models.TextField(blank=True, null=True, help_text="A short description for the homepage.")
     requirements = RichTextUploadingField(blank=True, null=True, help_text="System requirements for the software.")
-    image = models.ImageField(upload_to='software_images/', blank=True, null=True)
+    
+    # Cloudinary image field replacing ImageField
+    image = CloudinaryField('image', blank=True, null=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     # Fields for ratings summary
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     total_ratings = models.IntegerField(default=0)
-
-    # Imagekit for thumbnail
-    image_thumbnail = ImageSpecField(source='image',
-                                     processors=[ResizeToFill(100, 100)],
-                                     format='PNG',
-                                     options={'quality': 90})
 
     class Meta:
         ordering = ['-created_at']
@@ -84,17 +75,22 @@ class Software(models.Model):
     def get_absolute_url(self):
         return reverse('software:software-detail', kwargs={'category_slug': self.category.slug, 'slug': self.slug})
 
-    # Method to update average rating and total ratings
     def update_ratings_summary(self):
         ratings = self.ratings.all()
         self.total_ratings = ratings.count()
         if self.total_ratings > 0:
-            # Use Decimal for calculation to maintain precision
             total_score = sum(r.score for r in ratings)
             self.average_rating = Decimal(total_score) / Decimal(self.total_ratings)
         else:
-            self.average_rating = Decimal('0.00') # Use Decimal for consistency
+            self.average_rating = Decimal('0.00')
         self.save(update_fields=['average_rating', 'total_ratings'])
+
+    # Optional: return Cloudinary thumbnail URL (200x200)
+    def image_thumbnail_url(self):
+        if self.image:
+            # Cloudinary supports transformations via URL, e.g. resize to 200x200
+            return self.image.build_url(width=200, height=200, crop='fill')
+        return None
 
 
 class SoftwareVersion(models.Model):
@@ -113,7 +109,6 @@ class SoftwareVersion(models.Model):
 
     def save(self, *args, **kwargs):
         if self.is_current_version:
-            # Ensure only one version is current for this software
             SoftwareVersion.objects.filter(software=self.software).exclude(pk=self.pk).update(is_current_version=False)
         super().save(*args, **kwargs)
 
@@ -126,14 +121,13 @@ class DownloadLink(models.Model):
 
     class Meta:
         ordering = ['order', 'name']
-        unique_together = ('version', 'name') # Ensures unique link names per version
+        unique_together = ('version', 'name')
 
     def __str__(self):
         return f"{self.name} ({self.version.software.name} v{self.version.version_number})"
 
 
 class SoftwareDownloadPageVersion(models.Model):
-    # Foreign key to Software model. The related_name 'download_page_versions' is used by Software
     software = models.ForeignKey(Software, on_delete=models.CASCADE, related_name='download_page_versions')
     version_number = models.CharField(max_length=50, help_text="Version number associated with this specific download page.")
     display_title = models.CharField(max_length=255, blank=True, help_text="Title for this download page version (e.g., 'v1.0 Installer').")
@@ -169,7 +163,6 @@ class DownloadPageSpecificLink(models.Model):
         return f"{self.name} for {self.version_for_page.software.name} v{self.version_for_page.version_number}"
 
 
-# Comment model
 class Comment(models.Model):
     software = models.ForeignKey(Software, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80, help_text="Name of the commenter.")
@@ -187,12 +180,10 @@ class Comment(models.Model):
         return f"Comment by {self.name} on {self.software.name}"
 
 
-# Rating model (Simplified for public ratings without IP tracking)
 class Rating(models.Model):
     software = models.ForeignKey(Software, on_delete=models.CASCADE, related_name='ratings')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True,
                              help_text="The logged-in user who submitted the rating (optional for anonymous ratings).")
-    # ip_address field REMOVED for simplified public ratings
     score = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)],
         help_text="Rating from 1 (lowest) to 5 (highest) stars."
@@ -200,9 +191,6 @@ class Rating(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        # Removed unique_together = ('software', 'ip_address')
-        # This allows multiple anonymous ratings. If an authenticated user rates,
-        # the RateSoftwareView will handle updating their single rating.
         verbose_name = "Rating"
         verbose_name_plural = "Ratings"
 
@@ -210,28 +198,26 @@ class Rating(models.Model):
         return f"{self.software.name} - {self.score} stars by {self.user.username if self.user else 'Anonymous'}"
 
 
-# Signals to update Software's aggregate ratings whenever a Rating is saved or deleted
 @receiver(post_save, sender=Rating)
 def update_software_ratings_on_save(sender, instance, **kwargs):
-    # Use transaction.on_commit to ensure it runs after the Rating is fully committed
-    # This can prevent issues with partial database state during signal execution
     from django.db import transaction
     transaction.on_commit(lambda: instance.software.update_ratings_summary())
+
 
 @receiver(post_delete, sender=Rating)
 def update_software_ratings_on_delete(sender, instance, **kwargs):
     from django.db import transaction
     transaction.on_commit(lambda: instance.software.update_ratings_summary())
 
+
 class NewsletterSubscriber(models.Model):
-    # These lines MUST be indented, typically by 4 spaces
     email = models.EmailField(unique=True, verbose_name=_("Email Address"))
     timestamp = models.DateTimeField(auto_now_add=True, verbose_name=_("Subscription Date"))
 
-    class Meta: # This also needs to be indented
+    class Meta:
         verbose_name = _("Newsletter Subscriber")
         verbose_name_plural = _("Newsletter Subscribers")
         ordering = ['-timestamp']
 
-    def __str__(self): # This also needs to be indented
+    def __str__(self):
         return self.email
