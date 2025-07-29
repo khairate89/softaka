@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import environ # Make sure you have `pip install django-environ`
+import cloudinary
 
 # Initialize environ
 env = environ.Env(
@@ -13,7 +14,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file for local development
 # In production on Render, these will be loaded directly from Render's env vars
+
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+CLOUDINARY = {
+    'cloud_name': env('CLOUDINARY_CLOUD_NAME'),
+    'api_key': env('CLOUDINARY_API_KEY'),
+    'api_secret': env('CLOUDINARY_API_SECRET'),
+}
+
+cloudinary.config(
+    cloud_name=CLOUDINARY['cloud_name'],
+    api_key=CLOUDINARY['api_key'],
+    api_secret=CLOUDINARY['api_secret'],
+    secure=True,
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -28,12 +43,7 @@ DEBUG = env('DEBUG') # Loaded from environment variable (defaults to False)
 # Render provides your service's external hostname.
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost']) # For local dev
 
-# Cloudinary config
-CLOUDINARY = {
-    'cloud_name': env('CLOUDINARY_CLOUD_NAME'),
-    'api_key': env('CLOUDINARY_API_KEY'),
-    'api_secret': env('CLOUDINARY_API_SECRET'),
-}
+
 # Use Cloudinary for media files storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
