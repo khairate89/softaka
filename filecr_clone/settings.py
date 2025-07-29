@@ -30,9 +30,9 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost']) # 
 
 # Cloudinary config
 CLOUDINARY = {
-    'cloud_name': env('softaka'),
-    'api_key': env('615855945822391'),
-    'api_secret': env('J-3JhBvWdZulIsG3rsPQGtTbbiw'),
+    'cloud_name': env('CLOUDINARY_CLOUD_NAME'),
+    'api_key': env('CLOUDINARY_API_KEY'),
+    'api_secret': env('CLOUDINARY_API_SECRET'),
 }
 # Use Cloudinary for media files storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
