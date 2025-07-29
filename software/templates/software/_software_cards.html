@@ -7,18 +7,13 @@
         <div class="card-body d-flex flex-column"> 
             <!-- Top section: Image and Title/Tagline -->
             <div class="d-flex align-items-center mb-3">
-       {% if software.image_thumbnail %}
-    {% if software.image_thumbnail.url %}
-        <img src="{{ software.image_thumbnail.url }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
-    {% else %}
-        <img src="{{ software.image_thumbnail }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
-    {% endif %}
+   {% if software.image_thumbnail %}
+    <img src="{{ software.image_thumbnail.url|default:software.image_thumbnail }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
 {% elif software.image %}
     <img src="{{ software.image.url }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
 {% else %}
-    <img src="{% static 'images/placeholder.png' %}" class="software-card-img-thumbnail me-3" alt="No image available" width="56" height="56">
+    <img src="{% static 'software/placeholder.png' %}" alt="{% trans 'No image' %}" class="software-card-img-thumbnail me-3" width="56" height="56">
 {% endif %}
-
 
                 <div class="flex-grow-1">
                     <h4 class="card-title mb-1">
