@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-
+{% block head_extra %}
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock %}
 {% block title %}{% trans "Softaka – Safe, Fast & Verified Software Downloads" %}{% endblock %}
-
-
 
 {% block main_content_area %}
     <div class="col-md-3"> 
