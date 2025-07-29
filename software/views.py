@@ -29,14 +29,18 @@ class SearchResultsView(ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        query = self.request.GET.get('q')
-        if query:
+        self.query = self.request.GET.get('q', '')  # Save query to self
+        if self.query:
             return Software.objects.filter(
-                Q(name__icontains=query) |
-                Q(description__icontains=query)
+                Q(name__icontains=self.query) |
+                Q(description__icontains=self.query)
             ).select_related('category').prefetch_related('versions')
-        else:
-            return Software.objects.none()
+        return Software.objects.none()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.query  # Pass query into template
+        return context
 
 
 class SoftwareListView(ListView):
