@@ -11,8 +11,9 @@ from django.conf.urls.static import static
 # Import staticfiles_urlpatterns for automatic static files serving in DEBUG mode
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import sitemaps
+from django.contrib.sitemaps import StaticViewSitemap
+from software.sitemaps import SoftwareSitemap, CategorySitemap
 from django.contrib.sitemaps.views import sitemap
-from software.sitemaps import SoftwareSitemap, StaticViewSitemap
 
 def redirect_to_language_prefix(request):
     """
@@ -20,9 +21,12 @@ def redirect_to_language_prefix(request):
     """
     return HttpResponseRedirect(f'/{settings.LANGUAGE_CODE}/')
     
+
+
 sitemaps = {
     'static': StaticViewSitemap,
     'software': SoftwareSitemap,
+    'categories': CategorySitemap,
 }
 # Define the base urlpatterns for NON-TRANSLATED URLs FIRST
 # These URLs will NOT have a language prefix and will NOT be translated
