@@ -10,13 +10,20 @@ from software import views as software_views # <--- ADD THIS LINE
 from django.conf.urls.static import static
 # Import staticfiles_urlpatterns for automatic static files serving in DEBUG mode
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib import sitemaps
+from django.contrib.sitemaps.views import sitemap
+from software.sitemaps import SoftwareSitemap, StaticViewSitemap
 
 def redirect_to_language_prefix(request):
     """
     Redirects the root URL ('/') to the default language prefix (e.g., '/en/').
     """
     return HttpResponseRedirect(f'/{settings.LANGUAGE_CODE}/')
-
+    
+sitemaps = {
+    'static': StaticViewSitemap,
+    'software': SoftwareSitemap,
+}
 # Define the base urlpatterns for NON-TRANSLATED URLs FIRST
 # These URLs will NOT have a language prefix and will NOT be translated
 urlpatterns = [
@@ -26,7 +33,9 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')), # This always needs to be non-translated
     path('', redirect_to_language_prefix), # Catch-all for the root
      # --- YOU NEED TO ADD THIS LINE HERE: ---
-    path('subscribe/', software_views.subscribe_newsletter, name='subscribe_newsletter'), 
+    path('subscribe/', software_views.subscribe_newsletter, name='subscribe_newsletter'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
     # --- END OF ADDITION ---
 ]
 
