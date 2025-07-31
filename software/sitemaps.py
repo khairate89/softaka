@@ -1,7 +1,18 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from django.conf import settings
-from django.utils.translation import activate, get_language
+from .models import Software, Category
+
+class StaticViewSitemap(Sitemap):
+    priority = 0.5
+    changefreq = 'weekly'
+
+    def items(self):
+        # Add the names of your static views here, matching your URL names
+        return ['home', 'about-us', 'contact-us']  # <--- update with your actual static page URL names
+
+    def location(self, item):
+        return reverse(item)
+
 
 class SoftwareSitemap(Sitemap):
     changefreq = "weekly"
@@ -10,20 +21,13 @@ class SoftwareSitemap(Sitemap):
     def items(self):
         return Software.objects.all()
 
-    def location(self, obj):
-        return obj.get_absolute_url()
+    def lastmod(self, obj):
+        return obj.updated_at
 
-    def alternates(self, obj):
-        alternates = []
-        current_lang = get_language()
-        for lang_code, _ in settings.LANGUAGES:
-            if lang_code == current_lang:
-                continue
-            activate(lang_code)
-            url = obj.get_absolute_url()
-            alternates.append({
-                'lang_code': lang_code,
-                'url': url,
-            })
-        activate(current_lang)
-        return alternates
+
+class CategorySitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.6
+
+    def items(self):
+        return Category.objects.all()
