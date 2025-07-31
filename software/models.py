@@ -21,8 +21,9 @@ class Category(models.Model):
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     icon = models.CharField(max_length=50, blank=True, null=True, help_text="Font Awesome icon class (e.g., 'fas fa-desktop')")
     display_on_menu = models.BooleanField(default=True, help_text="Check to display this category in the **left sidebar menu**.")
+    is_published = models.BooleanField(default=True, help_text=_("Whether this software should be publicly visible."))
     display_on_header = models.BooleanField(default=False, help_text="Check to display this category in the **main header navigation**.")
-
+    updated_at = models.DateTimeField(auto_now=True, help_text=_("The date and time this category was last updated."))
     class Meta:
         verbose_name_plural = "Categories"
 
