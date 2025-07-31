@@ -21,11 +21,10 @@ class Category(models.Model):
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     icon = models.CharField(max_length=50, blank=True, null=True, help_text="Font Awesome icon class (e.g., 'fas fa-desktop')")
     display_on_menu = models.BooleanField(default=True, help_text="Check to display this category in the **left sidebar menu**.")
-    # This is the corrected field
-    is_published = models.BooleanField(default=True, help_text=_("Whether this category should be publicly visible."))
     display_on_header = models.BooleanField(default=False, help_text="Check to display this category in the **main header navigation**.")
+# This is the corrected field
+    is_published = models.BooleanField(default=True, help_text=_("Whether this category should be publicly visible."))
     updated_at = models.DateTimeField(auto_now=True, help_text=_("The date and time this category was last updated."))
-
     class Meta:
         verbose_name_plural = "Categories"
 
@@ -52,12 +51,9 @@ class Software(models.Model):
     description = RichTextUploadingField(blank=True, null=True)
     homepage_description = models.TextField(blank=True, null=True, help_text="A short description for the homepage.")
     requirements = RichTextUploadingField(blank=True, null=True, help_text="System requirements for the software.")
-    
+    is_published = models.BooleanField(default=True, help_text=_("Whether this software should be publicly visible."))
     # Cloudinary image field replacing ImageField
     image = CloudinaryField('image', blank=True, null=True)
-    
-    # This is the corrected field
-    is_published = models.BooleanField(default=True, help_text=_("Whether this software should be publicly visible."))
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -91,8 +87,10 @@ class Software(models.Model):
             self.average_rating = Decimal('0.00')
         self.save(update_fields=['average_rating', 'total_ratings'])
 
+    # Optional: return Cloudinary thumbnail URL (200x200)
     def image_thumbnail_url(self):
         if self.image:
+            # Cloudinary supports transformations via URL, e.g. resize to 200x200
             return self.image.build_url(width=200, height=200, crop='fill')
         return None
 
