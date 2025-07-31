@@ -1,18 +1,20 @@
+# software/sitemaps.py
+
 from django.contrib.sitemaps import Sitemap
-from django.urls import reverse
-from django.conf import settings
 from django.utils.translation import activate, get_language
+from django.conf import settings
+from software.models import Software, Category
 
 class StaticViewSitemap(Sitemap):
+    changefreq = "monthly"
     priority = 0.5
-    changefreq = 'monthly'
 
+    # Update this list with your actual static page URL names
     def items(self):
-        # Replace with your actual static page URL names (the names used in urls.py)
         return ['home', 'about-us', 'contact-us']
 
     def location(self, item):
-        return reverse(item)
+        return f'/{item}/'
 
     def get_urls(self, site=None, **kwargs):
         urls = []
@@ -20,10 +22,13 @@ class StaticViewSitemap(Sitemap):
         for lang_code, _ in settings.LANGUAGES:
             activate(lang_code)
             for item in self.items():
+                url = self.location(item)
+                if not url.startswith(f'/{lang_code}/'):
+                    url = f'/{lang_code}{url}'
                 urls.append({
-                    'location': self.location(item),
-                    'priority': self.priority,
+                    'location': url,
                     'changefreq': self.changefreq,
+                    'priority': self.priority,
                     'lang': lang_code,
                 })
         activate(original_language)
@@ -32,17 +37,15 @@ class StaticViewSitemap(Sitemap):
 
 class SoftwareSitemap(Sitemap):
     changefreq = "weekly"
-    priority = 0.7
+    priority = 0.8
 
     def items(self):
-        from software.models import Software  # Adjust this import as needed
         return Software.objects.all()
 
     def lastmod(self, obj):
         return obj.updated_at
 
     def location(self, obj):
-        # Assumes get_absolute_url respects active language
         return obj.get_absolute_url()
 
     def get_urls(self, site=None, **kwargs):
@@ -51,11 +54,50 @@ class SoftwareSitemap(Sitemap):
         for lang_code, _ in settings.LANGUAGES:
             activate(lang_code)
             for obj in self.items():
+                url = self.location(obj)
+                if not url.startswith(f'/{lang_code}/'):
+                    url = f'/{lang_code}{url}'
                 urls.append({
-                    'location': self.location(obj),
+                    'location': url,
                     'lastmod': self.lastmod(obj),
-                    'priority': self.priority,
                     'changefreq': self.changefreq,
+                    'priority': self.priority,
+                    'lang': lang_code,
+                })
+        activate(original_language)
+        return urls
+
+
+class CategorySitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.7
+
+    def items(self):
+        return Category.objects.all()
+
+    def lastmod(self, obj):
+        # If your Category model doesn't have updated_at, remove this method or set to None
+        if hasattr(obj, 'updated_at'):
+            return obj.updated_at
+        return None
+
+    def location(self, obj):
+        return obj.get_absolute_url()
+
+    def get_urls(self, site=None, **kwargs):
+        urls = []
+        original_language = get_language()
+        for lang_code, _ in settings.LANGUAGES:
+            activate(lang_code)
+            for obj in self.items():
+                url = self.location(obj)
+                if not url.startswith(f'/{lang_code}/'):
+                    url = f'/{lang_code}{url}'
+                urls.append({
+                    'location': url,
+                    'lastmod': self.lastmod(obj),
+                    'changefreq': self.changefreq,
+                    'priority': self.priority,
                     'lang': lang_code,
                 })
         activate(original_language)
