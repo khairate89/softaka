@@ -209,7 +209,15 @@ def update_software_ratings_on_save(sender, instance, **kwargs):
 @receiver(post_delete, sender=Rating)
 def update_software_ratings_on_delete(sender, instance, **kwargs):
     from django.db import transaction
-    transaction.on_commit(lambda: instance.software.update_ratings_summary())
+    from software.models import Software # Import Software model here to avoid circular dependencies
+    
+    try:
+        software = instance.software
+        transaction.on_commit(lambda: software.update_ratings_summary())
+    except Software.DoesNotExist:
+        # The software object was likely deleted in a cascading manner.
+        # We can safely ignore this as there's nothing to update.
+        pass
 
 
 class NewsletterSubscriber(models.Model):
