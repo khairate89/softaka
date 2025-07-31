@@ -4,7 +4,6 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from software.models import Software, Category
 
-
 class StaticViewSitemap(Sitemap):
     changefreq = "monthly"
     priority = 0.5
@@ -18,8 +17,7 @@ class StaticViewSitemap(Sitemap):
     def get_urls(self, site=None, **kwargs):
         if site is None:
             site = Site.objects.get_current()
-        domain = site.domain
-        protocol = 'https'
+        domain = f'https://{site.domain}'
 
         urls = []
         original_language = get_language()
@@ -29,11 +27,11 @@ class StaticViewSitemap(Sitemap):
                 url = self.location(item)
                 if not url.startswith(f'/{lang_code}/'):
                     url = f'/{lang_code}{url}'
-                full_url = f'{protocol}://{domain}{url}'
+                full_url = domain + url
                 urls.append({
                     'location': full_url,
                     'changefreq': self.changefreq,
-                    'priority': self.priority,
+                    'priority': float(self.priority),
                     'lang': lang_code,
                 })
         activate(original_language)
@@ -56,8 +54,7 @@ class SoftwareSitemap(Sitemap):
     def get_urls(self, site=None, **kwargs):
         if site is None:
             site = Site.objects.get_current()
-        domain = site.domain
-        protocol = 'https'
+        domain = f'https://{site.domain}'
 
         urls = []
         original_language = get_language()
@@ -67,12 +64,12 @@ class SoftwareSitemap(Sitemap):
                 url = self.location(obj)
                 if not url.startswith(f'/{lang_code}/'):
                     url = f'/{lang_code}{url}'
-                full_url = f'{protocol}://{domain}{url}'
+                full_url = domain + url
                 urls.append({
                     'location': full_url,
                     'lastmod': self.lastmod(obj),
                     'changefreq': self.changefreq,
-                    'priority': self.priority,
+                    'priority': float(self.priority),
                     'lang': lang_code,
                 })
         activate(original_language)
@@ -97,8 +94,7 @@ class CategorySitemap(Sitemap):
     def get_urls(self, site=None, **kwargs):
         if site is None:
             site = Site.objects.get_current()
-        domain = site.domain
-        protocol = 'https'
+        domain = f'https://{site.domain}'
 
         urls = []
         original_language = get_language()
@@ -108,16 +104,13 @@ class CategorySitemap(Sitemap):
                 url = self.location(obj)
                 if not url.startswith(f'/{lang_code}/'):
                     url = f'/{lang_code}{url}'
-                full_url = f'{protocol}://{domain}{url}'
-                url_dict = {
+                full_url = domain + url
+                urls.append({
                     'location': full_url,
+                    'lastmod': self.lastmod(obj),
                     'changefreq': self.changefreq,
-                    'priority': self.priority,
+                    'priority': float(self.priority),
                     'lang': lang_code,
-                }
-                lastmod_val = self.lastmod(obj)
-                if lastmod_val:
-                    url_dict['lastmod'] = lastmod_val
-                urls.append(url_dict)
+                })
         activate(original_language)
         return urls
