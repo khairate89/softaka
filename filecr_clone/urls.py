@@ -17,9 +17,9 @@ def redirect_to_language_prefix(request):
 
 
 sitemaps = {
-    'static': StaticViewSitemap(),
-    'software': SoftwareSitemap(),
-    'categories': CategorySitemap(),
+    'static': StaticViewSitemap,      # class here — ✅ correct
+    'software': SoftwareSitemap,      # class here — ✅ correct
+    'categories': CategorySitemap,    # class here — ✅ correct
 }
 
 urlpatterns = [
