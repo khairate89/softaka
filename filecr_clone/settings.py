@@ -42,7 +42,7 @@ DEBUG = env('DEBUG') # Loaded from environment variable (defaults to False)
 # ALLOWED_HOSTS for Render
 # Render provides your service's external hostname.
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost']) # For local dev
-
+SITE_ID = 1
 
 # Use Cloudinary for media files storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
