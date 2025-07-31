@@ -3,25 +3,23 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from django.conf import settings
-from .models import Software, Category
+from .models import Software
 
 class StaticViewSitemap(Sitemap):
     priority = 0.5
     changefreq = 'monthly'
 
     def items(self):
-        return ['dmca', 'disclaimer']  # Add your static view names here
+        return ['dmca', 'disclaimer']  # Your static view names
 
     def location(self, item):
         return reverse(item)
 
     def alternates(self, item):
         alternates = []
-        for lang_code, lang_name in settings.LANGUAGES:
-            alternates.append({
-                'lang': lang_code,
-                'url': f'/{lang_code}{self.location(item)}'
-            })
+        for lang_code, _ in settings.LANGUAGES:
+            url = f'/{lang_code}{self.location(item)}'
+            alternates.append({'lang': lang_code, 'url': url})
         return alternates
 
 
@@ -33,14 +31,17 @@ class SoftwareSitemap(Sitemap):
         return Software.objects.all()
 
     def location(self, obj):
-        # Example URL: /en/windows/test-software/
-        return f'/{settings.LANGUAGE_CODE}/{obj.category.slug}/{obj.slug}/'
+        # Default language URL
+        lang_code = settings.LANGUAGE_CODE
+        category_slug = getattr(obj.category, f'slug_{lang_code}', obj.category.slug)
+        software_slug = getattr(obj, f'slug_{lang_code}', obj.slug)
+        return f'/{lang_code}/{category_slug}/{software_slug}/'
 
     def alternates(self, obj):
         alternates = []
-        for lang_code, lang_name in settings.LANGUAGES:
-            alternates.append({
-                'lang': lang_code,
-                'url': f'/{lang_code}/{obj.category.slug}/{obj.slug}/'
-            })
+        for lang_code, _ in settings.LANGUAGES:
+            category_slug = getattr(obj.category, f'slug_{lang_code}', obj.category.slug)
+            software_slug = getattr(obj, f'slug_{lang_code}', obj.slug)
+            url = f'/{lang_code}/{category_slug}/{software_slug}/'
+            alternates.append({'lang': lang_code, 'url': url})
         return alternates
