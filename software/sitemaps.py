@@ -10,7 +10,10 @@ class StaticViewSitemap(Sitemap):
     changefreq = 'monthly'
 
     def items(self):
-        return ['dmca', 'disclaimer']  # Your static view names
+        # Use namespaced view names
+        return ['software:dmca', 'software:disclaimer', 'software:privacy_policy',
+                'software:terms_conditions', 'software:sitemap_page',
+                'software:contact_us', 'software:about_us']
 
     def location(self, item):
         return reverse(item)
@@ -18,8 +21,10 @@ class StaticViewSitemap(Sitemap):
     def alternates(self, item):
         alternates = []
         for lang_code, _ in settings.LANGUAGES:
-            url = f'/{lang_code}{self.location(item)}'
-            alternates.append({'lang': lang_code, 'url': url})
+            alternates.append({
+                'lang': lang_code,
+                'url': f'/{lang_code}{self.location(item)}'
+            })
         return alternates
 
 
