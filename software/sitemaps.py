@@ -1,49 +1,45 @@
+# software/sitemaps.py
+
 from django.contrib.sitemaps import Sitemap
-from django.utils.translation import activate, get_language
-from django.conf import settings
-from django.contrib.sites.models import Site
+from django.urls import reverse
 from software.models import Software, Category
 
 class StaticViewSitemap(Sitemap):
     changefreq = "monthly"
     priority = 0.5
+    # The i18n attribute is the key that tells Django to generate URLs for all languages.
+    i18n = True
 
     def items(self):
-        return ['home', 'about-us', 'contact-us']
+        # We use the URL names here. The `location` method will reverse them.
+        return [
+             'software:home',
+            'software:dmca',
+            'software:disclaimer',
+            'software:privacy_policy',
+            'software:terms_conditions',
+            'software:sitemap_page',
+            'software:contact_us',
+            'software:about_us',
+        ]
 
     def location(self, item):
-        return f'/{item}/'
-
-    def get_urls(self, site=None, **kwargs):
-        if site is None:
-            site = Site.objects.get_current()
-        domain = f'https://{site.domain}'
-
-        urls = []
-        original_language = get_language()
-        for lang_code, _ in settings.LANGUAGES:
-            activate(lang_code)
-            for item in self.items():
-                url = self.location(item)
-                if not url.startswith(f'/{lang_code}/'):
-                    url = f'/{lang_code}{url}'
-                full_url = domain + url
-                urls.append({
-                    'location': full_url,
-                    'changefreq': self.changefreq,
-                    'priority': float(self.priority),
-                    'lang': lang_code,
-                })
-        activate(original_language)
-        return urls
+        # `reverse()` will automatically handle the language prefix because i18n_patterns is used.
+        return reverse(item)
 
 
 class SoftwareSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
+    # The i18n attribute is the key.
+    i18n = True
+    # The limit attribute, by default 1000, handles automatic pagination for large sites.
+    # You can set it to a higher value if needed (up to 50000).
+    limit = 1000 
 
     def items(self):
-        return Software.objects.all()
+        # Good practice to filter for published items.
+        return Software.objects.filter(is_published=True)
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -51,37 +47,16 @@ class SoftwareSitemap(Sitemap):
     def location(self, obj):
         return obj.get_absolute_url()
 
-    def get_urls(self, site=None, **kwargs):
-        if site is None:
-            site = Site.objects.get_current()
-        domain = f'https://{site.domain}'
-
-        urls = []
-        original_language = get_language()
-        for lang_code, _ in settings.LANGUAGES:
-            activate(lang_code)
-            for obj in self.items():
-                url = self.location(obj)
-                if not url.startswith(f'/{lang_code}/'):
-                    url = f'/{lang_code}{url}'
-                full_url = domain + url
-                urls.append({
-                    'location': full_url,
-                    'lastmod': self.lastmod(obj),
-                    'changefreq': self.changefreq,
-                    'priority': float(self.priority),
-                    'lang': lang_code,
-                })
-        activate(original_language)
-        return urls
-
 
 class CategorySitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.7
+    # The i18n attribute is the key.
+    i18n = True
 
     def items(self):
-        return Category.objects.all()
+        # Good practice to filter for published categories.
+        return Category.objects.filter(is_published=True)
 
     def lastmod(self, obj):
         if hasattr(obj, 'updated_at'):
@@ -90,27 +65,3 @@ class CategorySitemap(Sitemap):
 
     def location(self, obj):
         return obj.get_absolute_url()
-
-    def get_urls(self, site=None, **kwargs):
-        if site is None:
-            site = Site.objects.get_current()
-        domain = f'https://{site.domain}'
-
-        urls = []
-        original_language = get_language()
-        for lang_code, _ in settings.LANGUAGES:
-            activate(lang_code)
-            for obj in self.items():
-                url = self.location(obj)
-                if not url.startswith(f'/{lang_code}/'):
-                    url = f'/{lang_code}{url}'
-                full_url = domain + url
-                urls.append({
-                    'location': full_url,
-                    'lastmod': self.lastmod(obj),
-                    'changefreq': self.changefreq,
-                    'priority': float(self.priority),
-                    'lang': lang_code,
-                })
-        activate(original_language)
-        return urls
