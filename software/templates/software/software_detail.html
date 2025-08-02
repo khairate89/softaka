@@ -1,19 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-
 {% block title %}{{ software.name }} - {% trans "Download" %}{% endblock %}
-
 {% block head_extra %}
-    {# Canonical URL #}
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta name="description" content="{{ software.description|striptags|truncatechars:160 }}">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "{{ software.name }}",
+      "operatingSystem": "{{ software.operating_system }}",
+      "applicationCategory": "{{ software.category.name }}",
+      "url": "https://softaka.com{{ software.get_absolute_url }}",
+      "image": "https://softaka.com{{ software.image.url }}",
+      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160 }}",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% endif %}",
+      "downloadUrl": "https://softaka.com{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+      "fileSize": "{{ software.file_size }}",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://softaka.com{{ software.get_absolute_url }}"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softaka"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{% trans 'Home' %}",
+        "item": "https://softaka.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ software.category.name }}",
+        "item": "https://softaka.com{{ software.category.get_absolute_url }}"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ software.name }}"
+      }]
+    }{% if comments %},{% endif %}
+{% for comment in comments|slice:":10" %}
+{
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "{{ software.name }}"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ comment.name }}"
+  },
+  "reviewBody": "{{ comment.content|striptags }}",
+  "datePublished": "{{ comment.created_at|date:'c' }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 {% endblock head_extra %}
-
-{# Load page-specific JavaScript #}
 {% block extra_js %}
-    <script src="{% static 'software/js/star_rating.js' %}"></script>
+<script src="{% static 'software/js/star_rating.js' %}"></script>
 {% endblock %}
-
 {% block main_content_area %}
     <div class="row">
         {# Main content column #}
@@ -32,7 +97,6 @@
         </li>
     </ol>
 </nav>
-
             <article class="software-detail my-4 p-4 border rounded shadow-sm">
                 <h2 class="mb-3">{{ software.name }}</h2>
                 <p>{{ software.description|safe }}</p>
