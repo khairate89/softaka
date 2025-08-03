@@ -23,29 +23,28 @@
       "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% elif software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
       "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
       "fileSize": "{{ software.file_size|default:'1 GB' }}",
-    "offers": {
-  "@type": "Offer",
-  "price": "0.00",
-  "priceCurrency": "USD",
-  "availability": "https://schema.org/InStock",
-  "url": "{{ request.build_absolute_uri }}"
-}
-{% if software.total_ratings > 0 %},
-"aggregateRating": {
-  "@type": "AggregateRating",
-  "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
-  "reviewCount": "{{ software.total_ratings }}"
-}
-{% endif %},
-"publisher": {
-  "@type": "Organization",
-  "name": "Softaka",
-  "url": "https://softaka.com/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://softaka.com/static/images/logo.png"
-  }
-}
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ request.build_absolute_uri }}"
+      }{% if software.total_ratings > 0 %},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
+      }{% endif %},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softaka",
+        "url": "https://softaka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://softaka.com/static/images/logo.png"
+        }
+      }
+    },
     {
       "@type": "BreadcrumbList",
       "inLanguage": "{{ LANGUAGE_CODE }}",
@@ -68,8 +67,7 @@
           "name": "{{ software.name }}"
         }
       ]
-    }
-    {% for comment in comments|slice:":10" %},
+    }{% for comment in comments|slice:":10" %},
     {
       "@type": "Review",
       "itemReviewed": {
@@ -82,11 +80,11 @@
       },
       "reviewBody": "{{ comment.content|striptags|escapejs }}",
       "datePublished": "{{ comment.created_at|date:'c' }}"
-    }
-    {% endfor %}
+    }{% endfor %}
   ]
 }
 </script>
+
 {% endblock head_extra %}
 {% block extra_js %}
 <script src="{% static 'software/js/star_rating.js' %}"></script>
