@@ -29,12 +29,11 @@
       "url": "{{ request.scheme }}://{{ request.get_host }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}"
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'software/softaka-logo.svg' %}"
       },
       "sameAs": [
-        "https://www.facebook.com/your-page",
-        "https://twitter.com/your-account",
-        "https://www.linkedin.com/company/your-company"
+        "https://www.facebook.com/softaka",
+        "https://twitter.com/softaka",
       ]
     }{% for software in software_list %},
     {
@@ -68,7 +67,7 @@
         "url": "https://softaka.com/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://softaka.com{% static 'images/logo.png' %}"
+          "url": "https://softaka.com{% static 'software/softaka-logo.svg' %}"
         }
       }
     }{% endfor %}
