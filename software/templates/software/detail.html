@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load humanize %} 
-
 {% block title %}{{ software.name }} - Softaka.com {% endblock %}
-
 {% block head_extra %}
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}">
+<meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs." />
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}">
 {% endblock %}
-
 {% block main_content_area %}
 <div class="row">
     {# Left Sidebar - Categories and Popular Software #}
