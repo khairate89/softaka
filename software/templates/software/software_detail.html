@@ -13,7 +13,7 @@
     {
       "@type": "SoftwareApplication",
       "name": "{{ software.name }}",
-      "operatingSystem": "{{ software.operating_system }}",
+      "operatingSystem": "{{ software.os_info }}",
       "applicationCategory": "{{ software.category.name }}",
       "url": "https://softaka.com{{ software.get_absolute_url }}",
       "image": "{{ software.image.url }}",
@@ -27,12 +27,12 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://softaka.com{{ software.get_absolute_url }}"
+        "url": "{{ request.build_absolute_uri }}"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
-        "reviewCount": "{{ software.total_ratings }}"
+    "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ software.aggregate_rating }}",
+    "reviewCount": "{{ software.review_count }}"
       },
       "publisher": {
         "@type": "Organization",
