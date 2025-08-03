@@ -3,6 +3,8 @@
 {% load i18n %}
 {% block head_extra %}
 <meta name="robots" content="index, follow">
+<meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs." />
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,31 +29,52 @@
       "url": "{{ request.scheme }}://{{ request.get_host }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'software/softaka-logo.svg' %}"
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}"
       },
       "sameAs": [
         "https://www.facebook.com/your-page",
         "https://twitter.com/your-account",
         "https://www.linkedin.com/company/your-company"
       ]
-    },
+    }{% for software in software_list %},
     {
-      "@type": "BreadcrumbList",
+      "@type": "SoftwareApplication",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}#software",
+      "name": "{{ software.name|escapejs }}",
+      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}",
+      "image": "{{ software.image.url }}",
+      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
       "inLanguage": "{{ LANGUAGE_CODE }}",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "{% trans 'Home' %}",
-          "item": "{{ request.scheme }}://{{ request.get_host }}"
+      "softwareVersion": "{% if software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+      "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+      "fileSize": "{{ software.file_size|default:'1 GB' }}",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}"
+      }{% if software.total_ratings > 0 %},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
+      }{% endif %},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softaka",
+        "url": "https://softaka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://softaka.com{% static 'images/logo.png' %}"
         }
-      ]
-    }
+      }
+    }{% endfor %}
   ]
 }
 </script>
-<meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs." />
-<link rel="canonical" href="{{ request.build_absolute_uri }}">
 {% endblock %}
 {% block title %}{% trans "Softaka – Safe, Fast & Verified Software Downloads" %}{% endblock %}
 
