@@ -16,7 +16,7 @@
       "operatingSystem": "{{ software.operating_system }}",
       "applicationCategory": "{{ software.category.name }}",
       "url": "https://softaka.com{{ software.get_absolute_url }}",
-      "image": "https://softaka.com{{ software.image.url }}",
+      "image": "{{ software.image.url }}",
       "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160 }}",
       "inLanguage": "{{ LANGUAGE_CODE }}",
       "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% endif %}",
