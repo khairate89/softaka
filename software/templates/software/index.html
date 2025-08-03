@@ -9,13 +9,14 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "url": "https://softaka.com/",
+      "name": "Softaka",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}",
       "inLanguage": "{{ LANGUAGE_CODE }}",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://softaka.com/search/?q={search_term_string}"
+          "urlTemplate": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
@@ -23,11 +24,27 @@
     {
       "@type": "Organization",
       "name": "Softaka",
-      "url": "https://softaka.com/",
-      "logo": "https://softaka.com/static/software/softaka-logo.svg",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'software/softaka-logo.svg' %}"
+      },
       "sameAs": [
-        "https://www.facebook.com/softaka",
-        "https://twitter.com/softaka"
+        "https://www.facebook.com/your-page",
+        "https://twitter.com/your-account",
+        "https://www.linkedin.com/company/your-company"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{% trans 'Home' %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}"
+        }
       ]
     }
   ]
