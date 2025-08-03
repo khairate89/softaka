@@ -10,28 +10,28 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Example Software",
-  "operatingSystem": "Windows, macOS, Linux",
-  "applicationCategory": "Utilities",
-  "url": "https://softaka.com/software/example",
-  "image": "https://softaka.com/media/example-image.jpg",
-  "description": "A great software for daily use.",
-  "inLanguage": "en",
-  "softwareVersion": "2.5.1",
-  "downloadUrl": "https://softaka.com/software/example/download",
-  "fileSize": "150MB",
+  "name": "{{ software.name|escapejs }}",
+  "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+  "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+  "url": "{{ request.build_absolute_uri }}",
+  "image": "{{ software.image.url }}",
+  "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
+  "inLanguage": "{{ LANGUAGE_CODE }}",
+  "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% elif software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+  "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+  "fileSize": "{{ software.file_size|default:'1 GB' }}",
   "offers": {
     "@type": "Offer",
     "price": "0.00",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://softaka.com/software/example"
-  },
+    "url": "{{ request.build_absolute_uri }}"
+  }{% if software.total_ratings > 0 %},
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.3",
-    "reviewCount": "12"
-  },
+    "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+    "reviewCount": "{{ software.total_ratings }}"
+  }{% endif %},
   "publisher": {
     "@type": "Organization",
     "name": "Softaka",
@@ -40,30 +40,52 @@
       "@type": "ImageObject",
       "url": "https://softaka.com/static/images/logo.png"
     }
-  },
+  }
+  {% if comments|length > 0 %},
   "review": [
+    {% for comment in comments|slice:":10" %}
     {
       "@type": "Review",
       "author": {
         "@type": "Person",
-        "name": "John Doe"
+        "name": "{{ comment.name|escapejs }}"
       },
-      "reviewBody": "Excellent software, very lightweight and effective!",
-      "datePublished": "2024-07-25"
+      "reviewBody": "{{ comment.content|striptags|escapejs }}",
+      "datePublished": "{{ comment.created_at|date:'c' }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+  {% endif %}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "inLanguage": "{{ LANGUAGE_CODE }}",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "{% trans 'Home' %}",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
     },
     {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Jane Smith"
-      },
-      "reviewBody": "Interface could be improved, but overall good.",
-      "datePublished": "2024-07-22"
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ software.category.name }}",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{{ software.category.get_absolute_url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ software.name }}"
     }
   ]
 }
-
 </script>
+
 
 {% endblock head_extra %}
 {% block extra_js %}
