@@ -13,16 +13,16 @@
     {
       "@type": "SoftwareApplication",
       "@id": "{{ request.build_absolute_uri }}#software",
-      "name": "{{ software.name }}",
-      "operatingSystem": "{{ software.operating_system }}",
-      "applicationCategory": "{{ software.category.name }}",
+      "name": "{{ software.name|escapejs }}",
+      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
       "url": "{{ request.build_absolute_uri }}",
       "image": "{{ software.image.url }}",
-      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160 }}",
+      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
       "inLanguage": "{{ LANGUAGE_CODE }}",
-      "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% else %}{{ software.versions.all.0.version_number }}{% endif %}",
+      "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% elif software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
       "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
-      "fileSize": "{{ software.file_size }}",
+      "fileSize": "{{ software.file_size|default:'1 GB' }}",
       "offers": {
         "@type": "Offer",
         "price": "0.00",
@@ -30,35 +30,47 @@
         "availability": "https://schema.org/InStock",
         "url": "{{ request.build_absolute_uri }}"
       },
+      {% if software.total_ratings > 0 %}
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
         "reviewCount": "{{ software.total_ratings }}"
       },
+      {% endif %}
       "publisher": {
         "@type": "Organization",
-        "name": "Softaka"
+        "name": "Softaka",
+        "url": "https://softaka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://softaka.com/static/images/logo.png"
+        }
       }
     },
     {
       "@type": "BreadcrumbList",
       "inLanguage": "{{ LANGUAGE_CODE }}",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "{% trans 'Home' %}",
-        "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
-      }, {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ software.category.name }}",
-        "item": "{{ request.scheme }}://{{ request.get_host }}{{ software.category.get_absolute_url }}"
-      }, {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ software.name }}"
-      }]
-    }{% for comment in comments|slice:":10" %},
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{% trans 'Home' %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ software.category.name }}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{{ software.category.get_absolute_url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ software.name }}"
+        }
+      ]
+    }
+    {% for comment in comments|slice:":10" %},
     {
       "@type": "Review",
       "itemReviewed": {
@@ -69,9 +81,10 @@
         "@type": "Person",
         "name": "{{ comment.name }}"
       },
-      "reviewBody": "{{ comment.content|striptags }}",
+      "reviewBody": "{{ comment.content|striptags|escapejs }}",
       "datePublished": "{{ comment.created_at|date:'c' }}"
-    }{% endfor %}
+    }
+    {% endfor %}
   ]
 }
 </script>
