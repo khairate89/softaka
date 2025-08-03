@@ -29,7 +29,7 @@
 <body>
 <header class="bg-dark text-white py-3">
     <div class="container d-flex justify-content-between align-items-center">
-   <a class="navbar-brand" href="{% url 'software:index' %}">
+<a class="navbar-brand" href="{% url 'software:index' %}">
   <svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc subtitleDesc">
     <title id="logoTitle">Softaka Logo</title>
     <desc id="logoDesc">A logo for Softaka, featuring the name and a small download icon.</desc>
@@ -49,11 +49,15 @@
       }
     </style>
     <!-- Main logo text -->
-    <text x="10" y="28" font-family="" font-size="26" font-weight="bold" class="soft-fill">Soft</text>
-    <text x="60" y="28" font-family="" font-size="26" font-weight="bold" class="taka-fill">aka</text>
-    <!-- Download icon moved closer and aligned vertically -->
-    <path d="M120 22 L128 22 L128 15 L132 15 L124 7 L116 15 L120 15 Z M120 25 L120 27 L128 27 L128 25 Z" fill="#4169e1"/>
-    <!-- Subtitle centered under text -->
+    <text x="10" y="28" font-size="26" font-weight="bold" class="soft-fill">Soft</text>
+    <text x="60" y="28" font-size="26" font-weight="bold" class="taka-fill">aka</text>
+
+    <!-- Download Icon: Moved closer and aligned better -->
+    <g transform="translate(103, 10)" stroke="#4169e1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="10" y1="0" x2="10" y2="14" />
+      <polyline points="6,10 10,14 14,10" />
+      <rect x="4" y="16" width="12" height="3" />
+    </g>
     <text x="110" y="50" class="subtitle">Your Trusted Software Download Hub</text>
   </svg>
 </a>
@@ -158,14 +162,40 @@
 
             <div class="col-md-6 text-md-end">
                 <a class="d-inline-block mb-3" href="{% url 'software:index' %}">
-                    <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="footerLogoTitle footerLogoDesc">
-                        <title id="footerLogoTitle">Softaka Footer Logo</title>
-                        <desc id="footerLogoDesc">A logo for Softaka, featuring the name and a small download icon.</desc>
-                        <text x="10" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="green">Soft</text>
-                        <text x="75" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="blue">Vault</text>
-                        <path d="M150 15 L158 15 L158 8 L162 8 L154 0 L146 8 L150 8 Z M150 18 L150 20 L158 20 L158 18 Z" fill="blue"/>
-                    </svg>
-                </a>
+  <svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc subtitleDesc">
+    <title id="logoTitle">Softaka Logo</title>
+    <desc id="logoDesc">A logo for Softaka, featuring the name and a small download icon.</desc>
+    <desc id="subtitleDesc">Your Trusted Software Download Hub subtitle under the logo</desc>
+    <style>
+      .soft-fill {
+        fill: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+      }
+      .taka-fill {
+        fill: #4169e1;
+      }
+      .subtitle {
+        fill: white;
+        font-size: 12px;
+        font-weight: normal;
+        text-anchor: middle;
+      }
+    </style>
+
+    <!-- Main logo text -->
+    <text x="10" y="28" font-size="26" font-weight="bold" class="soft-fill">Soft</text>
+    <text x="60" y="28" font-size="26" font-weight="bold" class="taka-fill">aka</text>
+
+    <!-- Download Icon: Moved closer and aligned better -->
+    <g transform="translate(103, 10)" stroke="#4169e1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="10" y1="0" x2="10" y2="14" />
+      <polyline points="6,10 10,14 14,10" />
+      <rect x="4" y="16" width="12" height="3" />
+    </g>
+
+    <!-- Subtitle centered under text -->
+    <text x="110" y="50" class="subtitle">Your Trusted Software Download Hub</text>
+  </svg>
+</a>
                 <p class="text-muted small">{% trans "Your ultimate source for free software downloads." %}</p>
             </div>
         </div>
