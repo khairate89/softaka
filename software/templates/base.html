@@ -137,7 +137,6 @@
         {% endblock %}
     </div>
 </main>
-
 <footer class="bg-dark text-white pt-5 pb-3">
     <div class="container">
         <div class="row mb-4">
@@ -157,15 +156,12 @@
         autocomplete="email">
     <button type="submit" class="btn btn-primary">{% trans "Subscribe" %}</button>
 </form>
-
 </div>
-
-            <div class="col-md-6 text-md-end">
-                <a class="d-inline-block mb-3" href="{% url 'software:index' %}">
+<div class="col-md-6 text-md-end">
+<a class="d-inline-block mb-3" href="{% url 'software:index' %}">
   <svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc subtitleDesc">
     <title id="logoTitle">Softaka Logo</title>
     <desc id="logoDesc">A logo for Softaka, featuring the name and a small download icon.</desc>
-    <desc id="subtitleDesc">Your Trusted Software Download Hub subtitle under the logo</desc>
     <style>
       .soft-fill {
         fill: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
@@ -180,20 +176,13 @@
         text-anchor: middle;
       }
     </style>
-
-    <!-- Main logo text -->
     <text x="10" y="28" font-size="26" font-weight="bold" class="soft-fill">Soft</text>
     <text x="60" y="28" font-size="26" font-weight="bold" class="taka-fill">aka</text>
-
-    <!-- Download Icon: Moved closer and aligned better -->
     <g transform="translate(103, 10)" stroke="#4169e1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <line x1="10" y1="0" x2="10" y2="14" />
       <polyline points="6,10 10,14 14,10" />
       <rect x="4" y="16" width="12" height="3" />
     </g>
-
-    <!-- Subtitle centered under text -->
-    <text x="110" y="50" class="subtitle">Your Trusted Software Download Hub</text>
   </svg>
 </a>
                 <p class="text-muted small">{% trans "Your ultimate source for free software downloads." %}</p>
