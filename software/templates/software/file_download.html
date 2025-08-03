@@ -1,26 +1,67 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-
 {% block title %}
     {{ software.name }} – {% trans "Download" %} (v{{ software_download_page_version.version_number }})
 {% endblock %}
-
 {% block head_extra %}
 <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "{% trans "Download" %} {{ software.name|escapejs }}",
+      "url": "{{ request.build_absolute_uri }}",
+      "description": "{% trans "Download the latest version of" %} {{ software.name|escapejs }} {% trans "from Softaka." %}",
+      "inLanguage": "{{ LANGUAGE_CODE }}"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{% trans 'Home' %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ software.name }}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{% trans "Download" %}"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "{{ software.name|escapejs }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}",
+      "downloadUrl": "{{ request.build_absolute_uri }}",
+      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+      "softwareVersion": "{% if software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+      "fileSize": "{{ software.file_size|default:'1 GB' }}"
+    }
+  ]
+}
+</script>
 {% endblock %}
-
 {# page‑specific JS #}
 {% block extra_js %}
     <script src="{% static 'software/js/star_rating.js' %}"></script>
 {% endblock %}
-
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8">
-
-        {# ─── Breadcrumb ──────────────────────────────────────────────── #}
         <nav aria-label="breadcrumb" class="my-3">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'software:index' %}">{% trans "Home" %}</a></li>
@@ -30,19 +71,11 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ software.name }}</li>
             </ol>
         </nav>
-
         {# ─── Download Card ───────────────────────────────────────────── #}
         <div class="card shadow-sm mb-4">
             <div class="card-body text-center">
-
-                
-
                 {% blocktrans with name=software.name %}Thank you for choosing to download <strong>{{ name }}</strong>.{% endblocktrans %}
-
-              
-
                 <hr>
-
                 {# ─── Download Buttons or Warning ─────────────────────── #}
                 {% if software_download_page_version.specific_download_links.all %}
                     <div class="d-grid gap-2 col-8 mx-auto">
