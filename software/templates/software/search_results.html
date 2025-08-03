@@ -2,14 +2,11 @@
 {% load static %}
 {% load humanize %}
 {% load i18n %}
-
 {% block title %}{% blocktrans %}Search Results for "{{ request.GET.q }}"{% endblocktrans %}{% endblock %}
-
 {% block head_extra %}
-    {# Canonical URL pointing to the base search page to avoid duplicate content #}
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}">
 {% endblock %}
-
 {% block main_content_area %}
     <div class="col-md-12"> 
         {% block content %}
