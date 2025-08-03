@@ -60,8 +60,7 @@
     }{% for comment in comments|slice:":10" %},{
       "@type": "Review",
       "itemReviewed": {
-        "@type": "SoftwareApplication",
-        "name": "{{ software.name }}"
+        "@id": "{{ request.build_absolute_uri }}#software"
       },
       "author": {
         "@type": "Person",
