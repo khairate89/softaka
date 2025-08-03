@@ -12,6 +12,7 @@
   "@graph": [
     {
       "@type": "SoftwareApplication",
+      "@id": "{{ request.build_absolute_uri }}#software",
       "name": "{{ software.name }}",
       "operatingSystem": "{{ software.operating_system }}",
       "applicationCategory": "{{ software.category.name }}",
@@ -57,10 +58,12 @@
         "position": 3,
         "name": "{{ software.name }}"
       }]
-    }{% for comment in comments|slice:":10" %},{
+    }{% for comment in comments|slice:":10" %},
+    {
       "@type": "Review",
       "itemReviewed": {
-        "@id": "{{ request.build_absolute_uri }}#software"
+        "@type": "SoftwareApplication",
+        "name": "{{ software.name }}"
       },
       "author": {
         "@type": "Person",
