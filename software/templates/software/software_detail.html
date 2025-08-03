@@ -13,14 +13,14 @@
     {
       "@type": "SoftwareApplication",
       "name": "{{ software.name }}",
-      "operatingSystem": "{{ software.os_info }}",
+      "operatingSystem": "{{ software.operating_system }}",
       "applicationCategory": "{{ software.category.name }}",
-      "url": "https://softaka.com{{ software.get_absolute_url }}",
+      "url": "{{ request.build_absolute_uri }}",
       "image": "{{ software.image.url }}",
       "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160 }}",
       "inLanguage": "{{ LANGUAGE_CODE }}",
-      "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% endif %}",
-      "downloadUrl": "https://softaka.com{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+      "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% else %}{{ software.versions.all.0.version_number }}{% endif %}",
+      "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
       "fileSize": "{{ software.file_size }}",
       "offers": {
         "@type": "Offer",
@@ -29,10 +29,10 @@
         "availability": "https://schema.org/InStock",
         "url": "{{ request.build_absolute_uri }}"
       },
-    "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "{{ software.aggregate_rating }}",
-    "reviewCount": "{{ software.review_count }}"
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
       },
       "publisher": {
         "@type": "Organization",
@@ -46,33 +46,30 @@
         "@type": "ListItem",
         "position": 1,
         "name": "{% trans 'Home' %}",
-        "item": "https://softaka.com/"
+        "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
       }, {
         "@type": "ListItem",
         "position": 2,
         "name": "{{ software.category.name }}",
-        "item": "https://softaka.com{{ software.category.get_absolute_url }}"
+        "item": "{{ request.scheme }}://{{ request.get_host }}{{ software.category.get_absolute_url }}"
       }, {
         "@type": "ListItem",
         "position": 3,
         "name": "{{ software.name }}"
       }]
-    }{% if comments %},{% endif %}
-{% for comment in comments|slice:":10" %}
-{
-  "@type": "Review",
-  "itemReviewed": {
-    "@type": "SoftwareApplication",
-    "name": "{{ software.name }}"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "{{ comment.name }}"
-  },
-  "reviewBody": "{{ comment.content|striptags }}",
-  "datePublished": "{{ comment.created_at|date:'c' }}"
-    }{% if not forloop.last %},{% endif %}
-    {% endfor %}
+    }{% for comment in comments|slice:":10" %},{
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "SoftwareApplication",
+        "name": "{{ software.name }}"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "{{ comment.name }}"
+      },
+      "reviewBody": "{{ comment.content|striptags }}",
+      "datePublished": "{{ comment.created_at|date:'c' }}"
+    }{% endfor %}
   ]
 }
 </script>
