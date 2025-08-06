@@ -23,8 +23,7 @@ class Category(models.Model):
     display_on_menu = models.BooleanField(default=True, help_text="Check to display this category in the **left sidebar menu**.")
     display_on_header = models.BooleanField(default=False, help_text="Check to display this category in the **main header navigation**.")
        # New SEO fields
-    meta_title = models.CharField(_("Meta Title"), max_length=255, blank=True, null=True,
-        help_text=_("Optional. Title for SEO, defaults to category name."))
+
     meta_description = models.TextField(_("Meta Description"), blank=True, null=True,
         help_text=_("Optional. Description for SEO."))
       # New multilingual description fields
