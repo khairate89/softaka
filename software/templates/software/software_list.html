@@ -2,73 +2,71 @@
 {% load static %}
 {% load humanize %}
 {% load i18n %}
-{% block head_extra %}
-{{ block.super }}  <!-- Preserve default content -->
+{% block title %}{{ category.name }} {% trans "Software & Apps - Softaka" %}{% endblock %}
+{% block meta_description %}{{ category.meta_description }}{% endblock %}
+{% block head_extra %}{{ block.super }} 
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "inLanguage": "{{ LANGUAGE_CODE }}",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "{% trans 'Home' %}",
-          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "{{ category.name }}",
-          "item": "{{ request.scheme }}://{{ request.get_host }}{{ category.get_absolute_url }}"
-        }
-      ]
-    }{% for software in software_list %},
-    {
-      "@type": "SoftwareApplication",
-      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}#software",
-      "name": "{{ software.name|escapejs }}",
-      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
-      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
-      "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}",
-      "image": "{{ software.image.url }}",
-      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
-      "inLanguage": "{{ LANGUAGE_CODE }}",
-      "softwareVersion": "{% if software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
-      "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
-      "fileSize": "{{ software.file_size|default:'1 GB' }}",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}"
-      }{% if software.total_ratings > 0 %},
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
-        "reviewCount": "{{ software.total_ratings }}"
-      }{% endif %},
-      "publisher": {
-        "@type": "Organization",
-        "name": "Softaka",
-        "url": "https://softaka.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://softaka.com{% static 'images/logo.png' %}"
-        }
-      }
-    }{% endfor %}
-  ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{% trans 'Home' %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ category.name }}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{{ category.get_absolute_url }}"
+        }
+      ]
+    }{% for software in software_list %},
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}#software",
+      "name": "{{ software.name|escapejs }}",
+      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}",
+      "image": "{{ software.image.url }}",
+      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "softwareVersion": "{% if software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+      "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+      "fileSize": "{{ software.file_size|default:'1 GB' }}",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}"
+      }{% if software.total_ratings > 0 %},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
+      }{% endif %},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softaka",
+        "url": "https://softaka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://softaka.com{% static 'images/logo.png' %}"
+        }
+      }
+    }{% endfor %}
+  ]
 }
 </script>
-{% endblock %}
-{% block title %}
-  {{ category.name }} {% trans "Software & Apps - Softaka" %}
 {% endblock %}
 
 {% block content %}
@@ -76,100 +74,100 @@
 
 {% if object_list %}
 <div class="row">
-    {% for software in object_list %}
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 shadow-sm filecr-card">
-                <div class="card-body d-flex flex-column">
-                    <div class="d-flex align-items-center mb-3">
-                        {% if software.image_thumbnail %}
-                            <img src="{{ software.image_thumbnail.url }}" alt="{{ software.name }}"
-                                 class="software-card-img-thumbnail me-3" width="56" height="56">
-                        {% elif software.image %}
-                            <img src="{{ software.image.url }}" alt="{{ software.name }}"
-                                 class="software-card-img-thumbnail me-3" width="56" height="56">
-                        {% else %}
-                            <img src="{% static 'software/placeholder.png' %}" alt="{% trans 'No image' %}"
-                                 class="software-card-img-thumbnail me-3" width="56" height="56">
-                        {% endif %}
-                        <div class="flex-grow-1">
-                            <h5 class="card-title mb-1">
-                                <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}"
-                                   class="text-decoration-none text-dark fw-bold">{{ software.name }}</a>
-                            </h5>
-                            {% if software.short_description %}
-                                <p class="card-subtitle text-muted small">{{ software.short_description }}</p>
-                            {% endif %}
-                        </div>
-                    </div>
+    {% for software in object_list %}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 shadow-sm filecr-card">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex align-items-center mb-3">
+                        {% if software.image_thumbnail %}
+                            <img src="{{ software.image_thumbnail.url }}" alt="{{ software.name }}"
+                                 class="software-card-img-thumbnail me-3" width="56" height="56">
+                        {% elif software.image %}
+                            <img src="{{ software.image.url }}" alt="{{ software.name }}"
+                                 class="software-card-img-thumbnail me-3" width="56" height="56">
+                        {% else %}
+                            <img src="{% static 'software/placeholder.png' %}" alt="{% trans 'No image' %}"
+                                 class="software-card-img-thumbnail me-3" width="56" height="56">
+                        {% endif %}
+                        <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">
+                                <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}"
+                                   class="text-decoration-none text-dark fw-bold">{{ software.name }}</a>
+                            </h5>
+                            {% if software.short_description %}
+                                <p class="card-subtitle text-muted small">{{ software.short_description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
 
-                    <div class="d-flex justify-content-between text-muted small mb-2">
-                        <div>
-                            {% trans "Category" %}:
-                            <a href="{% url 'software:category-software-list' slug=software.category.slug %}"
-                               class="text-decoration-none">{{ software.category.name }}</a>
-                        </div>
-                        {% if software.operating_system %}
-                            <div class="text-capitalize">{{ software.operating_system }}</div>
-                        {% endif %}
-                    </div>
+                    <div class="d-flex justify-content-between text-muted small mb-2">
+                        <div>
+                            {% trans "Category" %}:
+                            <a href="{% url 'software:category-software-list' slug=software.category.slug %}"
+                               class="text-decoration-none">{{ software.category.name }}</a>
+                        </div>
+                        {% if software.operating_system %}
+                            <div class="text-capitalize">{{ software.operating_system }}</div>
+                        {% endif %}
+                    </div>
 
-                    <p class="card-text text-muted small mb-auto">
-                        {{ software.homepage_description|default:software.description|truncatewords:15|safe }}
-                    </p>
+                    <p class="card-text text-muted small mb-auto">
+                        {{ software.homepage_description|default:software.description|truncatewords:15|safe }}
+                    </p>
 
-                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                        <div class="d-flex flex-column text-center me-3">
-                            {% if software.download_count is not None %}
-                                <span class="fw-bold fs-6 text-primary">{{ software.download_count|intcomma }}</span>
-                                <small class="text-muted">{% trans "Reputation" %}</small>
-                            {% endif %}
-                        </div>
-                        <div class="d-flex flex-column text-center flex-grow-1 me-3">
-                            {% if software.file_size %}
-                                <span class="fw-bold fs-6 text-secondary">{{ software.file_size }}</span>
-                                <small class="text-muted">{% trans "Size" %}</small>
-                            {% endif %}
-                        </div>
-                        <div class="ms-auto">
-                            <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}"
-                               class="btn btn-sm btn-outline-primary">
-                                {% trans "View Details" %}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% empty %}
-        <p>{% trans "No software available." %}</p>
-    {% endfor %}
+                    <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-column text-center me-3">
+                            {% if software.download_count is not None %}
+                                <span class="fw-bold fs-6 text-primary">{{ software.download_count|intcomma }}</span>
+                                <small class="text-muted">{% trans "Reputation" %}</small>
+                            {% endif %}
+                    </div>
+                        <div class="d-flex flex-column text-center flex-grow-1 me-3">
+                            {% if software.file_size %}
+                                <span class="fw-bold fs-6 text-secondary">{{ software.file_size }}</span>
+                                <small class="text-muted">{% trans "Size" %}</small>
+                            {% endif %}
+                    </div>
+                        <div class="ms-auto">
+                            <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}"
+                               class="btn btn-sm btn-outline-primary">
+                                {% trans "View Details" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>{% trans "No software available." %}</p>
+    {% endfor %}
 </div>
 
 {% if is_paginated %}
 <div class="pagination d-flex justify-content-center my-4">
-    <nav aria-label="{% trans 'Page navigation' %}">
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
-                </li>
-            {% endif %}
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">
-                    {% blocktrans %}Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}{% endblocktrans %}
-                </span>
-            </li>
-            {% if page_obj.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
+    <nav aria-label="{% trans 'Page navigation' %}">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
+                </li>
+            {% endif %}
+            <li class="page-item active" aria-current="page">
+                <span class="page-link">
+                    {% blocktrans %}Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}{% endblocktrans %}
+                </span>
+            </li>
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 </div>
 {% endif %}
 
 {% else %}
-    <p>{% trans "No software available." %}</p>
+    <p>{% trans "No software available." %}</p>
 {% endif %}
 {% endblock %}
