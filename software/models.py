@@ -22,7 +22,20 @@ class Category(models.Model):
     icon = models.CharField(max_length=50, blank=True, null=True, help_text="Font Awesome icon class (e.g., 'fas fa-desktop')")
     display_on_menu = models.BooleanField(default=True, help_text="Check to display this category in the **left sidebar menu**.")
     display_on_header = models.BooleanField(default=False, help_text="Check to display this category in the **main header navigation**.")
-       # New SEO fields
+        # New SEO fields
+    meta_title = models.CharField(_("Meta Title"), max_length=255, blank=True, null=True,
+        help_text=_("Optional. Title for SEO, defaults to category name."))
+    meta_description = models.TextField(_("Meta Description"), blank=True, null=True,
+        help_text=_("Optional. Description for SEO."))
+      # New multilingual description fields
+    description_en = models.TextField(_("Description [en]"), blank=True, null=True)
+    description_fr = models.TextField(_("Description [fr]"), blank=True, null=True)
+    description_de = models.TextField(_("Description [de]"), blank=True, null=True)
+    description_es = models.TextField(_("Description [es]"), blank=True, null=True)
+    description_ar = models.TextField(_("Description [ar]"), blank=True, null=True)
+    description_ru = models.TextField(_("Description [ru]"), blank=True, null=True)
+    description_zh_hans = models.TextField(_("Description [zh-hans]"), blank=True, null=True)
+# This is the corrected field
     is_published = models.BooleanField(default=True, help_text=_("Whether this category should be publicly visible."))
     updated_at = models.DateTimeField(auto_now=True, help_text=_("The date and time this category was last updated."))
     class Meta:
