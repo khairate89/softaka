@@ -1,0 +1,66 @@
+{% load i18n %}
+{% load static software_filters humanize %}
+
+{% for software in software_list %}
+<div class="col-md-4 col-sm-6 mb-4"> 
+    <div class="card h-100 shadow-sm filecr-card">
+        <div class="card-body d-flex flex-column"> 
+            <!-- Top section: Image and Title/Tagline -->
+            <div class="d-flex align-items-center mb-3">
+   {% if software.image_thumbnail %}
+    <img src="{{ software.image_thumbnail.url|default:software.image_thumbnail }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
+{% elif software.image %}
+    <img src="{{ software.image.url }}" class="software-card-img-thumbnail me-3" alt="{{ software.name }}" width="56" height="56">
+{% else %}
+    <img src="{% static 'software/placeholder.png' %}" alt="{% trans 'No image' %}" class="software-card-img-thumbnail me-3" width="56" height="56">
+{% endif %}
+
+                <div class="flex-grow-1">
+                    <h4 class="card-title mb-1">
+                        <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="text-decoration-none text-dark fw-bold">
+                            {{ software.name }}
+                        </a>
+                    </h4>
+                    {% if software.short_description %} 
+                        <p class="card-subtitle text-muted small">{{ software.short_description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Middle section: Category and Platform -->
+            <div class="d-flex justify-content-between text-muted small mb-2">
+                <div>
+                    {% trans "Category" %}: <a href="{{ software.category.get_absolute_url }}" class="text-decoration-none">{{ software.category.name }}</a>
+                </div>
+                {% if software.operating_system %}
+                    <div class="text-capitalize">{{ software.operating_system }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Main Description -->
+            <p class="card-text text-muted small mb-auto">{{ software.homepage_description|truncatewords:15|safe }}</p>
+
+            <!-- Bottom section: Download Count, File Size, and View Details -->
+            <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column text-center me-3">
+                    {% if software.download_count is not None %}
+                        <span class="fw-bold fs-6 text-primary">{{ software.download_count|intcomma }}</span>
+                        <small class="text-muted">{% trans "Reputation" %}</small>
+                    {% endif %}
+                </div>
+                <div class="d-flex flex-column text-center flex-grow-1 me-3">
+                    {% if software.file_size %}
+                        <span class="fw-bold fs-6 text-secondary">{{ software.file_size }}</span>
+                        <small class="text-muted">{% trans "Size" %}</small>
+                    {% endif %}
+                </div>
+                <div class="ms-auto"> 
+                    <a href="{% url 'software:software-detail' category_slug=software.category.slug slug=software.slug %}" class="btn btn-sm btn-outline-primary">
+                        {% trans "View Details" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

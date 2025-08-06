@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Terms & Conditions" %} - Softaka{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <h1 class="mb-4 text-center">{% trans "Terms and Conditions" %}</h1>
+            <div class="card p-4 shadow-sm">
+                <p>{% trans "Welcome to Softaka! These terms and conditions outline the rules and regulations for the use of Softaka Inc.'s Website, located at [Your Website URL]." %}</p>
+                <p>{% trans "By accessing this website, we assume you accept these terms and conditions. Do not continue to use Softaka if you do not agree to take all of the terms and conditions stated on this page." %}</p>
+
+                <h2 class="mt-4">1. {% trans "Definitions" %}</h2>
+                <ul>
+                    <li><strong>{% trans "Website, Service, Site:" %}</strong> {% trans "Refers to Softaka located at [Your Website URL]." %}</li>
+                    <li><strong>{% trans "We, Us, Our:" %}</strong> {% trans "Refers to Softaka Inc." %}</li>
+                    <li><strong>{% trans "You, User:" %}</strong> {% trans "Refers to the individual accessing or using the Website." %}</li>
+                    <li><strong>{% trans "Software, Content:" %}</strong> {% trans "Refers to any programs, files, text, graphics, images, or other material available on the Website." %}</li>
+                </ul>
+
+                <h2 class="mt-4">2. {% trans "Intellectual Property Rights" %}</h2>
+                <p>{% trans "Unless otherwise stated, Softaka Inc. and/or its licensors own the intellectual property rights for all material on Softaka. All intellectual property rights are reserved. You may access this from Softaka for your own personal use subjected to restrictions set in these terms and conditions." %}</p>
+                <p>{% trans "You must not:" %}</p>
+                <ul>
+                    <li>{% trans "Republish material from Softaka" %}</li>
+                    <li>{% trans "Sell, rent or sub-license material from Softaka" %}</li>
+                    <li>{% trans "Reproduce, duplicate or copy material from Softaka" %}</li>
+                    <li>{% trans "Redistribute content from Softaka" %}</li>
+                </ul>
+
+                <h2 class="mt-4">3. {% trans "User Responsibilities & Conduct" %}</h2>
+                <p>{% trans "By using this Website, you agree to:" %}</p>
+                <ul>
+                    <li>{% trans "Use the Website and download software at your own risk." %}</li>
+                    <li>{% trans "Not use the Website for any unlawful purpose or in any way that violates these Terms and Conditions." %}</li>
+                    <li>{% trans "Not engage in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website." %}</li>
+                    <li>{% trans "Not interfere with the security or proper working of the Website." %}</li>
+                    <li>{% trans "Not attempt to gain unauthorized access to any portion or feature of the Website, or any other systems or networks connected to the Website or to any server, computer, or network associated with the Website." %}</li>
+                </ul>
+
+                <h2 class="mt-4">4. {% trans "Software Downloads" %}</h2>
+                <p>{% trans "Softaka provides software downloads for informational and convenience purposes. We do not host all software files directly and may link to external download sources. We make no representations or warranties regarding the safety, functionality, or suitability of any software downloaded from our site or linked third-party sites." %}</p>
+                <ul>
+                    <li><strong>{% trans "Risk:" %}</strong> {% trans "All software downloads are undertaken at your own risk. We strongly recommend scanning any downloaded software with reputable antivirus and anti-malware programs before installation and use." %}</li>
+                    <li><strong>{% trans "Licensing:" %}</strong> {% trans "Users are solely responsible for adhering to the license agreements of any software they download. Softaka does not grant any software licenses." %}</li>
+                </ul>
+
+                <h2 class="mt-4">5. {% trans "Hyperlinking to our Content" %}</h2>
+                <p>{% trans "The following organizations may link to our Website without prior written approval:" %}</p>
+                <ul>
+                    <li>{% trans "Government agencies;" %}</li>
+                    <li>{% trans "Search engines;" %}</li>
+                    <li>{% trans "News organizations;" %}</li>
+                    <li>{% trans "Online directory distributors when they list us in the directory may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and" %}</li>
+                    <li>{% trans "System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site." %}</li>
+                </ul>
+                <p>{% trans "These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party's site." %}</p>
+                <p>{% trans "We may consider and approve other link requests from the following types of organizations:" %}</p>
+                <ul>
+                    <li>{% trans "commonly-known consumer and/or business information sources;" %}</li>
+                    <li>{% trans "dot.com community sites;" %}</li>
+                    <li>{% trans "associations or other groups representing charities;" %}</li>
+                    <li>{% trans "online directory distributors;" %}</li>
+                    <li>{% trans "internet portals;" %}</li>
+                    <li>{% trans "accounting, law and consulting firms; and" %}</li>
+                    <li>{% trans "educational institutions and trade associations." %}</li>
+                </ul>
+
+                <h2 class="mt-4">6. {% trans "Disclaimer of Warranties" %}</h2>
+                <p>{% trans 'The Website and all content and software contained therein are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied. Softaka Inc. disclaims all warranties, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.' %}</p>
+
+                <h2 class="mt-4">7. {% trans "Limitation of Liability" %}</h2>
+                <p>{% trans "In no event shall Softaka Inc., its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose." %}</p>
+
+                <h2 class="mt-4">8. {% trans "Indemnification" %}</h2>
+                <p>{% trans "You agree to indemnify, defend and hold harmless Softaka Inc., its officers, directors, employees, agents, and third parties, for any losses, costs, liabilities, and expenses (including reasonable attorney's fees) relating to or arising out of your use of or inability to use the Website or services, any user postings made by you, your violation of any terms of this Agreement or your violation of any rights of a third party, or your violation of any applicable laws, rules or regulations." %}</p>
+
+                <h2 class="mt-4">9. {% trans "Changes to Terms" %}</h2>
+                <p>{% trans "We reserve the right to revise these Terms and Conditions at any time. By continuing to use the Website, you agree to be bound by the current version of these Terms and Conditions." %}</p>
+
+                <h2 class="mt-4">10. {% trans "Governing Law & Jurisdiction" %}</h2>
+                <p>{% trans "These Terms shall be governed and construed in accordance with the laws of Germany, without regard to its conflict of law provisions." %}</p>
+
+                <h2 class="mt-4">11. {% trans "Contact Information" %}</h2>
+                <p>{% trans "If you have any questions about these Terms and Conditions, please contact us at" %} <a href="mailto:contact@Softaka.com">contact@Softaka.com</a>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

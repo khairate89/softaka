@@ -1,0 +1,26 @@
+<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc subtitleDesc">
+  <title id="logoTitle">Softaka Logo</title>
+  <desc id="logoDesc">A logo for Softaka, featuring the name and a small download icon.</desc>
+  <desc id="subtitleDesc">Your Trusted Software Download Hub subtitle under the logo</desc>
+  <style>
+    .soft-fill {
+      fill: #198754; /* Bootstrap success green */
+    }
+    .taka-fill {
+      fill: #4169e1; /* royal blue */
+    }
+    .subtitle {
+      fill: white;
+      font-size: 12px;
+      font-weight: normal;
+      text-anchor: middle;
+    }
+  </style>
+  <!-- Main logo text -->
+  <text x="10" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" class="soft-fill">Soft</text>
+  <text x="60" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" class="taka-fill">aka</text>
+  <!-- Download icon -->
+  <path d="M120 22 L128 22 L128 15 L132 15 L124 7 L116 15 L120 15 Z M120 25 L120 27 L128 27 L128 25 Z" fill="#4169e1"></path>
+  <!-- Subtitle centered under text -->
+  <text x="110" y="50" font-family="Arial, sans-serif" class="subtitle">Your Trusted Software Download Hub</text>
+</svg>

@@ -1,0 +1,381 @@
+/* --- CSS Variables for easy color management --- */
+:root {
+    /* More robust Blues for WCAG AA contrast */
+    --primary-blue: #0056B3; /* Darker blue for general links, buttons (passes on white) */
+    --light-blue: #007BFF;   /* Standard Bootstrap primary blue, for subtle accents/hovers */
+    --darker-blue: #004085;  /* Even deeper blue for header/footer backgrounds */
+
+    /* More robust Greens for WCAG AA contrast (still used for success elements) */
+    --primary-green: #157347; /* Darker green for success buttons */
+    --light-green: #28A745;   /* Standard Bootstrap success green */
+    --darker-green: #0F5132;  /* Even deeper green */
+
+    /* Neutrals - crucial for contrast */
+    --text-on-dark: #FFFFFF; /* Pure white text for dark backgrounds (header/footer/buttons) */
+    --text-on-light: #212529; /* Very dark gray text for light backgrounds (main content, navbar) */
+    --subtle-gray: #6C757D;   /* Muted gray for secondary text, ensure contrast */
+    --dark-gray-bg: #343A40; /* Darker gray for elements like btn-secondary (Bootstrap dark) */
+    --warning-orange: #FFC107; /* Bootstrap's warning orange (background) */
+    --warning-text-dark: #383D41; /* Dark text for warning background */
+    --border-light: rgba(0, 0, 0, 0.1);
+}
+
+/* --- General Body and Font Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-on-light);
+    /* No background override so Bootstrap can manage if set */
+}
+
+/* --- Header and Footer --- */
+header {
+    background-color: var(--darker-blue) !important;
+    color: var(--text-on-dark);
+}
+
+header .navbar-brand svg text {
+    fill: var(--text-on-dark);
+}
+
+header .navbar-brand svg path {
+    fill: var(--primary-green);
+}
+
+footer {
+    background-color: var(--darker-blue) !important;
+    color: var(--text-on-dark);
+}
+
+footer a {
+    color: var(--light-blue) !important;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--text-on-dark) !important;
+}
+
+footer .social-icons a {
+    color: var(--text-on-dark) !important;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: var(--light-blue) !important;
+}
+
+footer .text-muted.small {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* --- Navigation Bar --- */
+.navbar-light {
+    background-color: var(--text-on-dark) !important;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-on-light) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-blue) !important;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--darker-blue) !important;
+    border-color: var(--darker-blue) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    color: var(--text-on-dark) !important;
+    border-color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--text-on-dark) !important;
+    color: var(--primary-blue) !important;
+    border-color: var(--text-on-dark) !important;
+}
+
+.btn-success {
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: var(--darker-green) !important;
+    border-color: var(--darker-green) !important;
+}
+
+.btn-info {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-info:hover {
+    background-color: var(--darker-blue) !important;
+    border-color: var(--darker-blue) !important;
+}
+
+.btn-secondary {
+    background-color: var(--dark-gray-bg) !important;
+    border-color: var(--dark-gray-bg) !important;
+    color: var(--text-on-dark) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #23272b !important;
+    border-color: #23272b !important;
+}
+
+/* --- Card Styles (NO hover transform to avoid shaking) --- */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Card header */
+.card-header {
+    font-weight: 600;
+    font-size: 1.15rem;
+    padding: 0.85rem 1.5rem;
+    border-bottom: none;
+    border-radius: 0.75rem 0.75rem 0 0 !important;
+}
+
+/* Card header headings */
+.card-header h1, .card-header h2, .card-header h3,
+.card-header h4, .card-header h5, .card-header h6 {
+    color: white !important;
+}
+
+/* Specific card header backgrounds */
+.card-header.bg-info {
+    background-color: var(--color-light) !important;
+}
+
+.card-header.bg-success {
+    background-color: var(--color-light) !important;
+    border-bottom: 1px solid grey;
+}
+
+.card-header.bg-primary {
+    background-color: var(--darker-blue) !important;
+}
+
+/* --- Form Controls --- */
+.form-control {
+    border-color: var(--border-light);
+    border-radius: 0.375rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* --- Comment Section --- */
+.comment-item {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px dashed var(--border-light);
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* --- Pagination --- */
+.pagination .page-link {
+    color: var(--primary-blue);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: var(--darker-blue);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    color: var(--text-on-dark) !important;
+}
+
+/* --- Links in Main Content --- */
+a {
+    color: var(--light-blue);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: var(--darker-blue);
+    text-decoration: underline;
+}
+
+.text-white li a {
+    color: var(--light-blue) !important;
+}
+
+/* --- Star Rating Styles --- */
+#star-rating .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc;
+    transition: color 0.2s ease-in-out;
+}
+
+#star-rating .star.hover,
+#star-rating .star.selected,
+#star-rating .star.filled {
+    color: #ffcc00;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header form.d-flex {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    header form.d-flex input {
+        flex-grow: 1;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* --- Force scrollbar always visible to avoid layout shift --- */
+html {
+    overflow-y: scroll;
+}
+.card-header {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  height: 35px; /* optional fixed height to ensure vertical centering */
+  padding: 0;   /* remove default padding to center exactly */
+}
+.card-header h5 {
+  margin: 0;    /* remove default margins */
+}
+.bg-warning{
+background: #4169E1 !important;
+
+
+}
+/* software/static/software/style.css */
+
+/* --- Language Flags Styling --- */
+
+.language-switcher-flags {
+    display: flex; /* Ensure flags are in a row */
+    align-items: center; /* Vertically center flags */
+    gap: 8px; /* Increase space between flags (from 5px to 8px or more) */
+    padding: 5px 0; /* Add some vertical padding around the flag container */
+}
+
+.language-flag-btn {
+    /* Basic button reset */
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 0; /* Prevents extra space below image */
+
+    /* Visual styling for flags */
+    opacity: 0.7; /* Initial transparency for non-active flags */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for all properties */
+    border-radius: 4px; /* Slightly rounded corners for the button area */
+    overflow: hidden; /* Ensures borders/shadows don't spill */
+    display: flex; /* Use flex to perfectly center the image inside if needed */
+    justify-content: center;
+    align-items: center;
+}
+
+.language-flag-btn:hover {
+    opacity: 1; /* Fully opaque on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Subtle blue glow on hover */
+    z-index: 1; /* Bring hovered flag to front slightly */
+}
+
+.language-flag-btn.active-language-flag {
+    opacity: 1; /* Active flag is fully visible */
+    border: 2px solid #007bff; /* More pronounced border for active flag */
+    transform: scale(1.05); /* Slightly enlarge active flag */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Stronger blue glow for active flag */
+}
+
+.language-flag-icon {
+    display: block; /* Ensure the image behaves as a block */
+    width: 35px; /* Consistent width */
+    height: 30px; /* Consistent height */
+    object-fit: cover; /* Ensures image covers area without distortion */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border for flags */
+    border-radius: 3px; /* Slightly rounded corners for the image */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Optional: Adjust for smaller screens if needed */
+@media (max-width: 768px) {
+    .language-switcher-flags {
+        gap: 5px; /* Reduce gap on smaller screens */
+    }
+    .language-flag-btn {
+        width: 35px; /* Make button slightly smaller */
+        height: 25px;
+    }
+    .language-flag-icon {
+        width: 24px; /* Smaller flags */
+        height: 18px;
+    }
+}
+/* software/static/software/style.css */
+
+.cookie-banner {
+    z-index: 1050; /* Ensure it's above other elements like modals */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cookie-banner p {
+    color: rgba(255, 255, 255, 0.8);
+}

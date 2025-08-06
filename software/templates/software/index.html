@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block head_extra %}
+<meta name="robots" content="index, follow">
+<meta name="description" content="Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs." />
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Softaka",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "Softaka",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'software/softaka-logo.svg' %}"
+      },
+      "sameAs": [
+        "https://www.facebook.com/softaka",
+        "https://twitter.com/softaka",
+      ]
+    }{% for software in software_list %},
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}#software",
+      "name": "{{ software.name|escapejs }}",
+      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}",
+      "image": "{{ software.image.url }}",
+      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "softwareVersion": "{% if software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+      "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+      "fileSize": "{{ software.file_size|default:'1 GB' }}",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}"
+      }{% if software.total_ratings > 0 %},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
+      }{% endif %},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softaka",
+        "url": "https://softaka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://softaka.com{% static 'software/softaka-logo.svg' %}"
+        }
+      }
+    }{% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+{% block title %}{% trans "Softaka – Safe, Fast & Verified Software Downloads" %}{% endblock %}
+
+{% block main_content_area %}
+    <div class="col-md-3"> 
+        {% include 'software/_left_sidebar.html' %}
+    </div>
+
+    <div class="col-md-9">
+        <h2 class="mb-4">{% trans "Latest Software" %}</h2>
+
+        {% if software_list %}
+        <div id="software-list-container" class="row row-cols-1 row-cols-md-3 g-4">
+            {% include 'software/_software_cards.html' %}
+        </div>
+
+        {% if page_obj.has_next %}
+            <div class="d-flex justify-content-center mt-4">
+                <button id="load-more-btn" 
+                        class="btn btn-primary" 
+                        data-next-page-url="{% url 'software:index' %}?page={{ page_obj.next_page_number }}">
+                    {% trans "Load More" %}
+                </button>
+            </div>
+        {% endif %}
+
+        {% else %}
+        <p>{% trans "No software available." %}</p>
+        {% endif %}
+    </div>
+{% endblock main_content_area %}
+
+{% block extra_js %}
+ {{ block.super }} {# ADD THIS LINE #}
+    <script src="{% static 'software/load_more.js' %}"></script>
+{% endblock %}

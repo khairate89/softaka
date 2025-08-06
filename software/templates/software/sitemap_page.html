@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Sitemap" %} - Softaka{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <h1 class="mb-4 text-center">{% trans "Website Sitemap" %}</h1>
+            <div class="card p-4 shadow-sm">
+                <p>{% trans "Welcome to the Softaka sitemap. This page provides an organized overview of our website's structure, helping you find content quickly and efficiently." %}</p>
+
+                <h2 class="mt-4">{% trans "Main Sections" %}:</h2>
+                <ul>
+                    <li><a href="{% url 'software:index' %}">{% trans "Home" %}</a></li>
+                    <li><a href="{% url 'software:search-results' %}">{% trans "Search" %}</a></li>
+                    <li><a href="{% url 'software:about_us' %}">{% trans "About Us" %}</a></li>
+                    <li><a href="{% url 'software:contact_us' %}">{% trans "Contact Us" %}</a></li>
+                    <li><a href="{% url 'software:privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                    <li><a href="{% url 'software:terms_conditions' %}">{% trans "Terms & Conditions" %}</a></li>
+                    <li><a href="{% url 'software:dmca' %}">{% trans "DMCA Policy" %}</a></li>
+                    <li><a href="{% url 'software:disclaimer' %}">{% trans "Disclaimer" %}</a></li>
+                    <li><a href="{% url 'software:sitemap_page' %}">{% trans "Sitemap" %}</a></li>
+                </ul>
+
+                {% if global_categories %}
+                    <h2 class="mt-4">{% trans "Software Categories" %}:</h2>
+                    <ul>
+                        {% for category in global_categories %}
+                            <li><a href="{% url 'software:category_detail' slug=category.slug %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{% trans "No categories found to display." %}</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

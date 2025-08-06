@@ -1,0 +1,3290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT NAME\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-14 04:42+0200\n"
+"PO-Revision-Date: 2024-07-06 12:00+0000\n"
+"Last-Translator: Your Name <your.email@example.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\software\forms.py:10
+#, fuzzy
+#| msgid "Software Name"
+msgid "Your Name"
+msgstr "Nombre del Software"
+
+#: .\software\forms.py:11
+msgid "Please enter your full name."
+msgstr ""
+
+#: .\software\forms.py:14
+#, fuzzy
+#| msgid "Enter your email"
+msgid "Your Email"
+msgstr "Ingresa tu correo electrónico"
+
+#: .\software\forms.py:15
+msgid "We'll use this to reply to you."
+msgstr ""
+
+#: .\software\forms.py:19
+msgid "Subject"
+msgstr ""
+
+#: .\software\forms.py:20
+msgid "Briefly describe the purpose of your message."
+msgstr ""
+
+#: .\software\forms.py:23
+msgid "Your Message"
+msgstr ""
+
+#: .\software\forms.py:24
+msgid "Please provide as much detail as possible."
+msgstr ""
+
+#: .\software\models.py:23
+msgid "Software Name"
+msgstr "Nombre del Software"
+
+#: .\software\templates\404.html:7
+msgid "Page Not Found"
+msgstr ""
+
+#: .\software\templates\404.html:41
+msgid "404 - Page Not Found"
+msgstr ""
+
+#: .\software\templates\404.html:42
+msgid "We're sorry, but the page you requested could not be found."
+msgstr ""
+
+#: .\software\templates\404.html:43
+msgid "It might have been moved or deleted."
+msgstr ""
+
+#: .\software\templates\404.html:44
+msgid "Please check the URL or go back to the"
+msgstr ""
+
+#: .\software\templates\404.html:44
+msgid "homepage"
+msgstr ""
+
+#: .\software\templates\base.html:77
+msgid "Search software..."
+msgstr "Buscar software..."
+
+#: .\software\templates\base.html:77
+#: .\software\templates\software\sitemap_page.html:16
+msgid "Search"
+msgstr "Buscar"
+
+#: .\software\templates\base.html:97
+#, python-format
+msgid "Switch to %(lang_name)s"
+msgstr ""
+
+#: .\software\templates\base.html:111
+msgid "Toggle navigation"
+msgstr "Alternar navegación"
+
+#: .\software\templates\base.html:117
+#: .\software\templates\software\file_download.html:25
+#: .\software\templates\software\index.html:5
+#: .\software\templates\software\sitemap_page.html:15
+#: .\software\templates\software\software_detail.html:24
+msgid "Home"
+msgstr "Inicio"
+
+#: .\software\templates\base.html:136
+msgid "Close"
+msgstr "Cerrar"
+
+#: .\software\templates\base.html:156
+msgid "Join Our Newsletter"
+msgstr "Suscríbete a Nuestro Boletín"
+
+#: .\software\templates\base.html:157
+msgid ""
+"Stay up-to-date with the latest software releases and news. No spam, "
+"guaranteed!"
+msgstr ""
+"Mantente al día con los últimos lanzamientos y noticias de software. ¡Sin "
+"spam, garantizado!"
+
+#: .\software\templates\base.html:159
+msgid "Enter your email"
+msgstr "Ingresa tu correo electrónico"
+
+#: .\software\templates\base.html:159
+msgid "Email for newsletter"
+msgstr "Correo electrónico para el boletín"
+
+#: .\software\templates\base.html:160
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+#: .\software\templates\base.html:173
+msgid "Your ultimate source for free software downloads."
+msgstr "Tu fuente definitiva para descargas de software gratuitas."
+
+#: .\software\templates\base.html:181
+#: .\software\templates\software\_left_sidebar.html:6
+msgid "Categories"
+msgstr "Categorías"
+
+#: .\software\templates\base.html:189
+msgid "Useful Links"
+msgstr "Enlaces Útiles"
+
+#: .\software\templates\base.html:192
+msgid "DMCA"
+msgstr "DMCA"
+
+#: .\software\templates\base.html:193
+#: .\software\templates\software\disclaimer.html:5
+#: .\software\templates\software\disclaimer.html:10
+#: .\software\templates\software\sitemap_page.html:22
+msgid "Disclaimer"
+msgstr "Aviso Legal"
+
+#: .\software\templates\base.html:194
+#: .\software\templates\software\privacy_policy.html:4
+#: .\software\templates\software\privacy_policy.html:9
+#: .\software\templates\software\sitemap_page.html:19
+msgid "Privacy Policy"
+msgstr "Política de Privacidad"
+
+#: .\software\templates\base.html:195
+#: .\software\templates\software\sitemap_page.html:20
+#: .\software\templates\software\terms_conditions.html:4
+msgid "Terms & Conditions"
+msgstr "Términos y Condiciones"
+
+#: .\software\templates\base.html:196
+#: .\software\templates\software\sitemap_page.html:4
+#: .\software\templates\software\sitemap_page.html:23
+msgid "Sitemap"
+msgstr "Mapa del Sitio"
+
+#: .\software\templates\base.html:197
+#: .\software\templates\software\contact_us.html:4
+#: .\software\templates\software\contact_us.html:9
+#: .\software\templates\software\disclaimer.html:28
+#: .\software\templates\software\privacy_policy.html:66
+#: .\software\templates\software\sitemap_page.html:18
+msgid "Contact Us"
+msgstr "Contáctanos"
+
+#: .\software\templates\base.html:198
+#: .\software\templates\software\about_us.html:4
+#: .\software\templates\software\sitemap_page.html:17
+msgid "About Us"
+msgstr "Acerca de Nosotros"
+
+#: .\software\templates\base.html:202
+msgid "Follow Us"
+msgstr "Síguenos"
+
+#: .\software\templates\base.html:204
+msgid "Follow us on Facebook"
+msgstr "Síguenos en Facebook"
+
+#: .\software\templates\base.html:205
+msgid "Follow us on Twitter"
+msgstr "Síguenos en Twitter"
+
+#: .\software\templates\base.html:206
+msgid "Follow us on Pinterest"
+msgstr "Síguenos en Pinterest"
+
+#: .\software\templates\base.html:207
+msgid "Follow us on Instagram"
+msgstr "Síguenos en Instagram"
+
+#: .\software\templates\base.html:208
+msgid "Follow us on Telegram"
+msgstr "Síguenos en Telegram"
+
+#: .\software\templates\base.html:216
+msgid "All Rights Reserved."
+msgstr "Todos los Derechos Reservados."
+
+#: .\software\templates\base.html:228
+msgid ""
+"This website uses cookies to ensure you get the best experience. By "
+"continuing to use our site, you agree to our use of cookies."
+msgstr ""
+
+#: .\software\templates\base.html:229
+msgid "Learn more about our Privacy Policy."
+msgstr ""
+
+#: .\software\templates\base.html:232
+msgid "Accept"
+msgstr ""
+
+#: .\software\templates\base.html:233
+msgid "Decline"
+msgstr ""
+
+#: .\software\templates\software\_right_sidebar.html:5
+msgid "Download & Product Info"
+msgstr "Descarga e Información del Producto"
+
+#: .\software\templates\software\_right_sidebar.html:9
+#: .\software\templates\software\_software_cards.html:26
+#: .\software\templates\software\search_results.html:44
+#: .\software\templates\software\software_list.html:45
+msgid "Category"
+msgstr "Categoría"
+
+#: .\software\templates\software\_right_sidebar.html:11
+#| msgid "Size"
+msgid "File Size"
+msgstr "Tamaño del Archivo"
+
+#: .\software\templates\software\_right_sidebar.html:13
+#: .\software\templates\software\_right_sidebar.html:16
+msgid "Version"
+msgstr "Versión"
+
+#: .\software\templates\software\_right_sidebar.html:14
+#: .\software\templates\software\_right_sidebar.html:17
+msgid "Release Date"
+msgstr "Fecha de Lanzamiento"
+
+#: .\software\templates\software\_right_sidebar.html:19
+msgid "Official Website"
+msgstr "Sitio Web Oficial"
+
+#: .\software\templates\software\_right_sidebar.html:25
+msgid "Rate this Software"
+msgstr "Califica este Software"
+
+#: .\software\templates\software\_right_sidebar.html:37
+msgid "Average Rating"
+msgstr "Calificación Promedio"
+
+#: .\software\templates\software\_right_sidebar.html:37
+#, fuzzy
+#| msgid "Reputation"
+msgid "ratings"
+msgstr "Calificaciones"
+
+#: .\software\templates\software\_right_sidebar.html:45
+msgid "Download Now"
+msgstr "Descargar Ahora"
+
+#: .\software\templates\software\_right_sidebar.html:48
+msgid "No Download Link Available"
+msgstr "No hay enlace de descarga disponible"
+
+#: .\software\templates\software\_right_sidebar.html:56
+msgid "Relevant Products"
+msgstr "Productos Relevantes"
+
+#: .\software\templates\software\_software_cards.html:41
+#: .\software\templates\software\search_results.html:59
+#: .\software\templates\software\software_list.html:62
+#, fuzzy
+#| msgid "Reputation"
+msgid "Reputation"
+msgstr "Reputación"
+
+#: .\software\templates\software\_software_cards.html:47
+#: .\software\templates\software\search_results.html:65
+#: .\software\templates\software\software_list.html:68
+msgid "Size"
+msgstr "Tamaño"
+
+#: .\software\templates\software\_software_cards.html:52
+#: .\software\templates\software\search_results.html:69
+#: .\software\templates\software\software_list.html:74
+msgid "View Details"
+msgstr "Ver Detalles"
+
+#: .\software\templates\software\about_us.html:9
+#| msgid "Your ultimate source for free software downloads."
+msgid "About SoftVault: Your Trusted Source for Free Software Downloads"
+msgstr "Tu fuente definitiva para descargas de software gratuitas."
+
+#: .\software\templates\software\about_us.html:11
+msgid ""
+"Welcome to SoftVault! We are passionate about providing a safe, reliable, "
+"and user-friendly platform for accessing a wide range of essential software, "
+"tools, and applications. Our mission is simple: to make quality software "
+"accessible to everyone, without hidden costs or compromises on security."
+msgstr ""
+"¡Bienvenido a SoftVault! Nos apasiona proporcionar una plataforma segura, "
+"confiable y fácil de usar para acceder a una amplia gama de software, "
+"herramientas y aplicaciones esenciales. Nuestra misión es simple: hacer que "
+"el software de calidad sea accesible para todos, sin costos ocultos ni "
+"compromisos en la seguridad."
+
+#: .\software\templates\software\about_us.html:13
+msgid "Our Mission"
+msgstr "Nuestra Misión"
+
+#: .\software\templates\software\about_us.html:14
+msgid ""
+"In today's digital age, finding legitimate and free software can be a "
+"challenge. Our mission at SoftVault is to simplify this process by curating "
+"a comprehensive collection of freeware, open-source programs, and trial "
+"versions, all verified for integrity. We strive to be the go-to destination "
+"for users seeking:"
+msgstr ""
+"En la era digital actual, encontrar software legítimo y gratuito puede ser "
+"un desafío. Nuestra misión en SoftVault es simplificar este proceso "
+"curando una colección completa de freeware, programas de código abierto y "
+"versiones de prueba, todos verificados para garantizar su integridad. Nos "
+"esforzamos por ser el destino principal para los usuarios que buscan:"
+
+#: .\software\templates\software\about_us.html:16
+msgid "Reliability:"
+msgstr "Fiabilidad:"
+
+#: .\software\templates\software\about_us.html:16
+msgid "We prioritize software that is stable and performs as expected."
+msgstr "Priorizamos el software que es estable y funciona como se espera."
+
+#: .\software\templates\software\about_us.html:17
+msgid "Safety:"
+msgstr "Seguridad:"
+
+#: .\software\templates\software\about_us.html:17
+msgid ""
+"We make every effort to ensure downloads are free from malware, viruses, and "
+"unwanted bundles."
+msgstr ""
+"Hacemos todo lo posible para garantizar que las descargas estén libres de "
+"malware, virus y paquetes no deseados."
+
+#: .\software\templates\software\about_us.html:18
+msgid "Accessibility:"
+msgstr "Accesibilidad:"
+
+#: .\software\templates\software\about_us.html:18
+msgid ""
+"Our platform is designed for easy navigation, allowing you to quickly find "
+"and download the software you need."
+msgstr ""
+"Nuestra plataforma está diseñada para una fácil navegación, permitiéndole "
+"encontrar y descargar rápidamente el software que necesita."
+
+#: .\software\templates\software\about_us.html:19
+msgid "Variety:"
+msgstr "Variedad:"
+
+#: .\software\templates\software\about_us.html:19
+msgid ""
+"From productivity tools and security software to multimedia applications and "
+"utilities, we aim to cover diverse needs."
+msgstr ""
+"Desde herramientas de productividad y software de seguridad hasta "
+"aplicaciones multimedia y utilidades, nuestro objetivo es cubrir diversas "
+"necesidades."
+
+#: .\software\templates\software\about_us.html:22
+msgid "What We Offer"
+msgstr "Qué Ofrecemos"
+
+#: .\software\templates\software\about_us.html:23
+msgid ""
+"SoftVault is more than just a download site. We are building a community "
+"resource that provides:"
+msgstr ""
+"SoftVault es más que un simple sitio de descargas. Estamos construyendo un "
+"recurso comunitario que ofrece:"
+
+#: .\software\templates\software\about_us.html:25
+msgid "Extensive Software Library:"
+msgstr "Amplia Biblioteca de Software:"
+
+#: .\software\templates\software\about_us.html:25
+msgid ""
+"A continually growing collection of software across various categories, "
+"regularly updated with the latest versions."
+msgstr ""
+"Una colección de software en diversas categorías en constante crecimiento, "
+"actualizada regularmente con las últimas versiones."
+
+#: .\software\templates\software\about_us.html:26
+msgid "Detailed Information:"
+msgstr "Información Detallada:"
+
+#: .\software\templates\software\about_us.html:26
+msgid ""
+"Each software listing includes a description, system requirements, version "
+"details, and user ratings to help you make informed decisions."
+msgstr ""
+"Cada lista de software incluye una descripción, requisitos del sistema, "
+"detalles de la versión y calificaciones de los usuarios para ayudarle a "
+"tomar decisiones informadas."
+
+#: .\software\templates\software\about_us.html:27
+msgid "User-Friendly Experience:"
+msgstr "Experiencia Fácil de Usar:"
+
+#: .\software\templates\software\about_us.html:27
+msgid ""
+"Our clean interface and intuitive search allow you to discover and download "
+"software effortlessly."
+msgstr ""
+"Nuestra interfaz limpia y búsqueda intuitiva le permiten descubrir y "
+"descargar software sin esfuerzo."
+
+#: .\software\templates\software\about_us.html:28
+msgid "Trust & Transparency:"
+msgstr "Confianza y Transparencia:"
+
+#: .\software\templates\software\about_us.html:28
+msgid ""
+"We are committed to honesty in our listings and clear policies regarding "
+"content and user privacy."
+msgstr ""
+"Estamos comprometidos con la honestidad en nuestras listas y con políticas "
+"claras con respecto al contenido y la privacidad del usuario."
+
+#: .\software\templates\software\about_us.html:31
+msgid "Our Vision"
+msgstr "Nuestra Visión"
+
+#: .\software\templates\software\about_us.html:32
+msgid ""
+"We envision a digital world where everyone has free, secure, and easy access "
+"to the tools they need to learn, create, and connect. SoftVault is a step "
+"towards realizing that vision, fostering a secure environment for software "
+"discovery and distribution."
+msgstr ""
+"Visualizamos un mundo digital donde todos tengan acceso gratuito, seguro y "
+"fácil a las herramientas que necesitan para aprender, crear y conectarse. "
+"SoftVault es un paso hacia la realización de esa visión, fomentando un "
+"entorno seguro para el descubrimiento y la distribución de software."
+
+#: .\software\templates\software\about_us.html:34
+msgid "Why Choose SoftVault?"
+msgstr "¿Por Qué Elegir SoftVault?"
+
+#: .\software\templates\software\about_us.html:36
+msgid "Curated & Verified:"
+msgstr "Curado y Verificado:"
+
+#: .\software\templates\software\about_us.html:36
+msgid ""
+"We manually review and test software where possible to ensure quality and "
+"safety."
+msgstr ""
+"Revisamos y probamos el software manualmente cuando es posible para "
+"garantizar la calidad y la seguridad."
+
+#: .\software\templates\software\about_us.html:37
+msgid "Always Free:"
+msgstr "Siempre Gratis:"
+
+#: .\software\templates\software\about_us.html:37
+msgid ""
+"We only list software that is genuinely free to use or offers a substantial "
+"free trial."
+msgstr ""
+"Solo enumeramos software que es genuinamente gratuito o que ofrece una "
+"prueba gratuita sustancial."
+
+#: .\software\templates\software\about_us.html:38
+msgid "Up-to-Date:"
+msgstr "Actualizado:"
+
+#: .\software\templates\software\about_us.html:38
+msgid "We work hard to provide the latest stable versions of popular software."
+msgstr "Trabajamos arduamente para proporcionar las últimas versiones estables de software popular."
+
+#: .\software\templates\software\about_us.html:39
+msgid "Community Focused:"
+msgstr "Enfocados en la Comunidad:"
+
+#: .\software\templates\software\about_us.html:39
+msgid ""
+"We value user feedback and strive to improve our platform based on your "
+"needs."
+msgstr ""
+"Valoramos los comentarios de los usuarios y nos esforzamos por mejorar "
+"nuestra plataforma según sus necesidades."
+
+#: .\software\templates\software\about_us.html:41
+msgid ""
+"Thank you for choosing SoftVault as your trusted software download portal. "
+"We are constantly working to enhance your experience and bring you the best "
+"tools for your digital life."
+msgstr ""
+"Gracias por elegir SoftVault como su portal de descarga de software de "
+"confianza. Trabajamos constantemente para mejorar su experiencia y traerle "
+"las mejores herramientas para su vida digital."
+
+#: .\software\templates\software\contact_us.html:11
+msgid ""
+"We're here to help! Whether you have questions about software, need "
+"assistance with a download, want to report an issue, or simply have "
+"feedback, don't hesitate to reach out to the SoftVault team. We value your "
+"input and strive to respond to all inquiries promptly."
+msgstr ""
+"¡Estamos aquí para ayudarte! Ya sea que tengas preguntas sobre el software, "
+"necesites asistencia con una descarga, quieras reportar un problema o "
+"sólo tengas comentarios, no dudes en contactar al equipo de SoftVault. "
+"Valoramos tu opinión y nos esforzamos por responder a todas las consultas "
+"rápidamente."
+
+#: .\software\templates\software\contact_us.html:13
+msgid "How to Reach Us"
+msgstr "Cómo contactarnos"
+
+#: .\software\templates\software\contact_us.html:15
+msgid "Email Us Directly"
+msgstr "Envíanos un correo electrónico directamente"
+
+#: .\software\templates\software\contact_us.html:16
+msgid ""
+"For general inquiries, support, or partnership opportunities, please send us "
+"an email. We aim to respond within 24-48 hours."
+msgstr ""
+"Para consultas generales, soporte o oportunidades de colaboración, por favor "
+"envíanos un correo electrónico. Nuestro objetivo es responder en 24-48 horas."
+
+#: .\software\templates\software\contact_us.html:18
+msgid "General Inquiries & Support:"
+msgstr "Consultas generales y soporte:"
+
+#: .\software\templates\software\contact_us.html:19
+msgid "DMCA & Copyright Concerns:"
+msgstr "Consultas sobre DMCA y derechos de autor:"
+
+#: .\software\templates\software\contact_us.html:22
+msgid "Before Contacting Us"
+msgstr "Antes de contactarnos"
+
+#: .\software\templates\software\contact_us.html:24
+msgid "Check our"
+msgstr "Consulta nuestra"
+
+#: .\software\templates\software\contact_us.html:24
+msgid "FAQ section"
+msgstr "sección de preguntas frecuentes (FAQ)"
+
+#: .\software\templates\software\contact_us.html:24
+msgid "(if you have one) for answers to common questions."
+msgstr "(si tienes una) para respuestas a preguntas comunes."
+
+#: .\software\templates\software\contact_us.html:25
+msgid "For software-specific issues, please refer to the"
+msgstr "Para problemas específicos del software, por favor consulta el"
+
+#: .\software\templates\software\contact_us.html:25
+msgid "software's official website"
+msgstr "sitio web oficial del software"
+
+#: .\software\templates\software\contact_us.html:25
+msgid ""
+"or documentation first, as we are a download portal, not the software "
+"developers."
+msgstr ""
+"o la documentación primero, ya que somos un portal de descargas, no los "
+"desarrolladores del software."
+
+#: .\software\templates\software\contact_us.html:27
+msgid "We look forward to hearing from you!"
+msgstr "¡Esperamos saber de ti!"
+
+#: .\software\templates\software\disclaimer.html:12
+msgid ""
+"The information provided by SoftVault on its website (the \"Service\") is "
+"for general informational purposes only. All software and content on this "
+"site are provided in good faith. However, we make no representation or "
+"warranty of any kind, express or implied, regarding the accuracy, adequacy, "
+"validity, reliability, availability, or completeness of any information on "
+"the Service or the software offered for download."
+msgstr ""
+"La información proporcionada por SoftVault en su sitio web (el \"Servicio\") es "
+"solo para fines informativos generales. Todo el software y contenido en este "
+"sitio se ofrece de buena fe. Sin embargo, no hacemos ninguna declaración o "
+"garantía de ningún tipo, expresa o implícita, respecto a la exactitud, adecuación, "
+"validez, confiabilidad, disponibilidad o integridad de cualquier información en "
+"el Servicio o del software ofrecido para descarga."
+
+#: .\software\templates\software\disclaimer.html:13
+msgid "External Links Disclaimer"
+msgstr "Aviso sobre enlaces externos"
+
+#: .\software\templates\software\disclaimer.html:14
+msgid ""
+"The Service may contain (or you may be sent through the Service) links to "
+"other websites or content belonging to or originating from third parties, or "
+"links to websites and features in banners or other advertising. Such "
+"external links are not investigated, monitored, or checked for accuracy, "
+"adequacy, validity, reliability, availability, or completeness by us. We do "
+"not warrant, endorse, guarantee, or assume responsibility for the accuracy "
+"or reliability of any information offered by third-party websites linked "
+"through the Service or any website or feature linked in any banner or other "
+"advertising. We will not be a party to or in any way be responsible for "
+"monitoring any transaction between you and third-party providers of products "
+"or services."
+msgstr ""
+"El Servicio puede contener (o puede que se le envíe a través del Servicio) enlaces a "
+"otros sitios web o contenidos que pertenecen o provienen de terceros, o "
+"enlaces a sitios web y funciones en banners u otra publicidad. Estos "
+"enlaces externos no son investigados, monitoreados ni verificados por nosotros "
+"en cuanto a exactitud, adecuación, validez, confiabilidad, disponibilidad o integridad. "
+"No garantizamos, respaldamos, aseguramos ni asumimos responsabilidad por la exactitud "
+"o confiabilidad de cualquier información ofrecida por sitios web de terceros enlazados "
+"a través del Servicio o cualquier sitio web o función enlazada en cualquier banner u otra "
+"publicidad. No seremos parte ni responsables de ningún modo de la supervisión de "
+"transacciones entre usted y proveedores terceros de productos o servicios."
+
+#: .\software\templates\software\disclaimer.html:16
+msgid "Software Download and Use Risk"
+msgstr "Riesgos de descarga y uso del software"
+
+#: .\software\templates\software\disclaimer.html:17
+msgid ""
+"Any software downloaded from SoftVault is used at your own discretion and "
+"risk. While we strive to provide safe and reputable software, SoftVault does "
+"not guarantee that the files available for download are free of viruses, "
+"malware, or other harmful components. It is your responsibility to use "
+"antivirus software and other security measures on your device. We are not "
+"responsible for any damage to your computer system or loss of data that "
+"results from the download or use of any software from this site."
+msgstr ""
+"Cualquier software descargado desde SoftVault se usa bajo su propio criterio y "
+"riesgo. Aunque nos esforzamos por proporcionar software seguro y confiable, SoftVault no "
+"garantiza que los archivos disponibles para descarga estén libres de virus, "
+"malware u otros componentes dañinos. Es su responsabilidad usar software antivirus "
+"y otras medidas de seguridad en su dispositivo. No somos responsables de ningún daño "
+"a su sistema informático o pérdida de datos que resulte de la descarga o uso de cualquier software de este sitio."
+
+#: .\software\templates\software\disclaimer.html:19
+msgid "Professional Advice Disclaimer"
+msgstr "Aviso sobre asesoramiento profesional"
+
+#: .\software\templates\software\disclaimer.html:20
+msgid ""
+"The information on SoftVault is not intended as, and shall not be understood "
+"or construed as, professional advice. While we aim to provide helpful "
+"content, the information on this website is for general informational and "
+"educational purposes only."
+msgstr ""
+"La información en SoftVault no está destinada ni debe entenderse o interpretarse "
+"como asesoramiento profesional. Aunque buscamos proporcionar contenido útil, la información "
+"en este sitio web es solo para fines informativos y educativos generales."
+
+#: .\software\templates\software\disclaimer.html:22
+#: .\software\templates\software\terms_conditions.html:73
+msgid "Limitation of Liability"
+msgstr "Limitación de responsabilidad"
+
+#: .\software\templates\software\disclaimer.html:23
+msgid ""
+"Under no circumstance shall we have any liability to you for any loss or "
+"damage of any kind incurred as a result of the use of the Service or "
+"reliance on any information provided on the Service. Your use of the Service "
+"and your reliance on any information on the Service is solely at your own "
+"risk."
+msgstr ""
+"Bajo ninguna circunstancia tendremos responsabilidad alguna ante usted por cualquier pérdida o "
+"daño de cualquier tipo que resulte del uso del Servicio o la confianza en cualquier información proporcionada en el Servicio. "
+"Su uso del Servicio y su confianza en cualquier información del Servicio son únicamente bajo su propio riesgo."
+
+#: .\software\templates\software\disclaimer.html:25
+msgid "Changes to this Disclaimer"
+msgstr "Cambios en este aviso legal"
+
+#: .\software\templates\software\disclaimer.html:26
+msgid ""
+"We may update this Disclaimer from time to time. We encourage you to review "
+"this page periodically for any changes."
+msgstr ""
+"Podemos actualizar este aviso legal de vez en cuando. Le recomendamos revisar "
+"esta página periódicamente para cualquier cambio."
+
+#: .\software\templates\software\disclaimer.html:29
+msgid "If you have any questions about this Disclaimer, please contact us at"
+msgstr "Si tiene alguna pregunta sobre este aviso legal, por favor contáctenos en"
+
+#: .\software\templates\software\dmca.html:4
+#: .\software\templates\software\sitemap_page.html:21
+msgid "DMCA Policy"
+msgstr "Política DMCA"
+
+#: .\software\templates\software\dmca.html:9
+msgid "Digital Millennium Copyright Act (DMCA) Policy"
+msgstr "Política del Digital Millennium Copyright Act (DMCA)"
+
+#: .\software\templates\software\dmca.html:11
+msgid ""
+"At SoftVault, we respect the intellectual property rights of others and "
+"expect our users to do the same. This DMCA Policy outlines our procedures "
+"for handling copyright infringement claims and counter-notifications in "
+"accordance with the Digital Millennium Copyright Act (DMCA)."
+msgstr ""
+"En SoftVault respetamos los derechos de propiedad intelectual de terceros y "
+"esperamos que nuestros usuarios hagan lo mismo. Esta Política DMCA describe "
+"nuestros procedimientos para manejar reclamaciones por infracción de derechos "
+"de autor y contra-notificaciones conforme al Digital Millennium Copyright Act (DMCA)."
+
+#: .\software\templates\software\dmca.html:13
+msgid "Reporting Copyright Infringement (DMCA Notice)"
+msgstr "Reporte de infracción de derechos de autor (Notificación DMCA)"
+
+#: .\software\templates\software\dmca.html:14
+msgid ""
+"If you believe that your copyrighted work has been copied in a way that "
+"constitutes copyright infringement and is accessible via SoftVault, please "
+"send a written notification of claimed infringement to our Designated "
+"Copyright Agent at the address below. Your notice must include substantially "
+"the following information:"
+msgstr ""
+"Si cree que su obra protegida por derechos de autor ha sido copiada de una "
+"manera que constituye una infracción de derechos y está accesible a través "
+"de SoftVault, por favor envíe una notificación escrita de la supuesta infracción "
+"a nuestro Agente de Derechos de Autor designado en la dirección indicada abajo. "
+"Su notificación debe incluir esencialmente la siguiente información:"
+
+#: .\software\templates\software\dmca.html:16
+msgid "Identification of the copyrighted work"
+msgstr "Identificación de la obra protegida por derechos de autor"
+
+#: .\software\templates\software\dmca.html:16
+msgid ""
+"claimed to have been infringed, or, if multiple copyrighted works are "
+"covered by a single notification, a representative list of such works."
+msgstr ""
+"que se alega ha sido infringida, o si múltiples obras protegidas están "
+"cubiertas por una única notificación, una lista representativa de dichas obras."
+
+#: .\software\templates\software\dmca.html:17
+#: .\software\templates\software\dmca.html:35
+msgid "Identification of the material"
+msgstr "Identificación del material"
+
+#: .\software\templates\software\dmca.html:17
+msgid ""
+"that is claimed to be infringing or to be the subject of infringing activity "
+"and that is to be removed or access to which is to be disabled, and "
+"information reasonably sufficient to permit SoftVault to locate the material "
+"(e.g., specific URLs of the infringing content)."
+msgstr ""
+"que se alega infringe derechos o es objeto de actividad infractora y que debe "
+"ser retirado o al que debe deshabilitarse el acceso, junto con información "
+"razonablemente suficiente para permitir a SoftVault localizar el material "
+"(por ejemplo, URLs específicas del contenido infractor)."
+
+#: .\software\templates\software\dmca.html:18
+msgid "Information reasonably sufficient to permit SoftVault to contact you"
+msgstr "Información razonablemente suficiente para permitir que SoftVault se comunique con usted"
+
+#: .\software\templates\software\dmca.html:18
+msgid ""
+"such as an address, telephone number, and, if available, an electronic mail "
+"address at which the complaining party may be contacted."
+msgstr ""
+"como una dirección, número de teléfono y, si está disponible, una dirección de correo electrónico "
+"en la que se pueda contactar a la parte reclamante."
+
+#: .\software\templates\software\dmca.html:19
+msgid "A statement that the complaining party has a"
+msgstr "Una declaración de que la parte reclamante tiene una"
+
+#: .\software\templates\software\dmca.html:19
+#: .\software\templates\software\dmca.html:36
+msgid "good faith belief"
+msgstr "creencia de buena fe"
+
+#: .\software\templates\software\dmca.html:19
+msgid ""
+"that use of the material in the manner complained of is not authorized by "
+"the copyright owner, its agent, or the law."
+msgstr ""
+"que el uso del material en la forma reclamada no está autorizado por el "
+"propietario de los derechos, su agente o la ley."
+
+#: .\software\templates\software\dmca.html:20
+msgid "A statement that the"
+msgstr "Una declaración de que la"
+
+#: .\software\templates\software\dmca.html:20
+msgid "information in the notification is accurate"
+msgstr "información contenida en la notificación es veraz"
+
+#: .\software\templates\software\dmca.html:20
+msgid ""
+"and under penalty of perjury, that the complaining party is authorized to "
+"act on behalf of the owner of an exclusive right that is allegedly infringed."
+msgstr ""
+"y bajo pena de perjurio, que la parte reclamante está autorizada para actuar "
+"en nombre del propietario de un derecho exclusivo que supuestamente ha sido infringido."
+
+#: .\software\templates\software\dmca.html:21
+#: .\software\templates\software\dmca.html:38
+msgid "physical or electronic signature"
+msgstr "firma física o electrónica"
+
+#: .\software\templates\software\dmca.html:21
+msgid ""
+"of the person authorized to act on behalf of the owner of the copyright that "
+"has been allegedly infringed."
+msgstr ""
+"de la persona autorizada para actuar en nombre del propietario del derecho de autor que "
+"supuestamente ha sido infringido."
+
+#: .\software\templates\software\dmca.html:24
+msgid "Upon Receipt of a Valid DMCA Notice:"
+msgstr "Tras la recepción de una notificación DMCA válida:"
+
+#: .\software\templates\software\dmca.html:25
+msgid "Upon receipt of a valid and complete DMCA notice, SoftVault will:"
+msgstr "Tras recibir una notificación DMCA válida y completa, SoftVault:"
+
+#: .\software\templates\software\dmca.html:27
+msgid "Remove or disable access to the infringing material."
+msgstr "Eliminar o deshabilitar el acceso al material infractor."
+
+#: .\software\templates\software\dmca.html:28
+msgid ""
+"Notify the content provider, member, or user that we have removed or "
+"disabled access to the material."
+msgstr ""
+"Notificar al proveedor de contenido, miembro o usuario que hemos eliminado o "
+"deshabilitado el acceso al material."
+
+#: .\software\templates\software\dmca.html:29
+msgid ""
+"Take reasonable steps to notify the user that we have removed or disabled "
+"access to the material."
+msgstr ""
+"Tomar medidas razonables para notificar al usuario que hemos eliminado o deshabilitado "
+"el acceso al material."
+
+#: .\software\templates\software\dmca.html:32
+msgid "Counter-Notification (Responding to a DMCA Notice)"
+msgstr "Contra-notificación (Respuesta a una notificación DMCA)"
+
+#: .\software\templates\software\dmca.html:33
+msgid ""
+"If you believe that your material has been removed or disabled by mistake or "
+"misidentification, you may submit a counter-notification to our Designated "
+"Copyright Agent. Your counter-notification must include substantially the "
+"following information:"
+msgstr ""
+"Si cree que su material ha sido retirado o deshabilitado por error o "
+"identificación equivocada, puede enviar una contra-notificación a nuestro Agente de Derechos de Autor designado. "
+"Su contra-notificación debe incluir esencialmente la siguiente información:"
+
+#: .\software\templates\software\dmca.html:35
+msgid ""
+"that has been removed or to which access has been disabled and the location "
+"at which the material appeared before it was removed or access to it was "
+"disabled."
+msgstr ""
+"que ha sido retirado o al que se le ha deshabilitado el acceso, y la ubicación "
+"donde apareció el material antes de ser retirado o que se le haya deshabilitado el acceso."
+
+#: .\software\templates\software\dmca.html:36
+msgid "A statement under penalty of perjury that the subscriber has a"
+msgstr "Una declaración bajo pena de perjurio de que el suscriptor tiene una"
+
+#: .\software\templates\software\dmca.html:36
+msgid ""
+"that the material was removed or disabled as a result of mistake or "
+"misidentification of the material to be removed or disabled."
+msgstr ""
+"que el material fue retirado o deshabilitado por error o identificación equivocada del material a retirar o deshabilitar."
+
+#: .\software\templates\software\dmca.html:37
+msgid "Your"
+msgstr "Su"
+
+#: .\software\templates\software\dmca.html:37
+msgid "name, address, and telephone number"
+msgstr "nombre, dirección y número de teléfono"
+
+#: .\software\templates\software\dmca.html:37
+msgid ""
+"and a statement that you consent to the jurisdiction of the Federal District "
+"Court for the judicial district in which the address is located, or if your "
+"address is outside of the United States, for any judicial district in which "
+"SoftVault may be found, and that you will accept service of process from the "
+"person who provided the original DMCA notification or an agent of such "
+"person."
+msgstr ""
+"y una declaración de que usted acepta la jurisdicción del Tribunal de Distrito Federal "
+"del distrito judicial donde se encuentra la dirección, o si su dirección está fuera de los Estados Unidos, "
+"de cualquier distrito judicial donde se pueda encontrar SoftVault, y que aceptará la notificación de proceso legal "
+"de la persona que proporcionó la notificación DMCA original o un agente de dicha persona."
+
+#: .\software\templates\software\dmca.html:41
+msgid "Designated Copyright Agent"
+msgstr "Agente de Derechos de Autor Designado"
+
+#: .\software\templates\software\dmca.html:42
+msgid "Please send all DMCA notices and counter-notifications to:"
+msgstr "Por favor, envíe todas las notificaciones DMCA y contra-notificaciones a:"
+
+#: .\software\templates\software\dmca.html:45
+msgid "Attn: DMCA Agent"
+msgstr "Atención: Agente DMCA"
+
+#: .\software\templates\software\dmca.html:46
+msgid "[Your Company Address, if applicable]"
+msgstr "[Dirección de su empresa, si aplica]"
+
+#: .\software\templates\software\dmca.html:47
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: .\software\templates\software\dmca.html:50
+msgid "Repeat Infringer Policy"
+msgstr "Política para Infractores Reincidentes"
+
+#: .\software\templates\software\dmca.html:51
+msgid ""
+"In accordance with the DMCA and other applicable law, SoftVault has adopted "
+"a policy of terminating, in appropriate circumstances and at SoftVault's "
+"sole discretion, users who are deemed to be repeat infringers. We may also, "
+"at our sole discretion, limit access to the Service and/or terminate the "
+"accounts of any users who infringe any intellectual property rights of "
+"others, whether or not there is any repeat infringement."
+msgstr ""
+"De acuerdo con la DMCA y otras leyes aplicables, SoftVault ha adoptado una política "
+"de terminar, en circunstancias apropiadas y a la sola discreción de SoftVault, "
+"las cuentas de usuarios que sean considerados infractores reincidentes. También podemos, "
+"a nuestra sola discreción, limitar el acceso al Servicio y/o cancelar las cuentas de cualquier usuario "
+"que infrinja derechos de propiedad intelectual de terceros, ya sea que exista o no reincidencia."
+
+#: .\software\templates\software\file_download.html:6
+#: .\software\templates\software\software_detail.html:5
+#: .\software\templates\software\software_detail.html:72
+msgid "Download"
+msgstr "Descargar"
+
+#: .\software\templates\software\file_download.html:39
+#, python-format
+msgid "Thank you for choosing to download <strong>%(name)s</strong>."
+msgstr "Gracias por elegir descargar <strong>%(name)s</strong>."
+
+#: .\software\templates\software\file_download.html:58
+msgid "If the download doesn't start automatically, please click your chosen button."
+msgstr "Si la descarga no comienza automáticamente, por favor haga clic en el botón seleccionado."
+
+#: .\software\templates\software\file_download.html:63
+msgid "No download links available for this specific download page version."
+msgstr "No hay enlaces de descarga disponibles para esta versión específica de la página de descarga."
+
+#: .\software\templates\software\file_download.html:65
+msgid "Please ensure you've added \\"
+msgstr "Por favor asegúrese de haber añadido \\"
+
+#: .\software\templates\software\file_download.html:68
+msgid "Please check back later or contact support."
+msgstr "Por favor, vuelva a intentarlo más tarde o contacte con soporte."
+
+#: .\software\templates\software\file_download.html:76
+#| msgid "Software Name"
+msgid "Back to Software Page"
+msgstr "Nombre del Software"
+
+#: .\software\templates\software\file_download.html:79
+#: .\software\templates\software\software_detail.html:153
+msgid "Back to Home"
+msgstr "Volver a Inicio"
+
+#: .\software\templates\software\index.html:5
+msgid "FileCR Clone"
+msgstr "Clon de FileCR"
+
+#: .\software\templates\software\index.html:17
+msgid "Latest Software"
+msgstr "Último Software"
+
+#: .\software\templates\software\index.html:29
+msgid "Load More"
+msgstr "Cargar Más"
+
+#: .\software\templates\software\index.html:35
+#: .\software\templates\software\software_list.html:82
+#: .\software\templates\software\software_list.html:111
+msgid "No software available."
+msgstr "No hay software disponible."
+
+#: .\software\templates\software\privacy_policy.html:11
+msgid ""
+"At SoftVault, we are committed to protecting your privacy. This Privacy "
+"Policy outlines the types of information we collect, how we use it, and the "
+"steps we take to safeguard your data."
+msgstr ""
+"En SoftVault, nos comprometemos a proteger su privacidad. Esta Política de "
+"Privacidad describe los tipos de información que recopilamos, cómo la "
+"utilizamos y las medidas que tomamos para salvaguardar sus datos."
+
+#: .\software\templates\software\privacy_policy.html:13
+msgid "Information We Collect"
+msgstr "Información que Recopilamos"
+
+#: .\software\templates\software\privacy_policy.html:14
+msgid ""
+"We may collect personal and non-personal information when you visit or "
+"interact with our website:"
+msgstr ""
+"Podemos recopilar información personal y no personal cuando visita o "
+"interactúa con nuestro sitio web:"
+
+#: .\software\templates\software\privacy_policy.html:16
+msgid "Personal Information:"
+msgstr "Información Personal:"
+
+#: .\software\templates\software\privacy_policy.html:16
+msgid ""
+"This includes information you voluntarily provide, such as your name and "
+"email address when you submit a comment, subscribe to a newsletter, or "
+"contact us."
+msgstr ""
+"Esto incluye información que usted proporciona voluntariamente, como su "
+"nombre y dirección de correo electrónico cuando envía un comentario, se "
+"suscribe a un boletín de noticias o nos contacta."
+
+#: .\software\templates\software\privacy_policy.html:17
+msgid "Usage Data:"
+msgstr "Datos de Uso:"
+
+#: .\software\templates\software\privacy_policy.html:17
+msgid ""
+"We automatically collect certain information when you access the site, such "
+"as your IP address, browser type, operating system, referring URLs, pages "
+"visited, and the dates/times of your visits. This helps us understand how "
+"users interact with our site."
+msgstr ""
+"Recopilamos automáticamente cierta información cuando accede al sitio, como "
+"su dirección IP, tipo de navegador, sistema operativo, URL de referencia, "
+"páginas visitadas y las fechas/horas de sus visitas. Esto nos ayuda a "
+"comprender cómo los usuarios interactúan con nuestro sitio."
+
+#: .\software\templates\software\privacy_policy.html:18
+msgid "Cookies and Tracking Technologies:"
+msgstr "Cookies y Tecnologías de Rastreo:"
+
+#: .\software\templates\software\privacy_policy.html:18
+msgid ""
+"We use cookies and similar tracking technologies to enhance your experience, "
+"analyze site usage, and personalize content. Cookies are small data files "
+"stored on your device."
+msgstr ""
+"Utilizamos cookies y tecnologías de seguimiento similares para mejorar su "
+"experiencia, analizar el uso del sitio y personalizar el contenido. Las "
+"cookies son pequeños archivos de datos almacenados en su dispositivo."
+
+#: .\software\templates\software\privacy_policy.html:21
+msgid "How We Use Your Information"
+msgstr "Cómo Utilizamos Su Información"
+
+#: .\software\templates\software\privacy_policy.html:22
+msgid "We use the collected information for various purposes, including to:"
+msgstr "Utilizamos la información recopilada para diversos fines, incluyendo:"
+
+#: .\software\templates\software\privacy_policy.html:24
+msgid "Operate and maintain our website and services."
+msgstr "Operar y mantener nuestro sitio web y servicios."
+
+#: .\software\templates\software\privacy_policy.html:25
+msgid ""
+"Improve, personalize, and expand our website (e.g., recommending relevant "
+"software)."
+msgstr ""
+"Mejorar, personalizar y expandir nuestro sitio web (por ejemplo, "
+"recomendando software relevante)."
+
+#: .\software\templates\software\privacy_policy.html:26
+msgid "Understand and analyze how you use our website."
+msgstr "Comprender y analizar cómo utiliza nuestro sitio web."
+
+#: .\software\templates\software\privacy_policy.html:27
+msgid "Develop new products, services, features, and functionality."
+msgstr "Desarrollar nuevos productos, servicios, características y funcionalidades."
+
+#: .\software\templates\software\privacy_policy.html:28
+msgid ""
+"Communicate with you directly or through one of our partners, including for "
+"customer service, to provide you with updates and other information relating "
+"to the website, and for marketing and promotional purposes."
+msgstr ""
+"Comunicarnos con usted directamente o a través de uno de nuestros socios, "
+"incluyendo para el servicio al cliente, para proporcionarle actualizaciones "
+"y otra información relacionada con el sitio web, y con fines de marketing y "
+"promoción."
+
+#: .\software\templates\software\privacy_policy.html:29
+msgid "Process your comments and moderate content submissions."
+msgstr "Procesar sus comentarios y moderar el envío de contenido."
+
+#: .\software\templates\software\privacy_policy.html:30
+msgid "Prevent fraud and protect the security of our website."
+msgstr "Prevenir el fraude y proteger la seguridad de nuestro sitio web."
+
+#: .\software\templates\software\privacy_policy.html:33
+msgid "Sharing Your Information"
+msgstr "Compartir Su Información"
+
+#: .\software\templates\software\privacy_policy.html:34
+msgid ""
+"We do not sell, trade, or otherwise transfer your personally identifiable "
+"information to outside parties without your consent, except as described "
+"below:"
+msgstr ""
+"No vendemos, comerciamos ni transferimos de ninguna otra forma su "
+"información de identificación personal a terceros sin su consentimiento, "
+"excepto como se describe a continuación:"
+
+#: .\software\templates\software\privacy_policy.html:36
+msgid "Service Providers:"
+msgstr "Proveedores de Servicios:"
+
+#: .\software\templates\software\privacy_policy.html:36
+msgid ""
+"We may share your information with third-party service providers who assist "
+"us in operating our website, conducting our business, or serving our users "
+"(e.g., hosting providers, analytics services). These parties are obligated "
+"to keep your information confidential."
+msgstr ""
+"Podemos compartir su información con proveedores de servicios de terceros "
+"que nos ayudan a operar nuestro sitio web, llevar a cabo nuestro negocio o "
+"servir a nuestros usuarios (por ejemplo, proveedores de alojamiento, "
+"servicios de análisis). Estas partes están obligadas a mantener su "
+"información confidencial."
+
+#: .\software\templates\software\privacy_policy.html:37
+msgid "Legal Requirements:"
+msgstr "Requisitos Legales:"
+
+#: .\software\templates\software\privacy_policy.html:37
+msgid ""
+"We may disclose your information if required to do so by law or in response "
+"to valid requests by public authorities (e.g., a court order or government "
+"agency)."
+msgstr ""
+"Podemos divulgar su información si así lo exige la ley o en respuesta a "
+"solicitudes válidas de autoridades públicas (por ejemplo, una orden judicial "
+"o una agencia gubernamental)."
+
+#: .\software\templates\software\privacy_policy.html:38
+msgid "Business Transfers:"
+msgstr "Transferencias Comerciales:"
+
+#: .\software\templates\software\privacy_policy.html:38
+msgid ""
+"In the event of a merger, acquisition, or sale of assets, your personal data "
+"may be transferred. We will notify you before your personal data is "
+"transferred and becomes subject to a different Privacy Policy."
+msgstr ""
+"En caso de una fusión, adquisición o venta de activos, sus datos personales "
+"pueden ser transferidos. Le notificaremos antes de que sus datos personales "
+"sean transferidos y queden sujetos a una Política de Privacidad diferente."
+
+#: .\software\templates\software\privacy_policy.html:41
+msgid "Data Security"
+msgstr "Seguridad de Datos"
+
+#: .\software\templates\software\privacy_policy.html:42
+#, python-format
+msgid ""
+"We implement a variety of security measures to maintain the safety of your "
+"personal information when you enter, submit, or access your personal "
+"information. However, no method of transmission over the Internet or "
+"electronic storage is 100%% secure."
+msgstr ""
+"Implementamos una variedad de medidas de seguridad para mantener la "
+"seguridad de su información personal cuando ingresa, envía o accede a su "
+"información personal. Sin embargo, ningún método de transmisión a través de "
+"Internet o almacenamiento electrónico es 100%% seguro."
+
+#: .\software\templates\software\privacy_policy.html:44
+msgid "Your Data Protection Rights"
+msgstr "Sus Derechos de Protección de Datos"
+
+#: .\software\templates\software\privacy_policy.html:45
+msgid ""
+"Depending on your location, you may have the following rights regarding your "
+"personal data:"
+msgstr ""
+"Dependiendo de su ubicación, usted puede tener los siguientes derechos con "
+"respecto a sus datos personales:"
+
+#: .\software\templates\software\privacy_policy.html:47
+msgid "The right to access:"
+msgstr "El derecho de acceso:"
+
+#: .\software\templates\software\privacy_policy.html:47
+msgid "You have the right to request copies of your personal data."
+msgstr "Usted tiene derecho a solicitar copias de sus datos personales."
+
+#: .\software\templates\software\privacy_policy.html:48
+msgid "The right to rectification:"
+msgstr "El derecho de rectificación:"
+
+#: .\software\templates\software\privacy_policy.html:48
+msgid ""
+"You have the right to request that we correct any information you believe is "
+"inaccurate."
+msgstr ""
+"Usted tiene derecho a solicitar que corrijamos cualquier información que "
+"crea que es inexacta."
+
+#: .\software\templates\software\privacy_policy.html:49
+msgid "The right to erasure:"
+msgstr "El derecho de supresión:"
+
+#: .\software\templates\software\privacy_policy.html:49
+msgid ""
+"You have the right to request that we erase your personal data, under "
+"certain conditions."
+msgstr ""
+"Usted tiene derecho a solicitar que borremos sus datos personales, bajo "
+"ciertas condiciones."
+
+#: .\software\templates\software\privacy_policy.html:50
+msgid "The right to restrict processing:"
+msgstr "El derecho a restringir el procesamiento:"
+
+#: .\software\templates\software\privacy_policy.html:50
+msgid ""
+"You have the right to request that we restrict the processing of your "
+"personal data, under certain conditions."
+msgstr ""
+"Usted tiene derecho a solicitar que restrinjamos el procesamiento de sus "
+"datos personales, bajo ciertas condiciones."
+
+#: .\software\templates\software\privacy_policy.html:51
+msgid "The right to object to processing:"
+msgstr "El derecho a oponerse al procesamiento:"
+
+#: .\software\templates\software\privacy_policy.html:51
+msgid ""
+"You have the right to object to our processing of your personal data, under "
+"certain conditions."
+msgstr ""
+"Usted tiene derecho a oponerse a nuestro procesamiento de sus datos "
+"personales, bajo ciertas condiciones."
+
+#: .\software\templates\software\privacy_policy.html:52
+msgid "The right to data portability:"
+msgstr "El derecho a la portabilidad de datos:"
+
+#: .\software\templates\software\privacy_policy.html:52
+msgid ""
+"You have the right to request that we transfer the data that we have "
+"collected to another organization, or directly to you, under certain "
+"conditions."
+msgstr ""
+"Usted tiene derecho a solicitar que transfiramos los datos que hemos "
+"recopilado a otra organización, o directamente a usted, bajo ciertas "
+"condiciones."
+
+#: .\software\templates\software\privacy_policy.html:54
+msgid "To exercise any of these rights, please contact us."
+msgstr "Para ejercer cualquiera de estos derechos, por favor contáctenos."
+
+#: .\software\templates\software\privacy_policy.html:56
+msgid "Cookie Policy"
+msgstr "Política de Cookies"
+
+#: .\software\templates\software\privacy_policy.html:57
+msgid ""
+"We use cookies to collect information about your Browse activities. You can "
+"instruct your browser to refuse all cookies or to indicate when a cookie is "
+"being sent. However, if you do not accept cookies, you may not be able to "
+"use some portions of our Service."
+msgstr ""
+"Utilizamos cookies para recopilar información sobre sus actividades de "
+"navegación. Puede indicar a su navegador que rechace todas las cookies o que "
+"indique cuándo se está enviando una cookie. Sin embargo, si no acepta las "
+"cookies, es posible que no pueda utilizar algunas partes de nuestro "
+"Servicio."
+
+#: .\software\templates\software\privacy_policy.html:59
+msgid "Children's Privacy"
+msgstr "Privacidad de los Niños"
+
+#: .\software\templates\software\privacy_policy.html:60
+msgid ""
+"Our Service is not intended for anyone under the age of 13. We do not "
+"knowingly collect personally identifiable information from anyone under 13. "
+"If you are a parent or guardian and you are aware that your child has "
+"provided us with Personal Data, please contact us."
+msgstr ""
+"Nuestro Servicio no está destinado a personas menores de 13 años. No "
+"recopilamos a sabiendas información de identificación personal de personas "
+"menores de 13 años. Si usted es padre, madre o tutor y sabe que su hijo le "
+"ha proporcionado Datos Personales, por favor contáctenos."
+
+#: .\software\templates\software\privacy_policy.html:62
+msgid "Changes to This Privacy Policy"
+msgstr "Cambios a Esta Política de Privacidad"
+
+#: .\software\templates\software\privacy_policy.html:63
+msgid ""
+"We may update our Privacy Policy from time to time. We will notify you of "
+"any changes by posting the new Privacy Policy on this page and updating the "
+"Last Updated date. You are advised to review this Privacy Policy "
+"periodically for any changes."
+msgstr ""
+"Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le "
+"notificaremos sobre cualquier cambio publicando la nueva Política de "
+"Privacidad en esta página y actualizando la fecha de Última "
+"Actualización. Se le recomienda revisar esta Política de Privacidad "
+"periódicamente para cualquier cambio."
+
+#: .\software\templates\software\privacy_policy.html:64
+msgid "Last Updated"
+msgstr "Última Actualización"
+
+#: .\software\templates\software\privacy_policy.html:67
+msgid "If you have any questions about this Privacy Policy, please contact us:"
+msgstr "Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos:"
+
+#: .\software\templates\software\privacy_policy.html:68
+msgid "By email:"
+msgstr "Por correo electrónico:"
+
+#: .\software\templates\software\search_results.html:6
+#, python-format
+msgid "Search Results for \"%(request.GET.q)s\""
+msgstr "Resultados de búsqueda para \"%(request.GET.q)s\""
+
+#: .\software\templates\software\search_results.html:16
+#, python-format
+msgid "Search Results for \"%(query)s\""
+msgstr "Resultados de búsqueda para \"%(query)s\""
+
+#: .\software\templates\software\search_results.html:30
+#: .\software\templates\software\software_list.html:29
+msgid "No image"
+msgstr "Sin imagen"
+
+#: .\software\templates\software\search_results.html:76
+#: .\software\templates\software\search_results.html:99
+msgid "No software found matching your search query."
+msgstr "No se encontró software que coincida con tu consulta de búsqueda."
+
+#: .\software\templates\software\search_results.html:82
+#: .\software\templates\software\software_list.html:88
+#, fuzzy
+#| msgid "Toggle navigation"
+msgid "Page navigation"
+msgstr "Navegación de página"
+
+#: .\software\templates\software\search_results.html:85
+#: .\software\templates\software\software_list.html:92
+msgid "Previous"
+msgstr "Anterior"
+
+#: .\software\templates\software\search_results.html:88
+#, python-format
+msgid "Page %(current)s of %(total)s"
+msgstr "Página %(current)s de %(total)s"
+
+#: .\software\templates\software\search_results.html:91
+#: .\software\templates\software\software_list.html:102
+msgid "Next"
+msgstr "Siguiente"
+
+#: .\software\templates\software\sitemap_page.html:9
+#| msgid "Sitemap"
+msgid "Website Sitemap"
+msgstr "Mapa del Sitio"
+
+#: .\software\templates\software\sitemap_page.html:11
+msgid ""
+"Welcome to the SoftVault sitemap. This page provides an organized overview "
+"of our website's structure, helping you find content quickly and efficiently."
+msgstr ""
+"Bienvenido al mapa del sitio de SoftVault. Esta página ofrece una visión "
+"organizada de la estructura de nuestro sitio web, ayudándote a encontrar "
+"contenido de manera rápida y eficiente."
+
+#: .\software\templates\software\sitemap_page.html:13
+msgid "Main Sections"
+msgstr "Secciones principales"
+
+#: .\software\templates\software\sitemap_page.html:27
+#, fuzzy
+#| msgid "Categories"
+msgid "Software Categories"
+msgstr "Categorías"
+
+#: .\software\templates\software\sitemap_page.html:34
+msgid "No categories found to display."
+msgstr ""
+
+#: .\software\templates\software\software_detail.html:37
+msgid "System Requirements:"
+msgstr "Requisitos del Sistema:"
+
+#: .\software\templates\software\software_detail.html:42
+msgid "Operating System:"
+msgstr "Sistema Operativo:"
+
+#: .\software\templates\software\software_detail.html:53
+msgid "Previous Versions / History"
+msgstr "Versiones Anteriores / Historial"
+
+#: .\software\templates\software\software_detail.html:64
+msgid "Current Version"
+msgstr "Versión Actual"
+
+#: .\software\templates\software\software_detail.html:75
+msgid "File not available"
+msgstr "Archivo no disponible"
+
+#: .\software\templates\software\software_detail.html:86
+msgid "Comments"
+msgstr "Comentarios"
+
+#: .\software\templates\software\software_detail.html:89
+msgid "Leave a Comment"
+msgstr "Dejar un Comentario"
+
+#: .\software\templates\software\software_detail.html:94
+msgid "Please correct the following errors:"
+msgstr "Por favor, corrige los siguientes errores:"
+
+#: .\software\templates\software\software_detail.html:120
+msgid "Submit Comment"
+msgstr "Enviar Comentario"
+
+#: .\software\templates\software\software_detail.html:121
+msgid "Your comment will be visible after approval by an administrator."
+msgstr ""
+"Tu comentario será visible después de la aprobación de un administrador."
+
+#: .\software\templates\software\software_detail.html:139
+msgid "No comments yet. Be the first to comment!"
+msgstr "Todavía no hay comentarios. ¡Sé el primero en comentar!"
+
+#: .\software\templates\software\software_list.html:10
+#: .\software\templates\software\software_list.html:13
+#| msgid "Software Name"
+msgid "Software List"
+msgstr "Nombre del Software"
+
+#: .\software\templates\software\software_list.html:97
+#, python-format
+msgid "Page %(page_obj.number)s of %(page_obj.paginator.num_pages)s"
+msgstr ""
+
+#: .\software\templates\software\terms_conditions.html:9
+#| msgid "Terms & Conditions"
+msgid "Terms and Conditions"
+msgstr "Términos y Condiciones"
+
+#: .\software\templates\software\terms_conditions.html:11
+msgid ""
+"Welcome to SoftVault! These terms and conditions outline the rules and "
+"regulations for the use of SoftVault Inc.'s Website, located at [Your "
+"Website URL]."
+msgstr ""
+"¡Bienvenido a SoftVault! Estos términos y condiciones describen las reglas y "
+"regulaciones para el uso del sitio web de SoftVault Inc., ubicado en [Su "
+"URL del sitio web]."
+
+#: .\software\templates\software\terms_conditions.html:12
+msgid ""
+"By accessing this website, we assume you accept these terms and conditions. "
+"Do not continue to use SoftVault if you do not agree to take all of the "
+"terms and conditions stated on this page."
+msgstr ""
+"Al acceder a este sitio web, asumimos que acepta estos términos y "
+"condiciones. No continúe utilizando SoftVault si no acepta todos los "
+"términos y condiciones establecidos en esta página."
+
+#: .\software\templates\software\terms_conditions.html:14
+msgid "Definitions"
+msgstr "Definiciones"
+
+#: .\software\templates\software\terms_conditions.html:16
+msgid "Website, Service, Site:"
+msgstr "Sitio web, Servicio, Portal:"
+
+#: .\software\templates\software\terms_conditions.html:16
+msgid "Refers to SoftVault located at [Your Website URL]."
+msgstr "Se refiere a SoftVault ubicado en [Su URL del sitio web]."
+
+#: .\software\templates\software\terms_conditions.html:17
+msgid "We, Us, Our:"
+msgstr "Nosotros, Nos, Nuestro:"
+
+#: .\software\templates\software\terms_conditions.html:17
+msgid "Refers to SoftVault Inc."
+msgstr "Se refiere a SoftVault Inc."
+
+#: .\software\templates\software\terms_conditions.html:18
+msgid "You, User:"
+msgstr "Usted, Usuario:"
+
+#: .\software\templates\software\terms_conditions.html:18
+msgid "Refers to the individual accessing or using the Website."
+msgstr "Se refiere al individuo que accede o utiliza el Sitio Web."
+
+#: .\software\templates\software\terms_conditions.html:19
+msgid "Software, Content:"
+msgstr "Software, Contenido:"
+
+#: .\software\templates\software\terms_conditions.html:19
+msgid ""
+"Refers to any programs, files, text, graphics, images, or other material "
+"available on the Website."
+msgstr ""
+"Se refiere a cualquier programa, archivo, texto, gráfico, imagen u otro "
+"material disponible en el Sitio Web."
+
+#: .\software\templates\software\terms_conditions.html:22
+msgid "Intellectual Property Rights"
+msgstr "Derechos de Propiedad Intelectual"
+
+#: .\software\templates\software\terms_conditions.html:23
+msgid ""
+"Unless otherwise stated, SoftVault Inc. and/or its licensors own the "
+"intellectual property rights for all material on SoftVault. All intellectual "
+"property rights are reserved. You may access this from SoftVault for your "
+"own personal use subjected to restrictions set in these terms and conditions."
+msgstr ""
+"A menos que se indique lo contrario, SoftVault Inc. y/o sus licenciantes "
+"poseen los derechos de propiedad intelectual de todo el material en "
+"SoftVault. Todos los derechos de propiedad intelectual están reservados. "
+"Usted puede acceder a esto desde SoftVault para su uso personal sujeto a las "
+"restricciones establecidas en estos términos y condiciones."
+
+#: .\software\templates\software\terms_conditions.html:24
+msgid "You must not:"
+msgstr "Usted no debe:"
+
+#: .\software\templates\software\terms_conditions.html:26
+msgid "Republish material from SoftVault"
+msgstr "Republicar material de SoftVault"
+
+#: .\software\templates\software\terms_conditions.html:27
+msgid "Sell, rent or sub-license material from SoftVault"
+msgstr "Vender, alquilar o sublicenciar material de SoftVault"
+
+#: .\software\templates\software\terms_conditions.html:28
+msgid "Reproduce, duplicate or copy material from SoftVault"
+msgstr "Reproducir, duplicar o copiar material de SoftVault"
+
+#: .\software\templates\software\terms_conditions.html:29
+msgid "Redistribute content from SoftVault"
+msgstr "Redistribuir contenido de SoftVault"
+
+#: .\software\templates\software\terms_conditions.html:32
+msgid "User Responsibilities & Conduct"
+msgstr "Responsabilidades y Conducta del Usuario"
+
+#: .\software\templates\software\terms_conditions.html:33
+msgid "By using this Website, you agree to:"
+msgstr "Al utilizar este Sitio Web, usted acepta:"
+
+#: .\software\templates\software\terms_conditions.html:35
+msgid "Use the Website and download software at your own risk."
+msgstr "Usar el Sitio Web y descargar software bajo su propio riesgo."
+
+#: .\software\templates\software\terms_conditions.html:36
+msgid ""
+"Not use the Website for any unlawful purpose or in any way that violates "
+"these Terms and Conditions."
+msgstr ""
+"No usar el Sitio Web para ningún propósito ilegal o de ninguna manera que "
+"viole estos Términos y Condiciones."
+
+#: .\software\templates\software\terms_conditions.html:37
+msgid ""
+"Not engage in any data mining, data harvesting, data extracting or any other "
+"similar activity in relation to this Website."
+msgstr ""
+"No participar en actividades de minería de datos, recolección de datos, "
+"extracción de datos o cualquier otra actividad similar en relación con este "
+"Sitio Web."
+
+#: .\software\templates\software\terms_conditions.html:38
+msgid "Not interfere with the security or proper working of the Website."
+msgstr "No interferir con la seguridad o el funcionamiento adecuado del Sitio Web."
+
+#: .\software\templates\software\terms_conditions.html:39
+msgid ""
+"Not attempt to gain unauthorized access to any portion or feature of the "
+"Website, or any other systems or networks connected to the Website or to any "
+"server, computer, or network associated with the Website."
+msgstr ""
+"No intentar obtener acceso no autorizado a ninguna parte o característica "
+"del Sitio Web, o a cualquier otro sistema o red conectado al Sitio Web o a "
+"cualquier servidor, computadora o red asociada con el Sitio Web."
+
+#: .\software\templates\software\terms_conditions.html:42
+msgid "Software Downloads"
+msgstr "Descargas de Software"
+
+#: .\software\templates\software\terms_conditions.html:43
+msgid ""
+"SoftVault provides software downloads for informational and convenience "
+"purposes. We do not host all software files directly and may link to "
+"external download sources. We make no representations or warranties "
+"regarding the safety, functionality, or suitability of any software "
+"downloaded from our site or linked third-party sites."
+msgstr ""
+"SoftVault proporciona descargas de software con fines informativos y de "
+"conveniencia. No alojamos todos los archivos de software directamente y "
+"podemos enlazar a fuentes de descarga externas. No ofrecemos "
+"representaciones ni garantías con respecto a la seguridad, funcionalidad o "
+"idoneidad de cualquier software descargado de nuestro sitio o de sitios de "
+"terceros enlazados."
+
+#: .\software\templates\software\terms_conditions.html:45
+msgid "Risk:"
+msgstr "Riesgo:"
+
+#: .\software\templates\software\terms_conditions.html:45
+msgid ""
+"All software downloads are undertaken at your own risk. We strongly "
+"recommend scanning any downloaded software with reputable antivirus and anti-"
+"malware programs before installation and use."
+msgstr ""
+"Todas las descargas de software se realizan bajo su propio riesgo. "
+"Recomendamos encarecidamente escanear cualquier software descargado con "
+"programas antivirus y antimalware de buena reputación antes de la "
+"instalación y el uso."
+
+#: .\software\templates\software\terms_conditions.html:46
+msgid "Licensing:"
+msgstr "Licencias:"
+
+#: .\software\templates\software\terms_conditions.html:46
+msgid ""
+"Users are solely responsible for adhering to the license agreements of any "
+"software they download. SoftVault does not grant any software licenses."
+msgstr ""
+"Los usuarios son los únicos responsables de cumplir con los acuerdos de "
+"licencia de cualquier software que descarguen. SoftVault no otorga ninguna "
+"licencia de software."
+
+#: .\software\templates\software\terms_conditions.html:49
+msgid "Hyperlinking to our Content"
+msgstr "Creación de Hipervínculos a Nuestro Contenido"
+
+#: .\software\templates\software\terms_conditions.html:50
+msgid ""
+"The following organizations may link to our Website without prior written "
+"approval:"
+msgstr ""
+"Las siguientes organizaciones pueden enlazar a nuestro sitio web sin "
+"aprobación previa por escrito:"
+
+#: .\software\templates\software\terms_conditions.html:52
+msgid "Government agencies;"
+msgstr "Agencias gubernamentales;"
+
+#: .\software\templates\software\terms_conditions.html:53
+msgid "Search engines;"
+msgstr "Motores de búsqueda;"
+
+#: .\software\templates\software\terms_conditions.html:54
+msgid "News organizations;"
+msgstr "Organizaciones de noticias;"
+
+#: .\software\templates\software\terms_conditions.html:55
+msgid ""
+"Online directory distributors when they list us in the directory may link to "
+"our Website in the same manner as they hyperlink to the Websites of other "
+"listed businesses; and"
+msgstr ""
+"Distribuidores de directorios en línea, cuando nos incluyan en el directorio, "
+"pueden enlazar a nuestro Sitio Web de la misma manera que enlazan a los "
+"Sitios Web de otras empresas listadas; y"
+
+#: .\software\templates\software\terms_conditions.html:56
+msgid ""
+"System wide Accredited Businesses except soliciting non-profit "
+"organizations, charity shopping malls, and charity fundraising groups which "
+"may not hyperlink to our Web site."
+msgstr ""
+"Empresas Acreditadas en todo el sistema, excepto organizaciones sin fines de "
+"lucro, centros comerciales de caridad y grupos de recaudación de fondos de "
+"caridad, que no pueden enlazar a nuestro sitio web."
+
+#: .\software\templates\software\terms_conditions.html:58
+msgid ""
+"These organizations may link to our home page, to publications or to other "
+"Website information so long as the link: (a) is not in any way deceptive; "
+"(b) does not falsely imply sponsorship, endorsement or approval of the "
+"linking party and its products and/or services; and (c) fits within the "
+"context of the linking party's site."
+msgstr ""
+"Estas organizaciones pueden enlazar a nuestra página de inicio, a "
+"publicaciones o a otra información del sitio web, siempre y cuando el "
+"enlace: (a) no sea de ninguna manera engañoso; (b) no implique falsamente "
+"patrocinio, respaldo o aprobación de la parte que enlaza y sus productos "
+"y/o servicios; y (c) encaje dentro del contexto del sitio de la parte que "
+"enlaza."
+
+#: .\software\templates\software\terms_conditions.html:59
+msgid ""
+"We may consider and approve other link requests from the following types of "
+"organizations:"
+msgstr ""
+"Podemos considerar y aprobar otras solicitudes de enlaces de los siguientes "
+"tipos de organizaciones:"
+
+#: .\software\templates\software\terms_conditions.html:61
+msgid "commonly-known consumer and/or business information sources;"
+msgstr "fuentes de información de consumo y/o empresariales conocidas;"
+
+#: .\software\templates\software\terms_conditions.html:62
+msgid "dot.com community sites;"
+msgstr "sitios comunitarios .com;"
+
+#: .\software\templates\software\terms_conditions.html:63
+msgid "associations or other groups representing charities;"
+msgstr "asociaciones u otros grupos que representen a organizaciones benéficas;"
+
+#: .\software\templates\software\terms_conditions.html:64
+msgid "online directory distributors;"
+msgstr "distribuidores de directorios en línea;"
+
+#: .\software\templates\software\terms_conditions.html:65
+msgid "internet portals;"
+msgstr "portales de internet;"
+
+#: .\software\templates\software\terms_conditions.html:66
+msgid "accounting, law and consulting firms; and"
+msgstr "firmas de contabilidad, derecho y consultoría; y"
+
+#: .\software\templates\software\terms_conditions.html:67
+msgid "educational institutions and trade associations."
+msgstr "instituciones educativas y asociaciones comerciales."
+
+#: .\software\templates\software\terms_conditions.html:70
+msgid "Disclaimer of Warranties"
+msgstr "Descargo de Responsabilidad de Garantías"
+
+#: .\software\templates\software\terms_conditions.html:71
+msgid ""
+"The Website and all content and software contained therein are provided on "
+"an \"as is\" and \"as available\" basis without any warranties of any kind, "
+"either express or implied. SoftVault Inc. disclaims all warranties, "
+"including, but not limited to, implied warranties of merchantability, "
+"fitness for a particular purpose, and non-infringement."
+msgstr ""
+"El Sitio Web y todo el contenido y software contenido en el mismo se "
+"proporcionan \"tal cual\" y \"según disponibilidad\" sin garantías de ningún "
+"tipo, ya sean expresas o implícitas. SoftVault Inc. renuncia a todas las "
+"garantías, incluidas, entre otras, las garantías implícitas de "
+"comerciabilidad, idoneidad para un propósito particular y no infracción."
+
+#: .\software\templates\software\terms_conditions.html:74
+msgid ""
+"In no event shall SoftVault Inc., its directors, employees, partners, "
+"agents, suppliers, or affiliates, be liable for any indirect, incidental, "
+"special, consequential, or punitive damages, including without limitation, "
+"loss of profits, data, use, goodwill, or other intangible losses, resulting "
+"from (i) your access to or use of or inability to access or use the Service; "
+"(ii) any conduct or content of any third party on the Service; (iii) any "
+"content obtained from the Service; and (iv) unauthorized access, use or "
+"alteration of your transmissions or content, whether based on warranty, "
+"contract, tort (including negligence) or any other legal theory, whether or "
+"not we have been informed of the possibility of such damage, and even if a "
+"remedy set forth herein is found to have failed of its essential purpose."
+msgstr ""
+"En ningún caso SoftVault Inc., sus directores, empleados, socios, "
+"agentes, proveedores o afiliados serán responsables de daños indirectos, "
+"incidentales, especiales, consecuentes o punitivos, incluyendo, sin "
+"limitación, la pérdida de beneficios, datos, uso, buena voluntad u otras "
+"pérdidas intangibles, resultantes de (i) su acceso o uso o incapacidad de "
+"acceder o usar el Servicio; (ii) cualquier conducta o contenido de un "
+"tercero en el Servicio; (iii) cualquier contenido obtenido del Servicio; y "
+"(iv) el acceso, uso o alteración no autorizados de sus transmisiones o "
+"contenido, ya sea por garantía, contrato, agravio (incluida negligencia) o "
+"cualquier otra teoría legal, independientemente de si hemos sido "
+"informados de la posibilidad de tales daños, e incluso si se determina que "
+"un recurso establecido en este documento ha fallado en su propósito "
+"esencial."
+
+#: .\software\templates\software\terms_conditions.html:76
+msgid "Indemnification"
+msgstr "Indemnización"
+
+#: .\software\templates\software\terms_conditions.html:77
+msgid ""
+"You agree to indemnify, defend and hold harmless SoftVault Inc., its "
+"officers, directors, employees, agents, and third parties, for any losses, "
+"costs, liabilities, and expenses (including reasonable attorney's fees) "
+"relating to or arising out of your use of or inability to use the Website or "
+"services, any user postings made by you, your violation of any terms of this "
+"Agreement or your violation of any rights of a third party, or your "
+"violation of any applicable laws, rules or regulations."
+msgstr ""
+"Usted acepta indemnizar, defender y eximir de responsabilidad a SoftVault "
+"Inc., sus funcionarios, directores, empleados, agentes y terceros, por "
+"cualquier pérdida, costo, responsabilidad y gasto (incluidos los honorarios "
+"razonables de abogados) relacionados con o que surjan de su uso o "
+"incapacidad para usar el Sitio Web o los servicios, cualquier publicación "
+"de usuario realizada por usted, su violación de cualquier término de este "
+"Acuerdo o su violación de cualquier derecho de un tercero, o su violación "
+"de cualquier ley, regla o regulación aplicable."
+
+#: .\software\templates\software\terms_conditions.html:79
+msgid "Changes to Terms"
+msgstr "Cambios en los Términos"
+
+#: .\software\templates\software\terms_conditions.html:80
+msgid ""
+"We reserve the right to revise these Terms and Conditions at any time. By "
+"continuing to use the Website, you agree to be bound by the current version "
+"of these Terms and Conditions."
+msgstr ""
+"Nos reservamos el derecho de revisar estos Términos y Condiciones en "
+"cualquier momento. Al continuar utilizando el Sitio Web, usted acepta "
+"quedar vinculado por la versión actual de estos Términos y Condiciones."
+
+#: .\software\templates\software\terms_conditions.html:82
+msgid "Governing Law & Jurisdiction"
+msgstr "Ley Aplicable y Jurisdicción"
+
+#: .\software\templates\software\terms_conditions.html:83
+msgid ""
+"These Terms shall be governed and construed in accordance with the laws of "
+"Germany, without regard to its conflict of law provisions."
+msgstr ""
+"Estos Términos se regirán e interpretarán de acuerdo con las leyes de "
+"Alemania, sin considerar sus disposiciones sobre conflictos de leyes."
+
+#: .\software\templates\software\terms_conditions.html:85
+msgid "Contact Information"
+msgstr "Información de Contacto"
+
+#: .\software\templates\software\terms_conditions.html:86
+msgid ""
+"If you have any questions about these Terms and Conditions, please contact "
+"us at"
+msgstr ""
+"Si tiene alguna pregunta sobre estos Términos y Condiciones, por favor "
+"contáctenos en"
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\forms.py:6
+#, fuzzy
+#| msgid "Search"
+msgid "Search files"
+msgstr "Buscar archivos"
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:5
+#, fuzzy
+#| msgid "Select language"
+msgid "Select an image to embed"
+msgstr "Seleccionar idioma"
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:50
+msgid "Images in: "
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:62
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:80
+msgid "Embed Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:146
+msgid "Play Slideshow"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:147
+msgid "Pause Slideshow"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:150
+msgid "Next &rsaquo;"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:151
+msgid "&lsaquo; Prev"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
+msgid "Messages"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+#, fuzzy
+#| msgid "Sitemap"
+msgid "Site Maps"
+msgstr "Mapa del sitio"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+#, fuzzy
+#| msgid "Search"
+msgid "Static Files"
+msgstr "Buscar"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:50
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:52
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:54
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:104
+#: .\venv\Lib\site-packages\django\forms\fields.py:752
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:165
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:176
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:259
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:267
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:281
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:298
+#: .\venv\Lib\site-packages\django\core\validators.py:319
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:310
+#: .\venv\Lib\site-packages\django\core\validators.py:317
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:353
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:359
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:394
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:403
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:412
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:422
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:440
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:463
+#: .\venv\Lib\site-packages\django\forms\fields.py:347
+#: .\venv\Lib\site-packages\django\forms\fields.py:386
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:465
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:470
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:475
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:546
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:607
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1423
+#: .\venv\Lib\site-packages\django\forms\models.py:893
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1425
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:17
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:128
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:129
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:130
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:131
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:173
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1094
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1095
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1097
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1147
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1149
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1253
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1354
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1358
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1493
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1362
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1489
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1497
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1502
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1626
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1628
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1789
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1793
+#, fuzzy
+#| msgid "Reputation"
+msgid "Duration"
+msgstr "Reputación"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1845
+msgid "Email address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1870
+#, fuzzy
+#| msgid "Size"
+msgid "File path"
+msgstr "Tamaño"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1948
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1950
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1990
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1992
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2088
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2105
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2113
+msgid "IPv4 address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2144
+msgid "IP address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2237
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2238
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2240
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2291
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2306
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2321
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2337
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2373
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2448
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2452
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2456
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2564
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2588
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2653
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2655
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:232
+#, fuzzy
+#| msgid "Size"
+msgid "File"
+msgstr "Tamaño"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:393
+msgid "Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:28
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:919
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:921
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1212
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1269
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1271
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1319
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:184
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:91
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:298
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:467
+#: .\venv\Lib\site-packages\django\forms\fields.py:1241
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:490
+#: .\venv\Lib\site-packages\django\forms\fields.py:1242
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:517
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:551
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:552
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:621
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:622
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:623
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:625
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:630
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:694
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:857
+#: .\venv\Lib\site-packages\django\forms\fields.py:949
+#: .\venv\Lib\site-packages\django\forms\models.py:1566
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:951
+#: .\venv\Lib\site-packages\django\forms\fields.py:1070
+#: .\venv\Lib\site-packages\django\forms\models.py:1564
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1071
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1313
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1343
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:98
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:244
+#: .\venv\Lib\site-packages\django\forms\forms.py:328
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:63
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:67
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:72
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:886
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:891
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:898
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:907
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1338
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1429
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1568
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:226
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:463
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:464
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:465
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\includes\grappelli_inline_tabular.html:32
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:42
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_stacked.html:34
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\stacked.html:36
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\tabular.html:61
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:794
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:795
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:796
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:874
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:904
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:921
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:923
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:925
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:927
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:929
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:931
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:73
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:79
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:152
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:154
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "Buscar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+#, fuzzy
+#| msgid "Search"
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Buscar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+#, fuzzy
+#| msgid "Search"
+msgctxt "alt. month"
+msgid "March"
+msgstr "Buscar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:138
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:323
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:342
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:111
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:229
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:247
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\venv\Lib\site-packages\imagekit\admin.py:10
+msgid "Thumbnail"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:14
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:53
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:61
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:71
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:81
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:85
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:117
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:136
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:363
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:368
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:378
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:398
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:415
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:434
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:440
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:457
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:469
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:477
+msgid "title"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:18
+msgid "password"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:244
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:263
+msgid "title a"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:248
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:274
+msgid "title b"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:252
+msgid "title c"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:256
+msgid "title d"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:379
+msgid "visits"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\translation.py:62
+msgid "Sorry, translation is not available."
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
+msgid "None"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\nested.py:171
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:93
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_tabular.html:81
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:90
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_stacked.html:74
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\stacked.html:81
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\tabular.html:124
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\nested.py:175
+msgid "Remove"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\includes\grappelli_inline_tabular.html:38
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:50
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:44
+msgid "Move Item"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\includes\grappelli_inline_tabular.html:45
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\includes\grappelli_inline_tabular.html:52
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:57
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:61
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:51
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:55
+msgid "Delete Item"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:15
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:14
+msgid "Open All Items"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:16
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:15
+msgid "Close All Items"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:17
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:97
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_tabular.html:83
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:16
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:94
+msgid "Add Item"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_stacked.html:46
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_grappelli_stacked.html:40
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\polymorphic_stacked.html:36
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\stacked.html:38
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\tabular.html:63
+msgid "View on site"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\grappelli_tabular.html:17
+msgid "Add Another"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\stacked.html:36
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\tabular.html:61
+msgid "View"
+msgstr ""
+
+#: .\venv\Lib\site-packages\nested_admin\templates\nesting\admin\inlines\tabular.html:35
+msgid "Delete?"
+msgstr ""
+
+#~ msgid "Select language"
+#~ msgstr "Seleccionar idioma"

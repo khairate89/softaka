@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{{ software.name }} - {% trans "Download" %}{% endblock %}
+{% block meta_description %}{{ software.description|striptags|truncatechars:160|safe }}{% endblock %}
+{% block head_extra %}
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ software.name|escapejs }}",
+  "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+  "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+  "url": "{{ request.build_absolute_uri }}",
+  "image": "{{ software.image.url }}",
+  "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
+  "inLanguage": "{{ LANGUAGE_CODE }}",
+  "softwareVersion": "{% if current_version %}{{ current_version.version_number }}{% elif software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+  "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+  "fileSize": "{{ software.file_size|default:'1 GB' }}",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "{{ request.build_absolute_uri }}"
+  }{% if software.total_ratings > 0 %},
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+    "reviewCount": "{{ software.total_ratings }}"
+  }{% endif %},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Softaka",
+    "url": "https://softaka.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://softaka.com/static/software/softaka-logo.svg"
+    }
+  }
+  {% if comments|length > 0 %},
+  "review": [
+    {% for comment in comments|slice:":10" %}
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "{{ comment.name|escapejs }}"
+      },
+      "reviewBody": "{{ comment.content|striptags|escapejs }}",
+      "datePublished": "{{ comment.created_at|date:'c' }}"
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+  {% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "inLanguage": "{{ LANGUAGE_CODE }}",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "{% trans 'Home' %}",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ software.category.name }}",
+      "item": "{{ request.scheme }}://{{ request.get_host }}{{ software.category.get_absolute_url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ software.name }}"
+    }
+  ]
+}
+</script>
+{% endblock head_extra %}
+{% block extra_js %}
+<script src="{% static 'software/js/star_rating.js' %}"></script>
+{% endblock %}
+{% block main_content_area %}
+    <div class="row">
+        {# Main content column #}
+        <div class="col-md-8">
+            {# Breadcrumb navigation #}
+            <nav aria-label="breadcrumb" class="my-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'software:index' %}">{% trans "Home" %}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ software.category.get_absolute_url }}">{{ software.category.name }}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <a href="{{ software.get_absolute_url }}">{{ software.name }}</a>
+        </li>
+    </ol>
+</nav>
+            <article class="software-detail my-4 p-4 border rounded shadow-sm">
+                <h2 class="mb-3">{{ software.name }}</h2>
+                <p>{{ software.description|safe }}</p>
+
+                {# System Requirements #}
+                <div class="card my-4">
+                    <div class="card-header bg-warning text-white">
+                        <p class="mb-0">{% trans "System Requirements:" %}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% if software.operating_system %}
+                            <li class="list-group-item">
+                                <strong>{% trans "Operating System:" %}</strong> {{ software.operating_system }}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </article>
+
+            {# Previous Versions / History Section #}
+            {% if software.versions.exists %}
+                <div class="card my-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0">{% trans "Previous Versions / History" %}</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% for version in software.versions.all %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ version.version_number }}</strong>
+                                    {% if version.release_date %}
+                                        <span class="text-muted ms-2">({{ version.release_date|date:"F j, Y" }})</span>
+                                    {% endif %}
+                                    {% if version.is_current_version %}
+                                        <span class="badge bg-success ms-2">{% trans "Current Version" %}</span>
+                                    {% endif %}
+                                    {% if version.additional_info %}
+                                        <br><small class="text-muted">{{ version.additional_info }}</small>
+                                    {% endif %}
+                                </div>
+                                {% if version.download_link_url %}
+                                    <a href="{% url 'software:file-download' %}?id={{ version.pk }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-download me-1"></i> {% trans "Download" %}
+                                    </a>
+                                {% else %}
+                                    <span class="text-muted small">{% trans "File not available" %}</span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {# Comments Section #}
+            <div class="card my-4 shadow-sm">
+                <div class="card-header bg-warning text-white">
+                    <h4 class="mb-0">{% trans "Comments" %} <span class="badge bg-light text-dark ms-2">{{ comments.count }}</span></h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="mb-3">{% trans "Leave a Comment" %}</h5>
+                    <form method="post" class="comment-form mb-4">
+                        {% csrf_token %}
+                        {% if comment_form.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{% trans "Please correct the following errors:" %}</strong>
+                                <ul>
+                                    {% for field in comment_form %}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                                <li>{{ field.label }}: {{ error }}</li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if comment_form.non_field_errors %}
+                                        {% for error in comment_form.non_field_errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            {{ comment_form.name }}
+                        </div>
+                        <div class="mb-3">
+                            {{ comment_form.email }}
+                        </div>
+                        <div class="mb-3">
+                            {{ comment_form.content }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">{% trans "Submit Comment" %}</button>
+                        <p class="text-muted small mt-2">{% trans "Your comment will be visible after approval by an administrator." %}</p>
+                    </form>
+
+                    <hr class="my-4">
+
+                    {% if comments %}
+                        <div class="comments-list">
+                            {% for comment in comments %}
+                                <div class="comment-item border-bottom pb-3 mb-3">
+                                    <p class="mb-1">
+                                        <strong>{{ comment.name }}</strong>
+                                        <span class="text-muted small ms-2">{{ comment.created_at|date:"F j, Y, P" }}</span>
+                                    </p>
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">{% trans "No comments yet. Be the first to comment!" %}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {# Right sidebar #}
+        <div class="col-md-4">
+            {% include 'software/_right_sidebar.html' %}
+        </div>
+    </div>
+
+    {# Back to Home button #}
+    <div class="col-12 text-center my-4">
+        <a href="{% url 'software:index' %}" class="btn btn-secondary">← {% trans "Back to Home" %}</a>
+    </div>
+{% endblock main_content_area %}
+
+{% block page_scripts %}
+    <script src="{% static 'software/js/star_rating.js' %}"></script>
+{% endblock %}

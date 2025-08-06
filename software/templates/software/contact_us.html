@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Contact Us" %} - Softaka{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <h1 class="mb-4 text-center">{% trans "Contact Us" %}</h1>
+            <div class="card p-4 shadow-sm">
+                <p>{% trans "We're here to help! Whether you have questions about software, need assistance with a download, want to report an issue, or simply have feedback, don't hesitate to reach out to the Softaka team. We value your input and strive to respond to all inquiries promptly." %}</p>
+
+                <h2 class="mt-4">{% trans "How to Reach Us" %}:</h2>
+
+                <h3 class="mt-3">{% trans "Email Us Directly" %}:</h3>
+                <p>{% trans "For general inquiries, support, or partnership opportunities, please send us an email. We aim to respond within 24-48 hours." %}</p>
+                <ul>
+                    <li><strong>{% trans "General Inquiries & Support:" %}</strong> <a href="mailto:support@Softaka.com">support@Softaka.com</a></li>
+                    <li><strong>{% trans "DMCA & Copyright Concerns:" %}</strong> <a href="mailto:dmca@Softaka.com">dmca@Softaka.com</a></li>
+                </ul>
+
+                <h3 class="mt-4">{% trans "Before Contacting Us" %}:</h3>
+                <ul>
+                    <li>{% trans "Check our" %} <a href="{% url 'software:index' %}" class="text-decoration-none">{% trans "FAQ section" %}</a> {% trans "(if you have one) for answers to common questions." %}</li>
+                    <li>{% trans "For software-specific issues, please refer to the" %} <strong>{% trans "software's official website" %}</strong> {% trans "or documentation first, as we are a download portal, not the software developers." %}</li>
+                </ul>
+                <p class="mt-4">{% trans "We look forward to hearing from you!" %}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

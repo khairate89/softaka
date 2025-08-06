@@ -1,0 +1,254 @@
+/* software/static/software/style.css */
+
+/* --- CSS Variables for easy color management --- */
+:root {
+    --primary-blue: #3498DB;
+    --darker-blue: #217DBB;
+    --primary-green: #2ECC71;
+    --darker-green: #27AE60;
+    --text-light: #f8f9fa; /* Bootstrap's light color */
+    --text-dark: #212529;  /* Bootstrap's dark color */
+    --gray-600: #6c757d;   /* Muted text color */
+}
+
+/* --- General Body and Font Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark); /* Default text color */
+    /* background-color: stays the same, as requested, so no background property here */
+}
+
+/* --- Header and Footer Specifics --- */
+header {
+    background-color: var(--darker-blue) !important; /* Ensure header uses our dark blue */
+}
+
+header .navbar-brand svg text {
+    fill: var(--text-light); /* Make logo text white for dark header */
+}
+
+header .navbar-brand svg path {
+    fill: var(--primary-green); /* Make logo icon green */
+}
+
+footer {
+    background-color: var(--darker-blue) !important; /* Ensure footer uses our dark blue */
+    color: var(--text-light);
+}
+
+footer a {
+    color: var(--text-light) !important; /* Footer links default to white */
+}
+
+footer a:hover {
+    color: var(--primary-green) !important; /* Footer links hover green */
+}
+
+footer .social-icons a {
+    color: var(--text-light) !important; /* Social icons white */
+}
+
+footer .social-icons a:hover {
+    color: var(--primary-green) !important; /* Social icons hover green */
+}
+
+/* --- Navigation Bar --- */
+.navbar-light {
+    background-color: var(--text-light) !important; /* Light background for nav */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+    color: var(--primary-blue) !important; /* General nav links are blue */
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--darker-blue) !important; /* Hover and active links are darker blue */
+}
+
+/* Specific styling for category links in navbar and footer */
+.navbar-nav .nav-item:not(:first-child) .nav-link, /* Exclude 'Home' link */
+footer .list-unstyled a { /* Category links in footer */
+    color: var(--primary-green) !important; /* Category links are green */
+}
+
+.navbar-nav .nav-item:not(:first-child) .nav-link:hover,
+footer .list-unstyled a:hover {
+    color: var(--darker-green) !important; /* Category links hover darker green */
+}
+
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    color: var(--text-light) !important;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn-primary:hover {
+    background-color: var(--darker-blue) !important;
+    border-color: var(--darker-blue) !important;
+    transform: translateY(-2px); /* Subtle lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-light {
+    color: var(--text-light) !important;
+    border-color: var(--text-light) !important;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--text-light) !important;
+    color: var(--primary-blue) !important; /* Blue text on hover */
+    border-color: var(--text-light) !important;
+}
+
+.btn-success { /* Used for comments header in software_detail.html */
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-success:hover {
+    background-color: var(--darker-green) !important;
+    border-color: var(--darker-green) !important;
+}
+
+.btn-info { /* Used for system requirements header in software_detail.html */
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-info:hover {
+    background-color: var(--darker-blue) !important;
+    border-color: var(--darker-blue) !important;
+}
+
+.btn-secondary { /* Back to Home button */
+    background-color: var(--gray-600) !important;
+    border-color: var(--gray-600) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268 !important; /* Slightly darker gray */
+    border-color: #545b62 !important;
+}
+
+/* --- General Link Styling (excluding specific categories) --- */
+a {
+    color: var(--primary-blue); /* Default link color is blue */
+    text-decoration: none; /* Remove underline by default */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+a:hover {
+    color: var(--darker-blue); /* Darker blue on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* --- Card Styles (for "fancy" look) --- */
+.card {
+    border: none; /* Remove default Bootstrap border */
+    border-radius: 0.5rem; /* More rounded corners */
+    overflow: hidden; /* Ensures content stays within rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.card-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: none; /* Remove default header border */
+    border-radius: 0.5rem 0.5rem 0 0 !important; /* Match border-radius of card */
+}
+
+/* Specific card header colors based on Bootstrap classes */
+.card-header.bg-info {
+    background-color: var(--primary-blue) !important;
+}
+
+.card-header.bg-success {
+    background-color: var(--primary-green) !important;
+}
+
+.card-header.bg-primary {
+    background-color: var(--darker-blue) !important; /* Use a darker blue for primary header */
+}
+
+/* --- Form Control Styling --- */
+.form-control {
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: 0.3rem; /* Slightly rounded */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25); /* Blue focus ring */
+}
+
+/* --- Comment Section Specifics --- */
+.comment-item {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Softer dashed line */
+}
+
+.comment-item:last-child {
+    border-bottom: none; /* No border for the last comment */
+    margin-bottom: 0;
+}
+
+/* --- Search Results & Pagination --- */
+.pagination .page-link {
+    color: var(--primary-blue);
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--darker-blue);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    color: var(--text-light) !important;
+}
+
+/* --- Responsive Adjustments (optional, based on your design) --- */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header form.d-flex {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .header form.d-flex input {
+        flex-grow: 1;
+    }
+}
+
+  .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc; /* default grey */
+    transition: color 0.2s;
+  }
+  .star.hover,
+  .star.selected,
+  .star.filled {
+    color: #ffcc00; /* gold color for filled stars */
+  }

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Privacy Policy" %} - Softaka{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <h1 class="mb-4 text-center">{% trans "Privacy Policy" %}</h1>
+            <div class="card p-4 shadow-sm">
+                <p>{% trans "At Softaka, we are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect, how we use it, and the steps we take to safeguard your data." %}</p>
+
+                <h2 class="mt-4">1. {% trans "Information We Collect" %}</h2>
+                <p>{% trans "We may collect personal and non-personal information when you visit or interact with our website:" %}</p>
+                <ul>
+                    <li><strong>{% trans "Personal Information:" %}</strong> {% trans "This includes information you voluntarily provide, such as your name and email address when you submit a comment, subscribe to a newsletter, or contact us." %}</li>
+                    <li><strong>{% trans "Usage Data:" %}</strong> {% trans "We automatically collect certain information when you access the site, such as your IP address, browser type, operating system, referring URLs, pages visited, and the dates/times of your visits. This helps us understand how users interact with our site." %}</li>
+                    <li><strong>{% trans "Cookies and Tracking Technologies:" %}</strong> {% trans "We use cookies and similar tracking technologies to enhance your experience, analyze site usage, and personalize content. Cookies are small data files stored on your device." %}</li>
+                </ul>
+
+                <h2 class="mt-4">2. {% trans "How We Use Your Information" %}</h2>
+                <p>{% trans "We use the collected information for various purposes, including to:" %}</p>
+                <ul>
+                    <li>{% trans "Operate and maintain our website and services." %}</li>
+                    <li>{% trans "Improve, personalize, and expand our website (e.g., recommending relevant software)." %}</li>
+                    <li>{% trans "Understand and analyze how you use our website." %}</li>
+                    <li>{% trans "Develop new products, services, features, and functionality." %}</li>
+                    <li>{% trans "Communicate with you directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes." %}</li>
+                    <li>{% trans "Process your comments and moderate content submissions." %}</li>
+                    <li>{% trans "Prevent fraud and protect the security of our website." %}</li>
+                </ul>
+
+                <h2 class="mt-4">3. {% trans "Sharing Your Information" %}</h2>
+                <p>{% trans "We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties without your consent, except as described below:" %}</p>
+                <ul>
+                    <li><strong>{% trans "Service Providers:" %}</strong> {% trans "We may share your information with third-party service providers who assist us in operating our website, conducting our business, or serving our users (e.g., hosting providers, analytics services). These parties are obligated to keep your information confidential." %}</li>
+                    <li><strong>{% trans "Legal Requirements:" %}</strong> {% trans "We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court order or government agency)." %}</li>
+                    <li><strong>{% trans "Business Transfers:" %}</strong> {% trans "In the event of a merger, acquisition, or sale of assets, your personal data may be transferred. We will notify you before your personal data is transferred and becomes subject to a different Privacy Policy." %}</li>
+                </ul>
+
+                <h2 class="mt-4">4. {% trans "Data Security" %}</h2>
+                <p>{% trans "We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure." %}</p>
+
+                <h2 class="mt-4">5. {% trans "Your Data Protection Rights" %}</h2>
+                <p>{% trans "Depending on your location, you may have the following rights regarding your personal data:" %}</p>
+                <ul>
+                    <li><strong>{% trans "The right to access:" %}</strong> {% trans "You have the right to request copies of your personal data." %}</li>
+                    <li><strong>{% trans "The right to rectification:" %}</strong> {% trans "You have the right to request that we correct any information you believe is inaccurate." %}</li>
+                    <li><strong>{% trans "The right to erasure:" %}</strong> {% trans "You have the right to request that we erase your personal data, under certain conditions." %}</li>
+                    <li><strong>{% trans "The right to restrict processing:" %}</strong> {% trans "You have the right to request that we restrict the processing of your personal data, under certain conditions." %}</li>
+                    <li><strong>{% trans "The right to object to processing:" %}</strong> {% trans "You have the right to object to our processing of your personal data, under certain conditions." %}</li>
+                    <li><strong>{% trans "The right to data portability:" %}</strong> {% trans "You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions." %}</li>
+                </ul>
+                <p>{% trans "To exercise any of these rights, please contact us." %}</p>
+
+                <h2 class="mt-4">6. {% trans "Cookie Policy" %}</h2>
+                <p>{% trans "We use cookies to collect information about your Browse activities. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service." %}</p>
+
+                <h2 class="mt-4">7. {% trans "Children's Privacy" %}</h2>
+                <p>{% trans "Our Service is not intended for anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under 13. If you are a parent or guardian and you are aware that your child has provided us with Personal Data, please contact us." %}</p>
+
+                <h2 class="mt-4">8. {% trans "Changes to This Privacy Policy" %}</h2>
+                <p>{% trans "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the Last Updated date. You are advised to review this Privacy Policy periodically for any changes." %}</p>
+                <p><strong>{% trans "Last Updated" %}:</strong> {% now "F j, Y" %}</p>
+
+                <h2 class="mt-4">9. {% trans "Contact Us" %}</h2>
+                <p>{% trans "If you have any questions about this Privacy Policy, please contact us:" %}</p>
+                <p>{% trans "By email:" %} <a href="mailto:privacy@Softaka.com">privacy@Softaka.com</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
