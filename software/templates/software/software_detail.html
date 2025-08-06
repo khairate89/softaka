@@ -2,9 +2,9 @@
 {% load static %}
 {% load i18n %}
 {% block title %}{{ software.name }} - {% trans "Download" %}{% endblock %}
-{% block meta_description %}{{ software.description|striptags|truncatechars:160|safe }}{% endblock %}
 {% block head_extra %}
 <meta name="robots" content="index, follow">
+<meta name="description" content="{{ software.description|striptags|truncatechars:160 }}">
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
