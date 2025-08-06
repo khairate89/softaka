@@ -12,6 +12,6 @@ translator.register(Software, SoftwareTranslationOptions)
 
 # Translation options for the Category model (THIS IS THE MISSING PART)
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ('name', 'meta_description',) # Add 'meta_description' here
+    fields = ('name',) # Specify that the 'name' field of Category should be translated
 
 translator.register(Category, CategoryTranslationOptions)
