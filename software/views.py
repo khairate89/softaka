@@ -21,17 +21,7 @@ from django.core.exceptions import ValidationError  # <--- ADD THIS LINE
 from .models import Rating
 from decimal import Decimal
 
-def category_detail(request, category_slug):
-    category = get_object_or_404(Category, slug=category_slug)
-    software_list = Software.objects.filter(category=category).order_by('-created_at')
-    
-    context = {
-        'category': category,
-        'software_list': software_list,
-        # ... (other context variables)
-    }
-    return render(request, 'software/category_detail.html', context)
-    
+
 class SearchResultsView(ListView):
     model = Software
     template_name = 'software/search_results.html'
