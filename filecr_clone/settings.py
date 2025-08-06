@@ -143,6 +143,7 @@ CKEDITOR_CONFIGS = {
         'height': 300,
         'width': '100%',
         'extraPlugins': 'codesnippet',
+        'entities': False,  # <-- This is the important line
     },
     'description_toolbar': {
         'toolbar': [
