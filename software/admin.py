@@ -15,7 +15,7 @@ class NewsletterSubscriberAdmin(admin.ModelAdmin):
 
 # CATEGORY ADMIN
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslationAdmin):
     list_display = ('name', 'slug', 'icon', 'display_on_menu', 'display_on_header')
     prepopulated_fields = {'slug': ('name',)}
 
