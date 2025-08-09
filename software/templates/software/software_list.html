@@ -2,8 +2,9 @@
 {% load static %}
 {% load humanize %}
 {% load i18n %}
-{% block head_extra %}
-{{ block.super }}  <!-- Preserve default content -->
+{% block title %}{{ category.name }} {% trans "Software & Apps - Softaka" %}{% endblock %}
+{% block meta_description %}{{ category.meta_description }}{% endblock %}
+{% block head_extra %}{{ block.super }} 
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
