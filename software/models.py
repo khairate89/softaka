@@ -22,9 +22,9 @@ class Category(models.Model):
     icon = models.CharField(max_length=50, blank=True, null=True, help_text="Font Awesome icon class (e.g., 'fas fa-desktop')")
     display_on_menu = models.BooleanField(default=True, help_text="Check to display this category in the **left sidebar menu**.")
     display_on_header = models.BooleanField(default=False, help_text="Check to display this category in the **main header navigation**.")
-# This is the corrected field
     is_published = models.BooleanField(default=True, help_text=_("Whether this category should be publicly visible."))
     updated_at = models.DateTimeField(auto_now=True, help_text=_("The date and time this category was last updated."))
+    meta_description = models.TextField(blank=True, null=True)
     class Meta:
         verbose_name_plural = "Categories"
 
