@@ -2,7 +2,7 @@
 {% load static %}
 {% load humanize %}
 {% load i18n %}
-{% block title %}{% blocktrans with query=query %}Search Results for "{{ query }}"{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans with query=query %}Search Results for "{{ query }}"{% endblocktrans %}{% endblock %}{% block head_extra %}
 {% block head_extra %}
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}">
