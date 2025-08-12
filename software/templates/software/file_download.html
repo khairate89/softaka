@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %}
-    {{ software.name }} – {% trans "Download" %} (v{{ software_download_page_version.version_number }})
-{% endblock %}
+{% block title %}{{ software.name }} – {% trans "Download" %} (v{{ software_download_page_version.version_number }}){% endblock %}
 {% block head_extra %}
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta property="og:title" content="{% block og_title %}Softaka – Safe, Fast & Verified Software Downloads{% endblock %}" />
+<meta property="og:description" content="{% block og_description %}Download free software, apps, games, and utilities for Windows.{% endblock %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:image" content="{% block og_image %}{% static 'software/placeholder.png' %}{% endblock %}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{% block twitter_title %}Softaka – Safe, Fast & Verified Software Downloads{% endblock %}" />
+<meta name="twitter:description" content="{% block twitter_description %}Download free software, apps, games, and utilities for Windows.{% endblock %}" />
+<meta name="twitter:image" content="{% block twitter_image %}{% static 'software/placeholder.png' %}{% endblock %}" />
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
