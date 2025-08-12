@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %}{{ software.name }} - {% trans "Download" %}{% endblock %}
+{% block title %}{{ software.name }} - {% trans 'Download' %} | Softaka{% endblock %}
 {% block meta_description %}{{ software.description|striptags|truncatechars:160|safe }}{% endblock %}
 {% block head_extra %}
-<meta name="robots" content="index, follow">
-
+<meta property="og:title" content="{{ software.name }} - {% trans 'Download' %} | Softaka" />
+<meta property="og:description" content="{{ software.description|striptags|truncatechars:160 }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:image" content="{% if software.image %}{{ software.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ software.name }} - {% trans 'Download' %} | Softaka" />
+<meta name="twitter:description" content="{{ software.description|striptags|truncatechars:160 }}" />
+<meta name="twitter:image" content="{% if software.image %}{{ software.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}" />
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
