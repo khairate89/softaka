@@ -67,12 +67,15 @@
   </svg>
 </a>
         {# Search Bar - NOW WITHOUT ms-auto/me-3, letting justify-content-between center it #}
-        <form class="d-flex" role="search" action="{% url 'software:search-results' %}" method="get">
-            <input class="form-control me-2" type="search" placeholder="{% trans 'Search software...' %}" aria-label="{% trans 'Search' %}" name="q">
-            <button class="btn btn-outline-light" type="submit" aria-label="{% trans 'Search' %}">
-    <i class="fas fa-search"></i>
-</button>
-        </form>
+     <form class="d-flex" role="search" action="{% url 'software:search-results' %}" method="get">
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="{% trans 'Search software...' %}"
+    aria-label="{% trans 'Search' %}"
+    name="q"
+  />
+  <button class="btn btn-outline-light" type="submit" aria-label="{% trans 'Search' %}">{% trans "Search" %}</button></form>
 
         {# Language Switcher with Flags - Added ms-3 back for spacing from search bar #}
         <div class="language-switcher-flags d-flex align-items-center ms-3">
