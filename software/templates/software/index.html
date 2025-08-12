@@ -41,9 +41,10 @@
       },
       "sameAs": [
         "https://www.facebook.com/softaka",
-        "https://twitter.com/softaka",
+        "https://twitter.com/softaka"
       ]
-    }{% for software in software_list %},
+    }
+    {% for software in software_list %}{% if forloop.first %},{% endif %}
     {
       "@type": "SoftwareApplication",
       "@id": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}#software",
@@ -78,10 +79,12 @@
           "url": "https://softaka.com{% static 'software/softaka-logo.svg' %}"
         }
       }
-    }{% endfor %}
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
   ]
 }
 </script>
+
 {% endblock %}
 {% block title %}{% trans "Softaka – Safe, Fast & Verified Software Downloads" %}{% endblock %}
 
