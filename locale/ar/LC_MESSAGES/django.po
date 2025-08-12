@@ -19,13 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\software\templates\software\about_us.html:3
-msgid ""
-"Learn about Softaka's mission to provide safe, reliable, and free software "
-"downloads. We curate and verify a wide range of freeware and open-source "
-"applications for everyone."
-msgstr "تعرّف على مهمة سوفتاكا في توفير تحميلات برمجيات آمنة وموثوقة ومجانية. نقوم بانتقاء وفحص مجموعة واسعة من التطبيقات المجانية ومفتوحة المصدر متاحة للجميع."
-
 #: .\software\forms.py:10
 msgid "Your Name"
 msgstr ""
@@ -464,6 +457,13 @@ msgstr ""
 "نتصور عالمًا رقميًا حيث يتمتع الجميع بوصول مجاني وآمن وسهل إلى الأدوات التي "
 "يحتاجونها للتعلم والإبداع والتواصل. سوفت فالت هي خطوة نحو تحقيق هذه الرؤية، "
 "وتعزيز بيئة آمنة لاكتشاف البرامج وتوزيعها."
+
+#: .\software\templates\software\about_us.html:3
+msgid ""
+"Learn about Softaka's mission to provide safe, reliable, and free software "
+"downloads. We curate and verify a wide range of freeware and open-source "
+"applications for everyone."
+msgstr "تعرّف على مهمة سوفتاكا في توفير تحميلات برمجيات آمنة وموثوقة ومجانية. نقوم بانتقاء وفحص مجموعة واسعة من التطبيقات المجانية ومفتوحة المصدر متاحة للجميع."
 
 #: .\software\templates\software\about_us.html:34
 msgid "Why Choose SoftVault?"
