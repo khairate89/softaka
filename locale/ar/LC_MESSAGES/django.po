@@ -62,13 +62,13 @@ msgid "Email Address"
 msgstr "عنوان البريد الإلكتروني"
 
 #: .\software\models.py:225
-#, fuzzy
+
 #| msgid "Subscribe"
 msgid "Subscription Date"
 msgstr "تاريخ الاشتراك"
 
 #: .\software\models.py:228
-#, fuzzy
+
 #| msgid "Subscribe"
 msgid "Newsletter Subscriber"
 msgstr "مشترك في النشرة الإخبارية"
@@ -350,7 +350,6 @@ msgid "About Softaka: Your Trusted Source for Free Software Downloads"
 msgstr "مصدرك الموثوق لتنزيلات البرامج المجانية: حول SoftVault"
 
 #: .\software\templates\software\about_us.html:11
-#, fuzzy
 #| msgid ""
 #| "Welcome to SoftVault! We are passionate about providing a safe, reliable, "
 #| "and user-friendly platform for accessing a wide range of essential "
@@ -373,7 +372,7 @@ msgid "Our Mission"
 msgstr "مهمتنا"
 
 #: .\software\templates\software\about_us.html:14
-#, fuzzy
+
 #| msgid ""
 #| "In today's digital age, finding legitimate and free software can be a "
 #| "challenge. Our mission at SoftVault is to simplify this process by "
@@ -441,7 +440,7 @@ msgid "What We Offer"
 msgstr "ما نقدمه"
 
 #: .\software\templates\software\about_us.html:23
-#, fuzzy
+
 #| msgid ""
 #| "SoftVault is more than just a download site. We are building a community "
 #| "resource that provides:"
@@ -501,7 +500,7 @@ msgid "Our Vision"
 msgstr "رؤيتنا"
 
 #: .\software\templates\software\about_us.html:32
-#, fuzzy
+
 #| msgid ""
 #| "We envision a digital world where everyone has free, secure, and easy "
 #| "access to the tools they need to learn, create, and connect. SoftVault is "
@@ -518,7 +517,7 @@ msgstr ""
 "وتعزيز بيئة آمنة لاكتشاف البرامج وتوزيعها."
 
 #: .\software\templates\software\about_us.html:34
-#, fuzzy
+
 #| msgid "Why Choose SoftVault?"
 msgid "Why Choose Softaka?"
 msgstr "لماذا تختار سوفت فالت؟"
@@ -565,7 +564,7 @@ msgstr ""
 "نحن نقدر ملاحظات المستخدمين ونسعى جاهدين لتحسين منصتنا بناءً على احتياجاتكم."
 
 #: .\software\templates\software\about_us.html:41
-#, fuzzy
+
 #| msgid ""
 #| "Thank you for choosing SoftVault as your trusted software download "
 #| "portal. We are constantly working to enhance your experience and bring "
@@ -579,7 +578,7 @@ msgstr ""
 "على تحسين تجربتك وتقديم أفضل الأدوات لحياتك الرقمية."
 
 #: .\software\templates\software\contact_us.html:11
-#, fuzzy
+
 #| msgid ""
 #| "We're here to help! Whether you have questions about software, need "
 #| "assistance with a download, want to report an issue, or simply have "
@@ -655,7 +654,7 @@ msgid "We look forward to hearing from you!"
 msgstr "نتطلع إلى الاستماع منك!"
 
 #: .\software\templates\software\disclaimer.html:12
-#, fuzzy
+
 #| msgid ""
 #| "The information provided by SoftVault on its website (the \"Service\") is "
 #| "for general informational purposes only. All software and content on this "
@@ -710,7 +709,7 @@ msgid "Software Download and Use Risk"
 msgstr "مخاطر تنزيل البرامج واستخدامها"
 
 #: .\software\templates\software\disclaimer.html:17
-#, fuzzy
+
 #| msgid ""
 #| "Any software downloaded from SoftVault is used at your own discretion and "
 #| "risk. While we strive to provide safe and reputable software, SoftVault "
@@ -740,7 +739,7 @@ msgid "Professional Advice Disclaimer"
 msgstr "إخلاء مسؤولية النصائح المهنية"
 
 #: .\software\templates\software\disclaimer.html:20
-#, fuzzy
+
 #| msgid ""
 #| "The information on SoftVault is not intended as, and shall not be "
 #| "understood or construed as, professional advice. While we aim to provide "
@@ -819,7 +818,7 @@ msgid "Reporting Copyright Infringement (DMCA Notice)"
 msgstr "الإبلاغ عن انتهاك حقوق النشر (إشعار قانون الألفية للملكية الرقمية)"
 
 #: .\software\templates\software\dmca.html:14
-#, fuzzy
+
 #| msgid ""
 #| "If you believe that your copyrighted work has been copied in a way that "
 #| "constitutes copyright infringement and is accessible via SoftVault, "
@@ -856,7 +855,7 @@ msgid "Identification of the material"
 msgstr "تحديد المادة"
 
 #: .\software\templates\software\dmca.html:17
-#, fuzzy
+
 #| msgid ""
 #| "that is claimed to be infringing or to be the subject of infringing "
 #| "activity and that is to be removed or access to which is to be disabled, "
@@ -873,7 +872,7 @@ msgstr ""
 "فالت من تحديد موقع المادة (مثل عناوين URL المحددة للمحتوى المخالف)."
 
 #: .\software\templates\software\dmca.html:18
-#, fuzzy
+
 #| msgid "Information reasonably sufficient to permit SoftVault to contact you"
 msgid "Information reasonably sufficient to permit Softaka to contact you"
 msgstr "معلومات كافية بشكل معقول لتمكين سوفت فالت من الاتصال بك"
@@ -937,7 +936,7 @@ msgid "Upon Receipt of a Valid DMCA Notice:"
 msgstr "عند استلام إشعار DMCA صالح:"
 
 #: .\software\templates\software\dmca.html:25
-#, fuzzy
+
 #| msgid "Upon receipt of a valid and complete DMCA notice, SoftVault will:"
 msgid "Upon receipt of a valid and complete DMCA notice, Softaka will:"
 msgstr "عند استلام إشعار DMCA صالح وكامل، ستقوم سوفت فالت بما يلي:"
@@ -1007,7 +1006,7 @@ msgid "name, address, and telephone number"
 msgstr "اسمك وعنوانك ورقم هاتفك"
 
 #: .\software\templates\software\dmca.html:37
-#, fuzzy
+
 #| msgid ""
 #| "and a statement that you consent to the jurisdiction of the Federal "
 #| "District Court for the judicial district in which the address is located, "
@@ -1053,7 +1052,7 @@ msgid "Repeat Infringer Policy"
 msgstr "سياسة المخالف المتكرر"
 
 #: .\software\templates\software\dmca.html:51
-#, fuzzy
+
 #| msgid ""
 #| "In accordance with the DMCA and other applicable law, SoftVault has "
 #| "adopted a policy of terminating, in appropriate circumstances and at "
@@ -1144,7 +1143,7 @@ msgid "No software available."
 msgstr "لا يوجد برنامج متاح."
 
 #: .\software\templates\software\privacy_policy.html:11
-#, fuzzy
+
 #| msgid ""
 #| "At SoftVault, we are committed to protecting your privacy. This Privacy "
 #| "Policy outlines the types of information we collect, how we use it, and "
@@ -1312,7 +1311,7 @@ msgid "Data Security"
 msgstr "أمن البيانات"
 
 #: .\software\templates\software\privacy_policy.html:42
-#, fuzzy, python-format
+, python-format
 #| msgid ""
 #| "We implement a variety of security measures to maintain the safety of "
 #| "your personal information when you enter, submit, or access your personal "
@@ -1468,13 +1467,13 @@ msgid "Search Results for \"%(query)s\""
 msgstr "نتائج البحث عن \"%(query)s\""
 
 #: .\software\templates\software\search_results.html:17
-#, fuzzy
+
 #| msgid "Search Results for \"%(query)s\""
 msgid "Search results for"
 msgstr "نتائج البحث عن \"%(query)s\""
 
 #: .\software\templates\software\search_results.html:33
-#, fuzzy
+
 #| msgid "Search Results for \"%(query)s\""
 msgid "Search Results"
 msgstr "نتائج البحث عن \"%(query)s\""
@@ -1509,7 +1508,7 @@ msgid "Website Sitemap"
 msgstr "خريطة الموقع"
 
 #: .\software\templates\software\sitemap_page.html:11
-#, fuzzy
+
 #| msgid ""
 #| "Welcome to the SoftVault sitemap. This page provides an organized "
 #| "overview of our website's structure, helping you find content quickly and "
@@ -1526,7 +1525,7 @@ msgid "Main Sections"
 msgstr "الأقسام الرئيسية"
 
 #: .\software\templates\software\sitemap_page.html:27
-#, fuzzy
+
 #| msgid "Categories"
 msgid "Software Categories"
 msgstr "فئات البرامج"
@@ -1597,7 +1596,7 @@ msgid "Terms and Conditions"
 msgstr "الشروط والأحكام"
 
 #: .\software\templates\software\terms_conditions.html:11
-#, fuzzy
+
 #| msgid ""
 #| "Welcome to SoftVault! These terms and conditions outline the rules and "
 #| "regulations for the use of SoftVault Inc.'s Website, located at [Your "
@@ -1611,7 +1610,7 @@ msgstr ""
 "باستخدام موقع شركة SoftVault Inc.، الموجود على [Your Website URL]."
 
 #: .\software\templates\software\terms_conditions.html:12
-#, fuzzy
+
 #| msgid ""
 #| "By accessing this website, we assume you accept these terms and "
 #| "conditions. Do not continue to use SoftVault if you do not agree to take "
@@ -1634,7 +1633,7 @@ msgid "Website, Service, Site:"
 msgstr "الموقع الإلكتروني، الخدمة، الموقع:"
 
 #: .\software\templates\software\terms_conditions.html:16
-#, fuzzy
+
 #| msgid "Refers to SoftVault located at [Your Website URL]."
 msgid "Refers to Softaka located at [Your Website URL]."
 msgstr "يشير إلى SoftVault الموجود على [Your Website URL]."
@@ -1644,7 +1643,7 @@ msgid "We, Us, Our:"
 msgstr "نحن، نا، لنا:"
 
 #: .\software\templates\software\terms_conditions.html:17
-#, fuzzy
+
 #| msgid "Refers to SoftVault Inc."
 msgid "Refers to Softaka Inc."
 msgstr "يشير إلى شركة SoftVault Inc."
@@ -1674,7 +1673,7 @@ msgid "Intellectual Property Rights"
 msgstr "حقوق الملكية الفكرية"
 
 #: .\software\templates\software\terms_conditions.html:23
-#, fuzzy
+
 #| msgid ""
 #| "Unless otherwise stated, SoftVault Inc. and/or its licensors own the "
 #| "intellectual property rights for all material on SoftVault. All "
@@ -1697,25 +1696,25 @@ msgid "You must not:"
 msgstr "يجب عليك عدم:"
 
 #: .\software\templates\software\terms_conditions.html:26
-#, fuzzy
+
 #| msgid "Republish material from SoftVault"
 msgid "Republish material from Softaka"
 msgstr "إعادة نشر مواد من SoftVault"
 
 #: .\software\templates\software\terms_conditions.html:27
-#, fuzzy
+
 #| msgid "Sell, rent or sub-license material from SoftVault"
 msgid "Sell, rent or sub-license material from Softaka"
 msgstr "بيع أو تأجير أو ترخيص مواد من SoftVault من الباطن"
 
 #: .\software\templates\software\terms_conditions.html:28
-#, fuzzy
+
 #| msgid "Reproduce, duplicate or copy material from SoftVault"
 msgid "Reproduce, duplicate or copy material from Softaka"
 msgstr "نسخ أو تكرار أو إعادة إنتاج مواد من SoftVault"
 
 #: .\software\templates\software\terms_conditions.html:29
-#, fuzzy
+
 #| msgid "Redistribute content from SoftVault"
 msgid "Redistribute content from Softaka"
 msgstr "إعادة توزيع المحتوى من SoftVault"
@@ -1765,7 +1764,7 @@ msgid "Software Downloads"
 msgstr "تنزيلات البرامج"
 
 #: .\software\templates\software\terms_conditions.html:43
-#, fuzzy
+
 #| msgid ""
 #| "SoftVault provides software downloads for informational and convenience "
 #| "purposes. We do not host all software files directly and may link to "
@@ -1803,7 +1802,7 @@ msgid "Licensing:"
 msgstr "الترخيص:"
 
 #: .\software\templates\software\terms_conditions.html:46
-#, fuzzy
+
 #| msgid ""
 #| "Users are solely responsible for adhering to the license agreements of "
 #| "any software they download. SoftVault does not grant any software "
@@ -1911,7 +1910,7 @@ msgid "Disclaimer of Warranties"
 msgstr "إخلاء المسؤولية عن الضمانات"
 
 #: .\software\templates\software\terms_conditions.html:71
-#, fuzzy
+
 #| msgid ""
 #| "The Website and all content and software contained therein are provided "
 #| "on an \"as is\" and \"as available\" basis without any warranties of any "
@@ -1931,7 +1930,7 @@ msgstr ""
 "المثال لا الحصر، الضمانات الضمنية للملاءمة لغرض معين وعدم الانتهاك."
 
 #: .\software\templates\software\terms_conditions.html:74
-#, fuzzy
+
 #| msgid ""
 #| "In no event shall SoftVault Inc., its directors, employees, partners, "
 #| "agents, suppliers, or affiliates, be liable for any indirect, incidental, "
@@ -1975,7 +1974,7 @@ msgid "Indemnification"
 msgstr "التعويض"
 
 #: .\software\templates\software\terms_conditions.html:77
-#, fuzzy
+
 #| msgid ""
 #| "You agree to indemnify, defend and hold harmless SoftVault Inc., its "
 #| "officers, directors, employees, agents, and third parties, for any "
