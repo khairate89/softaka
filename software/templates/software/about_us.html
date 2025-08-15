@@ -1,12 +1,43 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% block title %}{% trans "About Us" %} - {% trans "Softaka" %}{% endblock %}
 {% block meta_description %}{% trans "Learn about Softaka's mission to provide safe, reliable, and free software downloads. We curate and verify a wide range of freeware and open-source applications for everyone." %}{% endblock %}
-{% block title %}{% trans "About Us" %} - Softaka{% endblock %}
+{% block head_extra %}
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="{% block og_title %}{% trans 'Softaka – Safe, Fast & Verified Software Downloads' %}{% endblock %}" />
+<meta property="og:description" content="{% block og_description %}{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}{% endblock %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:image" content="https://softaka.com/static/software/softaka-logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{% block twitter_title %}{% trans 'Softaka – Safe, Fast & Verified Software Downloads' %}{% endblock %}" />
+<meta name="twitter:description" content="{% block twitter_description %}{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}{% endblock %}" />
+<meta name="twitter:image" content="https://softaka.com/static/software/softaka-logo.svg" />
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
+  "url": "{{ request.build_absolute_uri }}",
+  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Softaka",
+    "url": "https://softaka.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://softaka.com/static/software/softaka-logo.svg"
+    }
+  }
+}
+</script>
+{% endblock %}
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-lg-10 col-md-12">
             <h1 class="mb-4 text-center">{% trans "About Softaka: Your Trusted Source for Free Software Downloads" %}</h1>
-            <div class="card p-4 shadow-sm">
+            <div class="card p-4 shadow-sm"> 
                 <p>{% trans "Welcome to Softaka! We are passionate about providing a safe, reliable, and user-friendly platform for accessing a wide range of essential software, tools, and applications. Our mission is simple: to make quality software accessible to everyone, without hidden costs or compromises on security." %}</p>
 
                 <h2 class="mt-4">{% trans "Our Mission" %}:</h2>

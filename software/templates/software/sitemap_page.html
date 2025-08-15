@@ -1,9 +1,39 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
-{% block title %}{% trans "Sitemap" %} - Softaka{% endblock %}
-
+{% block meta_description %}{% trans "Explore the complete list of all software categories and pages on Softaka.com. Our sitemap helps you navigate our extensive library of free software downloads." %}{% endblock %}
+{% block title %}{% trans "Sitemap" %} - {% trans "Softaka" %}{% endblock %}
 {% block content %}
+{% block head_extra %}
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="{% block og_title %}{% trans 'Softaka – Safe, Fast & Verified Software Downloads' %}{% endblock %}" />
+<meta property="og:description" content="{% block og_description %}{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}{% endblock %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:image" content="https://softaka.com/static/software/softaka-logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{% block twitter_title %}{% trans 'Softaka – Safe, Fast & Verified Software Downloads' %}{% endblock %}" />
+<meta name="twitter:description" content="{% block twitter_description %}{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}{% endblock %}" />
+<meta name="twitter:image" content="https://softaka.com/static/software/softaka-logo.svg" />
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
+  "url": "{{ request.build_absolute_uri }}",
+  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Softaka",
+    "url": "https://softaka.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://softaka.com/static/software/softaka-logo.svg"
+    }
+  }
+}
+</script>
+{% endblock %}
     <div class="row justify-content-center">
         <div class="col-lg-10 col-md-12">
             <h1 class="mb-4 text-center">{% trans "Website Sitemap" %}</h1>

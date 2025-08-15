@@ -1,23 +1,53 @@
 
 {% extends 'base.html' %}
 {% load i18n %}
-
-{% block title %}{% trans "Disclaimer" %} - Softakault{% endblock %}
-
+{% block meta_description %}{% trans "Read the official disclaimer for Softaka.com. Understand our terms, conditions, and policies regarding software downloads and content use on our website." %}{% endblock %}
+{% block title %}{% trans "Disclaimer" %} - {% trans "Softaka" %}{% endblock %}
+{% block head_extra %}
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="{% block og_title %}{% trans 'Softaka – Safe, Fast & Verified Software Downloads' %}{% endblock %}" />
+<meta property="og:description" content="{% block og_description %}{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}{% endblock %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:image" content="https://softaka.com/static/software/softaka-logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{% block twitter_title %}{% trans 'Softaka – Safe, Fast & Verified Software Downloads' %}{% endblock %}" />
+<meta name="twitter:description" content="{% block twitter_description %}{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}{% endblock %}" />
+<meta name="twitter:image" content="https://softaka.com/static/software/softaka-logo.svg" />
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
+  "url": "{{ request.build_absolute_uri }}",
+  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Softaka",
+    "url": "https://softaka.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://softaka.com/static/software/softaka-logo.svg"
+    }
+  }
+}
+</script>
+{% endblock %}
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-lg-10 col-md-12">
             <h1 class="mb-4 text-center">{% trans "Disclaimer" %}</h1>
             <div class="card p-4 shadow-sm">
-               <p>{% blocktrans %}The information provided by Softakault on its website (the "Service") is for general informational purposes only. All software and content on this site are provided in good faith. However, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Service or the software offered for download.{% endblocktrans %}</p>
+               <p>{% blocktrans %}The information provided by Softaka on its website (the "Service") is for general informational purposes only. All software and content on this site are provided in good faith. However, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Service or the software offered for download.{% endblocktrans %}</p>
                 <h2 class="mt-4">{% trans "External Links Disclaimer" %}</h2>
                 <p>{% trans "The Service may contain (or you may be sent through the Service) links to other websites or content belonging to or originating from third parties, or links to websites and features in banners or other advertising. Such external links are not investigated, monitored, or checked for accuracy, adequacy, validity, reliability, availability, or completeness by us. We do not warrant, endorse, guarantee, or assume responsibility for the accuracy or reliability of any information offered by third-party websites linked through the Service or any website or feature linked in any banner or other advertising. We will not be a party to or in any way be responsible for monitoring any transaction between you and third-party providers of products or services." %}</p>
 
                 <h2 class="mt-4">{% trans "Software Download and Use Risk" %}</h2>
-                <p>{% trans "Any software downloaded from Softakault is used at your own discretion and risk. While we strive to provide safe and reputable software, Softakault does not guarantee that the files available for download are free of viruses, malware, or other harmful components. It is your responsibility to use antivirus software and other security measures on your device. We are not responsible for any damage to your computer system or loss of data that results from the download or use of any software from this site." %}</p>
+                <p>{% trans "Any software downloaded from Softaka is used at your own discretion and risk. While we strive to provide safe and reputable software, Softaka does not guarantee that the files available for download are free of viruses, malware, or other harmful components. It is your responsibility to use antivirus software and other security measures on your device. We are not responsible for any damage to your computer system or loss of data that results from the download or use of any software from this site." %}</p>
 
                 <h2 class="mt-4">{% trans "Professional Advice Disclaimer" %}</h2>
-                <p>{% trans "The information on Softakault is not intended as, and shall not be understood or construed as, professional advice. While we aim to provide helpful content, the information on this website is for general informational and educational purposes only." %}</p>
+                <p>{% trans "The information on Softaka is not intended as, and shall not be understood or construed as, professional advice. While we aim to provide helpful content, the information on this website is for general informational and educational purposes only." %}</p>
 
                 <h2 class="mt-4">{% trans "Limitation of Liability" %}</h2>
                 <p>{% trans "Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the Service or reliance on any information provided on the Service. Your use of the Service and your reliance on any information on the Service is solely at your own risk." %}</p>
@@ -26,7 +56,7 @@
                 <p>{% trans "We may update this Disclaimer from time to time. We encourage you to review this page periodically for any changes." %}</p>
 
                 <h2 class="mt-4">{% trans "Contact Us" %}</h2>
-                <p>{% trans "If you have any questions about this Disclaimer, please contact us at" %} <a href="mailto:contact@Softakault.com">contact@Softakault.com</a>.</p>
+                <p>{% trans "If you have any questions about this Disclaimer, please contact us at" %} <a href="mailto:contact@Softaka.com">contact@Softaka.com</a>.</p>
             </div>
         </div>
     </div>

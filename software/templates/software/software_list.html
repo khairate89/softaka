@@ -6,15 +6,15 @@
 {% block meta_description %}{{ category.meta_description }}{% endblock %}
 {% block head_extra %}{{ block.super }} 
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="{{ category.name }} | Softaka" />
+<meta property="og:title" content="{{ category.name }} | {% trans 'Softaka' %}" />
 <meta property="og:description" content="{{ category.meta_description }}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-<meta property="og:image" content="{% if software.image %}{{ category.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}" />
+<meta property="og:image" content="{% if category.image %}{{ category.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="{{ category.name }} | Softaka" />
+<meta name="twitter:title" content="{{ category.name }} | {% trans 'Softaka' %}" />
 <meta name="twitter:description" content="{{ category.meta_description }}" />
-<meta name="twitter:image" content="{% if software.image %}{{ category.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}" />
+<meta name="twitter:image" content="{% if category.image %}{{ category.image.url }}{% else %}{% static 'software/placeholder.png' %}{% endif %}" />
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
