@@ -800,7 +800,6 @@ msgid "Digital Millennium Copyright Act (DMCA) Policy"
 msgstr "سياسة قانون الألفية للملكية الرقمية (DMCA)"
 
 #: .\software\templates\software\dmca.html:11
-#, fuzzy
 #| msgid ""
 #| "At SoftVault, we respect the intellectual property rights of others and "
 #| "expect our users to do the same. This DMCA Policy outlines our procedures "
