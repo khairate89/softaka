@@ -345,7 +345,6 @@ msgstr ""
 "تعرف على مهمة سوفتاكا في توفير تنزيلات برمجية آمنة وموثوقة ومجانية. نقوم بانتقاء والتحقق من مجموعة واسعة من برامج الفريوير ومفتوحة المصدر للجميع."
 
 #: .\software\templates\software\about_us.html:9
-#, fuzzy
 #| msgid "About SoftVault: Your Trusted Source for Free Software Downloads"
 msgid "About Softaka: Your Trusted Source for Free Software Downloads"
 msgstr "مصدرك الموثوق لتنزيلات البرامج المجانية: حول SoftVault"
