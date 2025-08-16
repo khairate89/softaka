@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-16 02:12+0200\n"
+"POT-Creation-Date: 2025-08-16 02:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,6 +191,7 @@ msgstr "Votre source ultime de téléchargements de logiciels gratuits."
 
 #: .\software\templates\base.html:192
 #: .\software\templates\software\_left_sidebar.html:6
+#: .\software\templates\software\sitemap_page.html:54
 msgid "Categories"
 msgstr "Catégories"
 
@@ -520,8 +521,8 @@ msgid ""
 "Softaka is more than just a download site. We are building a community "
 "resource that provides:"
 msgstr ""
-"Softaka est plus qu'un simple site de téléchargement. Nous construisons "
-"une ressource communautaire qui offre :"
+"Softaka est plus qu'un simple site de téléchargement. Nous construisons une "
+"ressource communautaire qui offre :"
 
 #: .\software\templates\software\about_us.html:55
 msgid "Extensive Software Library:"
@@ -744,11 +745,11 @@ msgid ""
 "reliability, availability, or completeness of any information on the Service "
 "or the software offered for download."
 msgstr ""
-"Les informations fournies par Softaka sur son site web (le « Service ») "
-"sont uniquement à des fins d'information générale. Tous les logiciels et "
-"contenus sur ce site sont fournis de bonne foi. Cependant, nous ne faisons "
-"aucune déclaration ou garantie d'aucune sorte, expresse ou implicite, quant "
-"à l'exactitude, l'adéquation, la validité, la fiabilité, la disponibilité ou "
+"Les informations fournies par Softaka sur son site web (le « Service ») sont "
+"uniquement à des fins d'information générale. Tous les logiciels et contenus "
+"sur ce site sont fournis de bonne foi. Cependant, nous ne faisons aucune "
+"déclaration ou garantie d'aucune sorte, expresse ou implicite, quant à "
+"l'exactitude, l'adéquation, la validité, la fiabilité, la disponibilité ou "
 "l'exhaustivité de toute information sur le Service ou les logiciels proposés "
 "au téléchargement."
 
@@ -797,8 +798,8 @@ msgid ""
 "responsible for any damage to your computer system or loss of data that "
 "results from the download or use of any software from this site."
 msgstr ""
-"Tout logiciel téléchargé depuis Softaka est utilisé à votre discrétion et "
-"à vos risques et périls. Bien que nous nous efforcions de fournir des "
+"Tout logiciel téléchargé depuis Softaka est utilisé à votre discrétion et à "
+"vos risques et périls. Bien que nous nous efforcions de fournir des "
 "logiciels sûrs et réputés, Softaka ne garantit pas que les fichiers "
 "disponibles au téléchargement sont exempts de virus, de logiciels "
 "malveillants ou d'autres composants nuisibles. Il est de votre "
@@ -818,10 +819,10 @@ msgid ""
 "content, the information on this website is for general informational and "
 "educational purposes only."
 msgstr ""
-"Les informations sur Softaka ne sont pas destinées à être, et ne doivent "
-"pas être comprises ou interprétées comme des conseils professionnels. Bien "
-"que nous nous efforcions de fournir un contenu utile, les informations sur "
-"ce site web sont uniquement à des fins d'information générale et éducatives."
+"Les informations sur Softaka ne sont pas destinées à être, et ne doivent pas "
+"être comprises ou interprétées comme des conseils professionnels. Bien que "
+"nous nous efforcions de fournir un contenu utile, les informations sur ce "
+"site web sont uniquement à des fins d'information générale et éducatives."
 
 #: .\software\templates\software\disclaimer.html:52
 #: .\software\templates\software\terms_conditions.html:103
@@ -1611,14 +1612,6 @@ msgstr ""
 msgid "Main Sections"
 msgstr "Sections principales"
 
-#: .\software\templates\software\sitemap_page.html:57
-msgid "Software Categories"
-msgstr "Catégories"
-
-#: .\software\templates\software\sitemap_page.html:64
-msgid "No categories found to display."
-msgstr ""
-
 #: .\software\templates\software\software_detail.html:124
 msgid "System Requirements:"
 msgstr "Configuration requise :"
@@ -1705,8 +1698,8 @@ msgid ""
 "and conditions stated on this page."
 msgstr ""
 "En accédant à ce site web, nous supposons que vous acceptez ces conditions "
-"générales. Ne continuez pas à utiliser Softaka si vous n'acceptez pas "
-"toutes les conditions générales énoncées sur cette page."
+"générales. Ne continuez pas à utiliser Softaka si vous n'acceptez pas toutes "
+"les conditions générales énoncées sur cette page."
 
 #: .\software\templates\software\terms_conditions.html:44
 msgid "Definitions"
@@ -1718,7 +1711,7 @@ msgstr "Site web, Service, Site :"
 
 #: .\software\templates\software\terms_conditions.html:46
 msgid "Refers to Softaka located at [Your Website URL]."
-msgstr "Fait référence à Softaka situé à [Votre URL de site web]."
+msgstr "Fait référence à Softaka situé à Softaka."
 
 #: .\software\templates\software\terms_conditions.html:47
 msgid "We, Us, Our:"
@@ -1762,8 +1755,8 @@ msgstr ""
 "Sauf indication contraire, Softaka Inc. et/ou ses concédants de licence "
 "détiennent les droits de propriété intellectuelle de tout le matériel sur "
 "Softaka. Tous les droits de propriété intellectuelle sont réservés. Vous "
-"pouvez y accéder depuis Softaka pour votre usage personnel sous réserve "
-"des restrictions énoncées dans ces conditions générales."
+"pouvez y accéder depuis Softaka pour votre usage personnel sous réserve des "
+"restrictions énoncées dans ces conditions générales."
 
 #: .\software\templates\software\terms_conditions.html:54
 msgid "You must not:"
@@ -1842,12 +1835,12 @@ msgid ""
 "regarding the safety, functionality, or suitability of any software "
 "downloaded from our site or linked third-party sites."
 msgstr ""
-"Softaka propose des téléchargements de logiciels à des fins d'information "
-"et de commodité. Nous n'hébergeons pas tous les fichiers logiciels "
-"directement et pouvons créer des liens vers des sources de téléchargement "
-"externes. Nous ne faisons aucune déclaration ni garantie concernant la "
-"sécurité, la fonctionnalité ou l'adéquation de tout logiciel téléchargé "
-"depuis notre site ou des sites tiers liés."
+"Softaka propose des téléchargements de logiciels à des fins d'information et "
+"de commodité. Nous n'hébergeons pas tous les fichiers logiciels directement "
+"et pouvons créer des liens vers des sources de téléchargement externes. Nous "
+"ne faisons aucune déclaration ni garantie concernant la sécurité, la "
+"fonctionnalité ou l'adéquation de tout logiciel téléchargé depuis notre site "
+"ou des sites tiers liés."
 
 #: .\software\templates\software\terms_conditions.html:75
 msgid "Risk:"
@@ -2082,6 +2075,9 @@ msgid ""
 msgstr ""
 "Si vous avez des questions concernant ces conditions générales, veuillez "
 "nous contacter à"
+
+#~ msgid "Software Categories"
+#~ msgstr "Catégories"
 
 #~ msgid "Enter your email"
 #~ msgstr "Entrez votre e-mail"
