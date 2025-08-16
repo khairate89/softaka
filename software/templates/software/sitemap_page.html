@@ -53,17 +53,6 @@
                     <li><a href="{% url 'software:sitemap_page' %}">{% trans "Sitemap" %}</a></li>
                 </ul>
 
-                {% if global_categories %}
-                    <h2 class="mt-4">{% trans "Software Categories" %}:</h2>
-                    <ul>
-                        {% for category in global_categories %}
-                            <li><a href="{% url 'software:category_detail' slug=category.slug %}">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>{% trans "No categories found to display." %}</p>
-                {% endif %}
-
             </div>
         </div>
     </div>
