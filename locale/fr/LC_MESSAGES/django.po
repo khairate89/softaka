@@ -131,10 +131,8 @@ msgstr "page d'accueil"
 #: .\software\templates\software\terms_conditions.html:8
 #: .\software\templates\software\terms_conditions.html:14
 #: .\software\templates\software\terms_conditions.html:23
-msgid ""
-"Download free software, apps, games, and utilities for Windows. Secure, "
-"fast, and easy downloads for all your needs."
-msgstr ""
+msgid "Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs."
+msgstr "Téléchargez des logiciels gratuits, des applications, des jeux et des utilitaires pour Windows. Téléchargements sécurisés, rapides et faciles pour tous vos besoins."
 
 #: .\software\templates\base.html:62
 msgid "Search software..."
@@ -397,7 +395,7 @@ msgstr "Voir les détails"
 #: .\software\templates\software\terms_conditions.html:4
 #: .\software\templates\software\terms_conditions.html:21
 msgid "Softaka"
-msgstr "Catégories"
+msgstr "Softaka"
 
 #: .\software\templates\software\about_us.html:4
 msgid ""
@@ -405,6 +403,9 @@ msgid ""
 "downloads. We curate and verify a wide range of freeware and open-source "
 "applications for everyone."
 msgstr ""
+"Découvrez la mission de Softaka visant à fournir des téléchargements de logiciels "
+"sûrs, fiables et gratuits. Nous sélectionnons et vérifions une large gamme de "
+"logiciels gratuits et open source pour tous."
 
 #: .\software\templates\software\about_us.html:7
 #: .\software\templates\software\about_us.html:13
@@ -428,7 +429,8 @@ msgstr ""
 #: .\software\templates\software\terms_conditions.html:7
 #: .\software\templates\software\terms_conditions.html:13
 msgid "Softaka – Safe, Fast & Verified Software Downloads"
-msgstr ""
+msgstr "Softaka – Téléchargements de logiciels sûrs, rapides et vérifiés"
+
 
 #: .\software\templates\software\about_us.html:39
 msgid "About Softaka: Your Trusted Source for Free Software Downloads"
@@ -650,10 +652,8 @@ msgstr ""
 "expérience et à vous apporter les meilleurs outils pour votre vie numérique."
 
 #: .\software\templates\software\contact_us.html:3
-msgid ""
-"Contact Softaka.com for assistance, feedback, or business inquiries. Get in "
-"touch with our team through our contact form or by email for quick support."
-msgstr ""
+msgid "Contact Softaka.com for assistance, feedback, or business inquiries. Get in touch with our team through our contact form or by email for quick support."
+msgstr "Contactez Softaka.com pour obtenir de l'aide, donner votre avis ou pour des demandes commerciales. Prenez contact avec notre équipe via le formulaire de contact ou par e-mail pour un support rapide."
 
 #: .\software\templates\software\contact_us.html:41
 msgid ""
@@ -730,11 +730,8 @@ msgid "We look forward to hearing from you!"
 msgstr "Nous avons hâte de vous lire !"
 
 #: .\software\templates\software\disclaimer.html:4
-msgid ""
-"Read the official disclaimer for Softaka.com. Understand our terms, "
-"conditions, and policies regarding software downloads and content use on our "
-"website."
-msgstr ""
+msgid "Read the official disclaimer for Softaka.com. Understand our terms, conditions, and policies regarding software downloads and content use on our website."
+msgstr "Lisez la clause de non-responsabilité officielle de Softaka.com. Comprenez nos conditions, termes et politiques concernant les téléchargements de logiciels et l'utilisation du contenu sur notre site web."
 
 #: .\software\templates\software\disclaimer.html:42
 msgid ""
@@ -862,11 +859,8 @@ msgstr ""
 "contacter à"
 
 #: .\software\templates\software\dmca.html:3
-msgid ""
-"File a DMCA takedown notice with Softaka.com. Our policy page provides clear "
-"instructions on how to report copyright infringement for any software or "
-"content."
-msgstr ""
+msgid "File a DMCA takedown notice with Softaka.com. Our policy page provides clear instructions on how to report copyright infringement for any software or content."
+msgstr "Déposez une notification de retrait DMCA auprès de Softaka.com. Notre page de politique fournit des instructions claires sur la manière de signaler toute violation de droits d'auteur concernant des logiciels ou du contenu."
 
 #: .\software\templates\software\dmca.html:4
 #: .\software\templates\software\sitemap_page.html:51
@@ -1195,10 +1189,8 @@ msgid "No software available."
 msgstr "Aucun logiciel disponible."
 
 #: .\software\templates\software\privacy_policy.html:3
-msgid ""
-"Read Softaka.com's privacy policy to understand how we collect, use, and "
-"protect your personal data. Your privacy and security are our top priority."
-msgstr ""
+msgid "Read Softaka.com's privacy policy to understand how we collect, use, and protect your personal data. Your privacy and security are our top priority."
+msgstr "Lisez la politique de confidentialité de Softaka.com pour comprendre comment nous collectons, utilisons et protégeons vos données personnelles. Votre vie privée et votre sécurité sont notre priorité absolue."
 
 #: .\software\templates\software\privacy_policy.html:41
 msgid ""
@@ -1589,11 +1581,8 @@ msgid "Next"
 msgstr "Suivant"
 
 #: .\software\templates\software\sitemap_page.html:3
-msgid ""
-"Explore the complete list of all software categories and pages on "
-"Softaka.com. Our sitemap helps you navigate our extensive library of free "
-"software downloads."
-msgstr ""
+msgid "Explore the complete list of all software categories and pages on Softaka.com. Our sitemap helps you navigate our extensive library of free software downloads."
+msgstr "Explorez la liste complète de toutes les catégories et pages de logiciels sur Softaka.com. Notre plan du site vous aide à naviguer dans notre vaste bibliothèque de téléchargements de logiciels gratuits."
 
 #: .\software\templates\software\sitemap_page.html:39
 msgid "Website Sitemap"
@@ -1671,11 +1660,8 @@ msgid "Page %(page_obj.number)s of %(page_obj.paginator.num_pages)s"
 msgstr "Page %(page_obj.number)s sur %(page_obj.paginator.num_pages)s"
 
 #: .\software\templates\software\terms_conditions.html:3
-msgid ""
-"Read the official terms and conditions for using Softaka.com. This page "
-"outlines the legal agreement between us and you, covering user conduct, "
-"content, and our service policies."
-msgstr ""
+msgid "Read the official terms and conditions for using Softaka.com. This page outlines the legal agreement between us and you, covering user conduct, content, and our service policies."
+msgstr "Lisez les conditions générales officielles pour utiliser Softaka.com. Cette page décrit l'accord légal entre vous et nous, couvrant la conduite des utilisateurs, le contenu et nos politiques de service."
 
 #: .\software\templates\software\terms_conditions.html:39
 msgid "Terms and Conditions"
