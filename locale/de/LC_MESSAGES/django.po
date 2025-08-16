@@ -393,7 +393,7 @@ msgstr "Details anzeigen"
 #: .\software\templates\software\terms_conditions.html:4
 #: .\software\templates\software\terms_conditions.html:21
 msgid "Softaka"
-msgstr "Software-Name"
+msgstr "Softaka"
 
 #: .\software\templates\software\about_us.html:4
 msgid "Learn about Softaka's mission to provide safe, reliable, and free software downloads. We curate and verify a wide range of freeware and open-source applications for everyone."
