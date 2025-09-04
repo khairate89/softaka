@@ -17,22 +17,29 @@
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
-  "url": "{{ request.build_absolute_uri }}",
-  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Softaka",
-    "url": "https://softaka.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://softaka.com/static/software/softaka-logo.svg"
-    }
-  }
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Softaka Sitemap",
+  "url": "https://softaka.com/en/sitemap/",
+  "description": "Explore the full sitemap of Softaka to find all available pages and resources on our website.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Softaka",
+    "url": "https://softaka.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://softaka.com/static/software/softaka-logo.svg"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@softaka.com",
+      "availableLanguage": ["en"]
+    }
+  }
 }
 </script>
+
 {% endblock %}
     <div class="row justify-content-center">
         <div class="col-lg-10 col-md-12">
