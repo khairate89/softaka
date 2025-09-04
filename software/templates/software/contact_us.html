@@ -17,10 +17,10 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
-  "url": "{{ request.build_absolute_uri }}",
-  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
+  "@type": "ContactPage",
+  "name": "Contact Us - Softaka",
+  "url": "https://softaka.com/en/contact-us/",
+  "description": "Contact Softaka.com for assistance, feedback, or business inquiries. Get in touch with our team through our contact form or by email for quick support.",
   "publisher": {
     "@type": "Organization",
     "name": "Softaka",
@@ -28,7 +28,21 @@
     "logo": {
       "@type": "ImageObject",
       "url": "https://softaka.com/static/software/softaka-logo.svg"
-    }
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@softaka.com",
+        "availableLanguage": ["en"]
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "copyright complaints",
+        "email": "dmca@softaka.com",
+        "availableLanguage": ["en"]
+      }
+    ]
   }
 }
 </script>
