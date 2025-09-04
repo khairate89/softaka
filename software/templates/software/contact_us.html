@@ -17,19 +17,72 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
-  "url": "{{ request.build_absolute_uri }}",
-  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Softaka",
-    "url": "https://softaka.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://softaka.com/static/software/softaka-logo.svg"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Softaka",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:index' %}",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ request.scheme }}://{{ request.get_host }}{% url 'software:search-results' %}?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "Softaka",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'software/softaka-logo.svg' %}"
+      },
+      "sameAs": [
+        "https://www.facebook.com/softaka",
+        "https://twitter.com/softaka"
+      ]
     }
-  }
+    {% for software in software_list %}{% if forloop.first %},{% endif %}
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}#software",
+      "name": "{{ software.name|escapejs }}",
+      "operatingSystem": "{{ software.operating_system|default:'Windows, macOS, Linux' }}",
+      "applicationCategory": "{{ software.category.name|default:'Utilities' }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}",
+      "image": "{{ software.image.url }}",
+      "description": "{{ software.short_description|default:software.description|striptags|truncatechars:160|escapejs }}",
+      "inLanguage": "{{ LANGUAGE_CODE }}",
+      "softwareVersion": "{% if software.versions.all.0 %}{{ software.versions.all.0.version_number }}{% else %}1.0{% endif %}",
+      "downloadUrl": "{{ request.scheme }}://{{ request.get_host }}{% if software.versions.all.0 %}{% url 'software:file-download' %}?id={{ software.versions.all.0.pk }}{% endif %}",
+      "fileSize": "{{ software.file_size|default:'1 GB' }}",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ software.get_absolute_url }}"
+      }{% if software.total_ratings > 0 %},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ software.average_rating|stringformat:'0.1f' }}",
+        "reviewCount": "{{ software.total_ratings }}"
+      }{% endif %},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softaka",
+        "url": "https://softaka.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://softaka.com{% static 'software/softaka-logo.svg' %}"
+        }
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
 }
 </script>
 {% endblock %}
