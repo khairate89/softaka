@@ -16,22 +16,29 @@
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "{% trans 'About Us' %} - {% trans 'Softaka' %}",
-  "url": "{{ request.build_absolute_uri }}",
-  "description": "{% trans 'Download free software, apps, games, and utilities for Windows. Secure, fast, and easy downloads for all your needs.' %}",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Softaka",
-    "url": "https://softaka.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://softaka.com/static/software/softaka-logo.svg"
-    }
-  }
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Softaka DMCA Policy",
+  "url": "https://softaka.com/en/dmca/",
+  "description": "Softaka’s DMCA policy describing how to submit takedown requests and counter-notifications for copyright infringement.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Softaka",
+    "url": "https://softaka.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://softaka.com/static/software/softaka-logo.svg"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "copyright complaints",
+      "email": "dmca@softaka.com",
+      "availableLanguage": ["en"]
+    }
+  }
 }
 </script>
+
 {% endblock %}
 {% block content %}
     <div class="row justify-content-center">
